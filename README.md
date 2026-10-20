@@ -1,24 +1,24 @@
 # AlejoxCode
 
-Sitio personal de **Alejandro Grajales**: hoja de vida como frontend developer, proyectos personales y, como sección aparte, los plugins para OBS.
-Stack: **Next.js 16 (App Router) · Tailwind CSS 4 · Vercel**. Sitio 100 % estático: sin base de datos ni variables obligatorias.
-
-## Secciones
+Sitio personal de **Alejandro Grajales**, Frontend Developer en Linktic: hoja de vida, proyectos y, como sección aparte, su plugin para OBS. Disponible en español (`/`) e inglés (`/en`).
+Stack: **Next.js 16 (App Router) · Tailwind CSS 4 · Vercel**. Sitio 100 % estático: sin ba## Secciones
 
 - **Hero** con animación de motion graphics (órbitas con el stack, logo que se dibuja) y roles rotativos
-- **Sobre mí**, **Proyectos**, **Herramientas para creadores** y **Experiencia**
-- **OBS** (`#obs`): OBS Now Playing con descargas desde GitHub Releases, y Alejox Theme Panel
+- **Sobre mí**, **Proyectos destacados** (Ventex, Cotejo, Devtecia, ENSAMA, OBS Now Playing) y **Experiencia**
+- **OBS** (`#obs`): OBS Now Playing con descargas desde GitHub Releases
 - **Contacto**
 
 ## Editar el contenido
 
 | Qué | Archivo |
 | --- | --- |
-| Nombre, descripción, correo público y redes | [`lib/site.ts`](lib/site.ts) |
-| Roles, stack, datos rápidos, experiencia, proyectos | [`lib/profile.ts`](lib/profile.ts) |
-| Plugins de OBS (versión, funciones, descargas) | [`lib/downloads.ts`](lib/downloads.ts) |
+| Todos los textos en español e inglés (perfil, proyectos, experiencia, OBS) | [`lib/content.ts`](lib/content.ts) |
+| Correo público, LinkedIn y redes | [`lib/site.ts`](lib/site.ts) |
+| Versión y enlaces del plugin de OBS | [`lib/downloads.ts`](lib/downloads.ts) |
 
 Los botones de descarga de OBS Now Playing apuntan a `releases/latest`, así que siempre llevan a la última versión.
+
+ue siempre llevan a la última versión.
 
 ## Desarrollo local
 

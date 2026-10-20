@@ -5,7 +5,7 @@ type Orbit = { size: number; duration: number; reverse?: boolean; chips: string[
 const orbits: Orbit[] = [
   { size: 46, duration: 26, chips: ["Next.js", "Vue"] },
   { size: 72, duration: 40, reverse: true, chips: ["TypeScript", "Supabase", "React"] },
-  { size: 98, duration: 60, chips: ["Figma", "OBS", "Python", "Tailwind"] },
+  { size: 98, duration: 60, chips: ["Figma", "OBS", "Gemini", "Tailwind"] },
 ];
 
 const snippets = [

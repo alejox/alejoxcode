@@ -2,9 +2,6 @@
 export const site = {
   name: "AlejoxCode",
   author: "Alejandro Grajales",
-  title: "Alejandro Grajales — Frontend developer",
-  description:
-    "Frontend developer en Colombia. Diseñador gráfico y músico de formación; construyo productos web con Next.js, Vue y Supabase, y herramientas para OBS y DaVinci Resolve.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   // Correo de contacto público (opcional). Si lo dejas vacío no se muestra.
   email: "",
