@@ -13,7 +13,7 @@ export type Project = {
   external: boolean;
 };
 
-export type Experience = { period: string; role: string; company: string; detail: string; current?: boolean };
+export type Experience = { period: string; mark: string; role: string; company: string; detail: string; current?: boolean };
 
 const stack = [
   "Vue", "React", "Next.js", "TypeScript", "JavaScript", "Tailwind CSS", "Supabase", "PostgreSQL",
@@ -132,10 +132,10 @@ const es = {
     title: "Trayectoria",
     now: "Actualidad",
     items: [
-      { period: "Sep 2025 – Actualidad", role: "Frontend Developer Semi-Senior", company: "Linktic", detail: "Desarrollo frontend de productos web con Vue.", current: true },
-      { period: "2022", role: "Frontend Vue Developer", company: "EOS Capital", detail: "Desarrollo web con Vue, HTML y CSS, implementando los diseños de Figma." },
-      { period: "Formación", role: "Desarrollo de software", company: "Estudios", detail: "Formación en desarrollo de software, base de mi paso del diseño a la programación." },
-      { period: "2006 – 2022", role: "Diseñador gráfico y web", company: "VITA AG SAS · Cuarta Dimensión · La Tribu", detail: "Diseño web en HTML y CSS, diseño vectorial, campañas publicitarias, animación 2D y edición de video." },
+      { period: "Sep 2025 – Actualidad", mark: "25", role: "Frontend Developer Semi-Senior", company: "Linktic", detail: "Desarrollo frontend de productos web con Vue.", current: true },
+      { period: "2022", mark: "22", role: "Frontend Vue Developer", company: "EOS Capital", detail: "Desarrollo web con Vue, HTML y CSS, implementando los diseños de Figma." },
+      { period: "Formación", mark: "EDU", role: "Desarrollo de software", company: "Estudios", detail: "Formación en desarrollo de software, base de mi paso del diseño a la programación." },
+      { period: "2006 – 2022", mark: "06", role: "Diseñador gráfico y web", company: "VITA AG SAS · Cuarta Dimensión · La Tribu", detail: "Diseño web en HTML y CSS, diseño vectorial, campañas publicitarias, animación 2D y edición de video." },
     ] satisfies Experience[],
   },
   obs: {
@@ -291,10 +291,10 @@ const en: Content = {
     title: "Career",
     now: "Present",
     items: [
-      { period: "Sep 2025 – Present", role: "Mid-Level Frontend Developer", company: "Linktic", detail: "Frontend development of web products with Vue.", current: true },
-      { period: "2022", role: "Frontend Vue Developer", company: "EOS Capital", detail: "Web development with Vue, HTML and CSS, implementing Figma designs." },
-      { period: "Education", role: "Software development", company: "Studies", detail: "Software development studies, the foundation of my move from design to programming." },
-      { period: "2006 – 2022", role: "Graphic & web designer", company: "VITA AG SAS · Cuarta Dimensión · La Tribu", detail: "Web design in HTML and CSS, vector design, advertising campaigns, 2D animation and video editing." },
+      { period: "Sep 2025 – Present", mark: "25", role: "Mid-Level Frontend Developer", company: "Linktic", detail: "Frontend development of web products with Vue.", current: true },
+      { period: "2022", mark: "22", role: "Frontend Vue Developer", company: "EOS Capital", detail: "Web development with Vue, HTML and CSS, implementing Figma designs." },
+      { period: "Education", mark: "EDU", role: "Software development", company: "Studies", detail: "Software development studies, the foundation of my move from design to programming." },
+      { period: "2006 – 2022", mark: "06", role: "Graphic & web designer", company: "VITA AG SAS · Cuarta Dimensión · La Tribu", detail: "Web design in HTML and CSS, vector design, advertising campaigns, 2D animation and video editing." },
     ],
   },
   obs: {

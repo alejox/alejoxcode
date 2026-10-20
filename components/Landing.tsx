@@ -101,28 +101,27 @@ export function Landing({ locale }: { locale: Locale }) {
         {/* EXPERIENCIA */}
         <section id="experience" className="mx-auto mt-30 max-w-[1200px] scroll-mt-24 px-4 sm:px-6">
           <SectionHead eyebrow={t.experience.eyebrow} title={t.experience.title} />
-          <ol className="relative mx-auto max-w-3xl space-y-5 border-l border-line pl-8 sm:pl-10">
-            {t.experience.items.map((e) => (
-              <li key={e.role + e.company} className="relative">
+          <ol className="relative mx-auto max-w-3xl">
+            <div className="absolute bottom-2 left-[19px] top-2 w-px bg-linear-to-b from-[rgb(186_215_247/0.3)] via-line to-transparent sm:left-1/2" />
+            {t.experience.items.map((e, i) => (
+              <li
+                key={e.role + e.company}
+                className={`relative mb-10 flex gap-6 sm:w-1/2 ${i % 2 ? "sm:ml-auto sm:pl-10" : "sm:flex-row-reverse sm:pr-10 sm:text-right"}`}
+              >
                 <span
-                  className={`absolute -left-[37px] top-6 size-2.5 rounded-full ring-4 ring-ink sm:-left-[45px] ${
-                    e.current ? "bg-ice shadow-[0_0_12px_rgb(186_207_247/0.8)]" : "bg-steel"
+                  className={`icon-tile relative z-10 size-10 shrink-0 font-mono text-[10px] sm:absolute sm:top-0 ${i % 2 ? "sm:-left-5" : "sm:-right-5"} ${
+                    e.current ? "bg-brand-purple text-white shadow-[0_0_24px_rgb(102_58_243/0.6)]" : "bg-ink"
                   }`}
-                />
-                <div className={`p-6 ${e.current ? "glass-deep" : "glass"}`}>
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <h3 className="text-xl">{e.role}</h3>
-                    <span
-                      className={`inline-flex items-center gap-1.5 rounded-md px-2 py-1 font-mono text-[11px] uppercase tracking-[0.1em] ${
-                        e.current ? "bg-brand text-white" : "bg-panel-2 text-frost"
-                      }`}
-                    >
-                      {e.current && <span className="rec-dot size-1.5 rounded-full bg-white" />}
-                      {e.period}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-sm text-mist">{e.company}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-muted">{e.detail}</p>
+                >
+                  {e.mark}
+                </span>
+                <div className={`flex-1 p-5 ${e.current ? "glass-deep" : "glass"}`}>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">
+                    {e.current && <span className="rec-dot mr-1.5 inline-block size-1.5 rounded-full bg-brand-blue align-middle" />}
+                    {e.period} · {e.company}
+                  </p>
+                  <h3 className="mt-2 text-lg">{e.role}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-mist">{e.detail}</p>
                 </div>
               </li>
             ))}
