@@ -85,8 +85,15 @@ export const TiktokIcon = (p: P) => (
   </svg>
 );
 
+export const LinkedinIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4v11H3zm7 0h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6v5.4h-4v-4.8c0-1.2 0-2.6-1.6-2.6s-1.9 1.2-1.9 2.5v4.9h-4z" />
+  </svg>
+);
+
 export const SOCIAL_ICONS: Record<string, (p: P) => React.JSX.Element> = {
   github: GithubIcon,
+  linkedin: LinkedinIcon,
   youtube: YoutubeIcon,
   twitch: TwitchIcon,
   x: XIcon,

@@ -1,48 +1,42 @@
-// Descargas OBS que se muestran en la landing.
-// Agrega un objeto por plugin. Los enlaces pueden apuntar a GitHub Releases,
-// a un archivo en /public/downloads/ (p. ej. "/downloads/mi-plugin-1.0.0.zip") o a cualquier URL.
-// Mientras la lista esté vacía, la sección muestra "Próximamente".
+// Plugins para OBS que aparecen en la sección "OBS".
 
 export type Platform = "windows" | "macos" | "linux" | "any";
-export type Category = "plugin" | "script" | "overlay" | "theme" | "tool";
 
-export interface Download {
-  name: string;
-  description: string;
-  category: Category;
-  version: string;
-  obsMin?: string;
-  repo?: string;
-  files: { platform: Platform; url: string; size?: string }[];
+export interface ObsDownload {
+  label: string;
+  hint: string;
+  platform: Platform;
+  url: string;
 }
 
-export const downloads: Download[] = [
-  // Ejemplo:
-  // {
-  //   name: "Scene Autopilot",
-  //   description: "Cambia de escena automáticamente según la ventana activa.",
-  //   category: "plugin",
-  //   version: "1.0.0",
-  //   obsMin: "30.0",
-  //   repo: "https://github.com/alejox/scene-autopilot",
-  //   files: [
-  //     { platform: "windows", url: "https://github.com/alejox/scene-autopilot/releases/download/v1.0.0/scene-autopilot-windows.zip", size: "2.1 MB" },
-  //     { platform: "macos", url: "https://github.com/alejox/scene-autopilot/releases/download/v1.0.0/scene-autopilot-macos.pkg" },
-  //   ],
-  // },
-];
+const LATEST = "https://github.com/alejox/obs-music-player/releases/latest";
 
-export const CATEGORY_LABEL: Record<Category, string> = {
-  plugin: "Plugin",
-  script: "Script",
-  overlay: "Overlay",
-  theme: "Tema",
-  tool: "Herramienta",
+export const nowPlaying = {
+  name: "OBS Now Playing",
+  version: "2.4.14",
+  tagline: "Muestra en tu stream la canción que estás escuchando, con su carátula, sus colores y botones para controlarla.",
+  players: "Spotify, YouTube Music, Apple Music y cualquier reproductor que reconozca tu sistema. Sin cuentas ni API keys.",
+  repo: "https://github.com/alejox/obs-music-player",
+  releases: LATEST,
+  requirements: "OBS 31+ · macOS 12+ · Windows 10/11",
+  features: [
+    { title: "Colores de la carátula", text: "La tarjeta toma los colores de cada canción con una transición suave." },
+    { title: "Sólida o glass", text: "Tarjeta sólida o translúcida, tema claro u oscuro, horizontal o vertical." },
+    { title: "Modo video", text: "Con YouTube Music muestra el videoclip en lugar de la carátula, sincronizado." },
+    { title: "Dock de control", text: "Anterior, pausa, siguiente y búsqueda de canciones dentro de OBS." },
+    { title: "Canal de música", text: "Un clic agrega al mezclador un canal solo con el audio del reproductor." },
+    { title: "Actualizaciones", text: "OBS te avisa cuando hay versión nueva y la instala por ti." },
+  ],
+  downloads: [
+    { label: "Windows", hint: "Instalador .exe (app + plugin)", platform: "windows", url: LATEST },
+    { label: "macOS · Apple Silicon", hint: "App .zip", platform: "macos", url: LATEST },
+    { label: "macOS · Intel", hint: "App .zip", platform: "macos", url: LATEST },
+  ] satisfies ObsDownload[],
 };
 
-export const PLATFORM_LABEL: Record<Platform, string> = {
-  windows: "Windows",
-  macos: "macOS",
-  linux: "Linux",
-  any: "Multiplataforma",
+export const themePanel = {
+  name: "Alejox Theme Panel",
+  tagline: "Plugin nativo (C++/Qt) que agrega Herramientas → Alejox Theme: elige colores de marca, radio de botones y tipografía, previsualiza en caliente y exporta un tema .ovt instalable.",
+  platform: "macOS · compilar desde el código",
+  repo: "https://github.com/alejox/theme-edit-obs",
 };

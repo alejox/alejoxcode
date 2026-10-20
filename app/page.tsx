@@ -1,21 +1,12 @@
 import Image from "next/image";
-import { DownloadCard } from "@/components/DownloadCard";
 import { Socials } from "@/components/Footer";
-import { ArrowIcon, CategoryIcon, DownloadIcon, GithubIcon } from "@/components/Icons";
-import { ObsHero } from "@/components/ObsHero";
+import { ArrowIcon, DownloadIcon, GithubIcon, PlatformIcon } from "@/components/Icons";
+import { HeroMotion } from "@/components/HeroMotion";
+import { RoleTicker } from "@/components/RoleTicker";
 import { SectionHead } from "@/components/Section";
-import { CATEGORY_LABEL, downloads, type Category } from "@/lib/downloads";
+import { nowPlaying, themePanel } from "@/lib/downloads";
+import { creatorTools, experience, facts, projects, roles, stack, type Project } from "@/lib/profile";
 import { site } from "@/lib/site";
-
-const stack = ["C / C++", "Lua", "Python", "TypeScript", "Next.js", "Node.js", "obs-websocket", "Supabase", "CMake", "Qt"];
-
-const CATEGORY_BLURB: Record<Category, string> = {
-  plugin: "Nativos en C/C++",
-  script: "Lua y Python",
-  overlay: "Browser Source",
-  theme: "Interfaz de OBS",
-  tool: "Utilidades",
-};
 
 export default function Home() {
   return (
@@ -23,169 +14,249 @@ export default function Home() {
       {/* HERO */}
       <section className="spotlight relative isolate overflow-hidden">
         <div className="bg-grid absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-[1200px] px-4 pb-24 pt-20 text-center sm:px-6 sm:pt-28">
-          <p className="eyebrow">Plugins · Scripts · Overlays para OBS</p>
-          <h1 className="text-gradient glow-text mt-8 text-[56px] leading-[1.05] sm:text-[96px] lg:text-[128px]">
-            AlejoxCode
-          </h1>
-          <p className="mx-auto mt-6 max-w-[640px] text-[17px] leading-relaxed text-mist sm:text-lg">
-            Hola, soy Alejo. Construyo herramientas para que tu stream se vea pro: plugins para OBS Studio,
-            tutoriales y todo el contenido dev que voy creando.
-          </p>
-          <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <a href="#descargas" className="btn-primary btn-lg">
-              <DownloadIcon width={16} height={16} /> Descargas OBS
-            </a>
-            <a href="#sobre-mi" className="btn-ghost btn-lg">
-              Sobre mí <ArrowIcon width={16} height={16} />
-            </a>
-          </div>
-
-          <div className="mt-20">
-            <ObsHero />
-          </div>
-
-          <dl className="mx-auto mt-16 grid max-w-xl grid-cols-3 gap-6">
-            {[
-              ["5", "Tipos de recurso"],
-              ["3", "Sistemas"],
-              ["30+", "OBS compatible"],
-            ].map(([n, l]) => (
-              <div key={String(l)}>
-                <dt className="font-display text-[28px] font-medium text-ice">{n}</dt>
-                <dd className="mt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{l}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-      </section>
-
-      {/* CATEGORÍAS — fila de tiles conectados */}
-      <section className="mx-auto mt-16 max-w-[1200px] px-4 sm:px-6">
-        <SectionHead eyebrow="Extensible por diseño" title="Todo lo que tu OBS necesita">
-          Recursos gratuitos, organizados por tipo y listos para Windows, macOS y Linux.
-        </SectionHead>
-        <div className="relative">
-          <div className="absolute left-[10%] right-[10%] top-8 hidden h-px bg-linear-to-r from-transparent via-line to-transparent sm:block" />
-          <ul className="relative grid grid-cols-2 gap-y-10 sm:grid-cols-5">
-            {(Object.keys(CATEGORY_LABEL) as Category[]).map((c) => (
-              <li key={c}>
-                <div className="flex flex-col items-center text-center">
-                  <span className="icon-tile size-16 bg-ink">
-                    <CategoryIcon category={c} />
-                  </span>
-                  <span className="mt-4 text-sm font-medium text-frost">{CATEGORY_LABEL[c]}s</span>
-                  <span className="mt-1 text-xs text-muted">{CATEGORY_BLURB[c]}</span>
-                </div>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      {/* DESCARGAS OBS */}
-      <section id="descargas" className="mx-auto mt-30 max-w-[1200px] scroll-mt-24 px-4 sm:px-6">
-        <SectionHead eyebrow="Descargas OBS" title="Plugins listos para tu OBS">
-          Gratis y para Windows, macOS y Linux.
-        </SectionHead>
-        {downloads.length ? (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {downloads.map((d) => (
-              <DownloadCard key={d.name} item={d} />
-            ))}
-          </div>
-        ) : (
-          <div className="glass spotlight relative isolate mx-auto max-w-2xl overflow-hidden px-8 py-16 text-center">
-            <div className="bg-grid absolute inset-0 -z-10" />
-            <span className="icon-tile mx-auto size-16 bg-ink">
-              <DownloadIcon width={22} height={22} />
-            </span>
-            <p className="eyebrow mt-8">Próximamente</p>
-            <h3 className="mt-4 text-2xl">Los primeros plugins están en camino</h3>
-            <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-mist">
-              Estoy preparando los primeros lanzamientos. Sígueme en GitHub para enterarte cuando salgan.
+        <div className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-12 px-4 pb-20 pt-16 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:pt-24">
+          <div className="text-center lg:text-left">
+            <p className="eyebrow lg:justify-start lg:before:hidden">Frontend developer · Colombia</p>
+            <h1 className="text-gradient glow-text mt-7 text-[52px] leading-[1.04] sm:text-[80px]">
+              Alejandro
+              <br />
+              Grajales
+            </h1>
+            <p className="mt-6 font-display text-2xl text-mist sm:text-[28px]">
+              <RoleTicker roles={roles} />
             </p>
-            <a href={site.socials.github} target="_blank" rel="noreferrer" className="btn-ghost mt-8">
-              <GithubIcon width={15} height={15} /> Seguir en GitHub
-            </a>
-          </div>
-        )}
-      </section>
-
-      {/* CÓMO INSTALAR */}
-      <section className="mx-auto mt-30 max-w-[1200px] px-4 sm:px-6">
-        <SectionHead eyebrow="En tres pasos" title="De la descarga al directo" />
-        <div className="grid gap-6 md:grid-cols-3">
-          {[
-            ["01", "Descarga", "Elige el plugin y la versión para tu sistema: Windows, macOS o Linux."],
-            ["02", "Instala", "Ejecuta el instalador o copia la carpeta en obs-studio/plugins. Los scripts van en Herramientas → Scripts."],
-            ["03", "Transmite", "Reinicia OBS, agrega la nueva fuente o filtro y sal en vivo."],
-          ].map(([n, t, d]) => (
-            <div key={n} className="glass p-6">
-              <span className="font-mono text-xs tracking-[0.1em] text-muted">{n}</span>
-              <h3 className="mt-4 text-2xl">{t}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-mist">{d}</p>
+            <p className="mx-auto mt-6 max-w-[540px] text-[17px] leading-relaxed text-mist lg:mx-0">
+              Diseñador gráfico y músico de formación, desarrollador por pasión. Construyo productos web con Next.js,
+              Vue y Supabase, y en mi tiempo libre, herramientas para streamers y creadores.
+            </p>
+            <div className="mt-10 flex flex-wrap justify-center gap-3 lg:justify-start">
+              <a href="#proyectos" className="btn-primary btn-lg">
+                Ver proyectos <ArrowIcon width={16} height={16} />
+              </a>
+              <a href={site.socials.github} target="_blank" rel="noreferrer" className="btn-ghost btn-lg">
+                <GithubIcon width={16} height={16} /> GitHub
+              </a>
             </div>
-          ))}
+          </div>
+          <HeroMotion />
+        </div>
+
+        {/* Marquee del stack */}
+        <div className="relative overflow-hidden py-6 shadow-[inset_0_1px_0_rgb(186_215_247/0.06),inset_0_-1px_0_rgb(186_215_247/0.06)] [mask-image:linear-gradient(90deg,transparent,black_12%,black_88%,transparent)]">
+          <div className="marquee flex w-max gap-3">
+            {[...stack, ...stack].map((s, i) => (
+              <span key={i} className="hairline rounded-full px-4 py-2 font-mono text-xs text-mist">{s}</span>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* SOBRE MÍ */}
       <section id="sobre-mi" className="mx-auto mt-30 max-w-[1200px] scroll-mt-24 px-4 sm:px-6">
-        <div className="grid items-center gap-14 md:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid items-center gap-14 md:grid-cols-[0.85fr_1.15fr]">
           <div className="relative mx-auto w-full max-w-sm">
             <div className="glass absolute inset-x-4 bottom-0 top-20 -z-10" />
             <div className="absolute inset-x-10 top-10 -z-20 h-2/3 rounded-full bg-[rgb(152_192_239/0.18)] blur-[80px]" />
             <Image
               src="/img/alejo-side.webp"
-              alt="Alejo, desarrollador de AlejoxCode"
+              alt="Alejandro Grajales"
               width={989}
               height={1200}
               className="w-full rounded-b-2xl [mask-image:linear-gradient(to_bottom,black_80%,transparent)]"
             />
-            <span className="icon-tile float absolute -left-3 bottom-10 size-16 bg-ink">
-              <Image src="/img/logo.png" alt="" width={36} height={36} />
-            </span>
           </div>
           <div>
             <p className="eyebrow eyebrow-left">Sobre mí</p>
-            <h2 className="text-gradient mt-5 text-[32px] leading-[1.16] sm:text-[44px]">Código, streaming y mucha cafeína.</h2>
-            <p className="mt-5 leading-relaxed text-mist">
-              Soy Alejo, el desarrollador detrás de <span className="text-white">AlejoxCode</span>. Me apasiona crear
-              herramientas que hacen más fácil la vida de los creadores de contenido: plugins nativos para OBS,
-              scripts que automatizan escenas, overlays animados y todo lo que se me ocurra entre commit y commit.
-            </p>
-            <div className="glass-deep mt-8 overflow-hidden font-mono text-[13px]">
-              <div className="px-4 py-2.5 text-[11px] text-muted shadow-[inset_0_-1px_0_rgb(186_215_247/0.08)]">~/alejoxcode — zsh</div>
-              <div className="space-y-1.5 p-4">
-                <p className="text-frost"><span className="text-muted">$</span> whoami</p>
-                <p className="text-muted">alejo — dev · creador de plugins OBS · streamer</p>
-                <p className="text-frost"><span className="text-muted">$</span> cat stack.txt</p>
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {stack.map((s) => (
-                    <span key={s} className="rounded-md bg-panel-2 px-2 py-1 text-xs text-frost">{s}</span>
-                  ))}
-                </div>
-                <p className="pt-1 text-frost"><span className="text-muted">$</span> <span className="rec-dot">▍</span></p>
-              </div>
+            <h2 className="text-gradient mt-5 text-[32px] leading-[1.16] sm:text-[44px]">Del diseño y la música al código.</h2>
+            <div className="mt-6 space-y-4 leading-relaxed text-mist">
+              <p>
+                Empecé en 2006 como diseñador gráfico: vectores, fotomontaje, animación 2D y edición de video. El
+                diseño web me llevó al HTML y al CSS, y de ahí a programar en serio.
+              </p>
+              <p>
+                Hoy soy <span className="text-white">frontend developer</span> y construyo productos completos: desde
+                la interfaz hasta la base de datos. Me considero autodidacta: me lanzo a proyectos sin saberlo todo y
+                aprendo lo necesario para sacarlos adelante.
+              </p>
             </div>
-            <Socials className="mt-6" />
+            <dl className="mt-8 grid grid-cols-2 gap-3">
+              {facts.map((f) => (
+                <div key={f.label} className="glass px-4 py-3">
+                  <dt className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{f.label}</dt>
+                  <dd className="mt-1 text-sm text-ice">{f.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="mx-auto mt-30 max-w-[1200px] px-4 sm:px-6">
+      {/* PROYECTOS */}
+      <section id="proyectos" className="mx-auto mt-30 max-w-[1200px] scroll-mt-24 px-4 sm:px-6">
+        <SectionHead eyebrow="Proyectos" title="Cosas que he construido">
+          Productos, sitios y herramientas personales. El código está en GitHub.
+        </SectionHead>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {projects.map((p, i) => (
+            <ProjectCard key={p.name} project={p} index={i} />
+          ))}
+        </div>
+
+        <div className="mt-20">
+          <SectionHead eyebrow="Para creadores" title="Herramientas de video y audio">
+            Scripts que uso en mi propio flujo con DaVinci Resolve.
+          </SectionHead>
+          <div className="grid gap-6 md:grid-cols-3">
+            {creatorTools.map((p, i) => (
+              <ProjectCard key={p.name} project={p} index={i} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* EXPERIENCIA */}
+      <section id="experiencia" className="mx-auto mt-30 max-w-[1200px] scroll-mt-24 px-4 sm:px-6">
+        <SectionHead eyebrow="Experiencia" title="Trayectoria" />
+        <ol className="relative mx-auto max-w-3xl">
+          <div className="absolute bottom-2 left-[19px] top-2 w-px bg-linear-to-b from-[rgb(186_215_247/0.3)] via-line to-transparent sm:left-1/2" />
+          {experience.map((e, i) => (
+            <li key={e.company} className={`relative mb-10 flex gap-6 sm:w-1/2 ${i % 2 ? "sm:ml-auto sm:pl-10" : "sm:flex-row-reverse sm:pr-10 sm:text-right"}`}>
+              <span className={`icon-tile relative z-10 size-10 shrink-0 bg-ink font-mono text-[10px] sm:absolute sm:top-0 ${i % 2 ? "sm:-left-5" : "sm:-right-5"}`}>
+                {e.year.slice(2)}
+              </span>
+              <div className="glass flex-1 p-5">
+                <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{e.year} · {e.company}</p>
+                <h3 className="mt-2 text-lg">{e.role}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-mist">{e.detail}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      {/* OBS — HOBBY */}
+      <section id="obs" className="relative isolate mt-30 scroll-mt-24 overflow-hidden py-24">
+        <div className="spotlight absolute inset-0 -z-10" />
+        <div className="bg-grid absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
+        <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+          <SectionHead eyebrow="Mi hobby · OBS & streaming" title="Plugins para OBS Studio">
+            Cuando no estoy en un proyecto, hago herramientas para streamers. Uniendo la música y el código salió este:
+          </SectionHead>
+
+          <div className="glass-deep grid overflow-hidden lg:grid-cols-[1.15fr_1fr]">
+            <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_30%_20%,rgb(102_58_243/0.28),transparent_60%),radial-gradient(ellipse_at_80%_90%,rgb(152_192_239/0.16),transparent_55%),#070914] p-6 sm:p-10">
+              <Image
+                src="/img/now-playing.png"
+                alt="Overlay de OBS Now Playing mostrando la canción actual"
+                width={1120}
+                height={400}
+                className="float w-full rounded-2xl shadow-[0_30px_60px_-20px_rgb(0_0_0/0.8)]"
+              />
+              <div className="mt-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.1em] text-mist">
+                <span className="eq flex h-4 items-end gap-[3px]">
+                  {[0.2, 0.5, 0.1, 0.35].map((d) => (
+                    <span key={d} className="w-[3px] rounded-full bg-frost" style={{ height: "100%", animationDelay: `${d}s` }} />
+                  ))}
+                </span>
+                Spotify · YouTube Music · Apple Music
+              </div>
+            </div>
+
+            <div className="p-6 sm:p-10">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="rounded-md bg-panel-2 px-2 py-1 font-mono text-[11px] text-frost">v{nowPlaying.version}</span>
+                <span className="rounded-md bg-panel-2 px-2 py-1 text-[11px] text-frost">Gratis · MIT</span>
+              </div>
+              <h3 className="mt-4 text-[28px] leading-tight">{nowPlaying.name}</h3>
+              <p className="mt-3 leading-relaxed text-mist">{nowPlaying.tagline}</p>
+              <p className="mt-2 text-sm text-muted">{nowPlaying.players}</p>
+
+              <div className="mt-6 space-y-2">
+                {nowPlaying.downloads.map((d, i) => (
+                  <a
+                    key={d.label}
+                    href={d.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={`${i === 0 ? "btn-primary" : "btn-ghost"} w-full justify-start gap-3 px-5 py-3`}
+                  >
+                    <PlatformIcon platform={d.platform} width={15} height={15} />
+                    <span className="flex-1 text-left">{d.label}</span>
+                    <span className="hidden text-xs font-normal text-white/60 sm:inline">{d.hint}</span>
+                    <DownloadIcon width={15} height={15} />
+                  </a>
+                ))}
+              </div>
+              <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{nowPlaying.requirements}</p>
+              <a href={nowPlaying.repo} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm text-mist hover:text-white">
+                <GithubIcon width={15} height={15} /> Código, instalación y FAQ <ArrowIcon width={14} height={14} />
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
+            <ul className="grid gap-4 sm:grid-cols-2">
+              {nowPlaying.features.map((f) => (
+                <li key={f.title} className="glass p-5">
+                  <h4 className="text-[15px]">{f.title}</h4>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.text}</p>
+                </li>
+              ))}
+            </ul>
+            <div className="glass flex flex-col p-6">
+              <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">También</span>
+              <h3 className="mt-3 text-xl">{themePanel.name}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-mist">{themePanel.tagline}</p>
+              <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{themePanel.platform}</p>
+              <a href={themePanel.repo} target="_blank" rel="noreferrer" className="btn-ghost mt-auto self-start">
+                <GithubIcon width={15} height={15} /> Ver en GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACTO */}
+      <section id="contacto" className="mx-auto mt-24 max-w-[1200px] scroll-mt-24 px-4 sm:px-6">
         <div className="glass spotlight relative isolate overflow-hidden px-8 py-20 text-center">
           <div className="bg-grid absolute inset-0 -z-10" />
-          <p className="eyebrow">Brilla en vivo</p>
-          <h2 className="text-gradient mt-5 text-[32px] sm:text-[44px]">¿Listo para mejorar tu stream?</h2>
-          <p className="mx-auto mt-4 max-w-lg text-mist">Plugins, scripts y overlays para OBS en un solo lugar.</p>
-          <a href="#descargas" className="btn-primary btn-lg mt-10">
-            <DownloadIcon width={16} height={16} /> Ir a descargas
-          </a>
+          <p className="eyebrow">Contacto</p>
+          <h2 className="text-gradient mt-5 text-[32px] sm:text-[44px]">¿Construimos algo juntos?</h2>
+          <p className="mx-auto mt-4 max-w-lg text-mist">
+            Abierto a proyectos frontend, productos web y colaboraciones con creadores de contenido.
+          </p>
+          <div className="mt-10 flex flex-wrap justify-center gap-3">
+            {site.email && (
+              <a href={`mailto:${site.email}`} className="btn-primary btn-lg">Escríbeme</a>
+            )}
+            <a href={site.socials.github} target="_blank" rel="noreferrer" className={`${site.email ? "btn-ghost" : "btn-primary"} btn-lg`}>
+              <GithubIcon width={16} height={16} /> github.com/alejox
+            </a>
+          </div>
+          <Socials className="mt-8 justify-center" />
         </div>
       </section>
     </>
+  );
+}
+
+function ProjectCard({ project, index }: { project: Project; index: number }) {
+  return (
+    <a href={project.repo} target="_blank" rel="noreferrer" className="glass card-hover group flex flex-col p-6">
+      <div className="flex items-center justify-between">
+        <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{project.kind}</span>
+        <span className="font-mono text-[11px] text-muted/60">{String(index + 1).padStart(2, "0")}</span>
+      </div>
+      <h3 className="mt-5 text-xl text-ice">{project.name}</h3>
+      <p className="mt-2 text-sm leading-relaxed text-muted">{project.description}</p>
+      <div className="mt-auto flex flex-wrap gap-1.5 pt-5">
+        {project.tags.map((t) => (
+          <span key={t} className="rounded-md bg-panel-2 px-2 py-1 text-[11px] text-frost">{t}</span>
+        ))}
+      </div>
+      <span className="mt-5 inline-flex items-center gap-1.5 text-xs text-mist transition group-hover:text-white">
+        <GithubIcon width={13} height={13} /> Ver código <ArrowIcon width={12} height={12} className="transition group-hover:translate-x-0.5" />
+      </span>
+    </a>
   );
 }

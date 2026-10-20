@@ -7,9 +7,11 @@ import { site } from "@/lib/site";
 import { Logo } from "./Logo";
 
 const links = [
-  { href: "/", label: "Inicio" },
-  { href: "/#descargas", label: "Descargas OBS" },
   { href: "/#sobre-mi", label: "Sobre mí" },
+  { href: "/#proyectos", label: "Proyectos" },
+  { href: "/#experiencia", label: "Experiencia" },
+  { href: "/#obs", label: "OBS" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 
 export function Navbar() {

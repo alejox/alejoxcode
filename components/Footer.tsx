@@ -38,14 +38,15 @@ export function Footer() {
         <div className="md:col-start-3">
           <h4 className="mb-3 font-mono text-xs uppercase tracking-[0.1em] text-muted">Sitio</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link className="text-mist hover:text-white" href="/#descargas">Descargas OBS</Link></li>
-            <li><Link className="text-mist hover:text-white" href="/#sobre-mi">Sobre mí</Link></li>
+            <li><Link className="text-mist hover:text-white" href="/#proyectos">Proyectos</Link></li>
+            <li><Link className="text-mist hover:text-white" href="/#experiencia">Experiencia</Link></li>
+            <li><Link className="text-mist hover:text-white" href="/#obs">Plugins OBS</Link></li>
             <li><a className="text-mist hover:text-white" href="https://obsproject.com" target="_blank" rel="noreferrer">obsproject.com ↗</a></li>
           </ul>
         </div>
       </div>
       <div className="py-6 shadow-[inset_0_1px_0_rgb(186_215_247/0.06)] text-center font-mono text-xs text-muted">
-        © {new Date().getFullYear()} {site.name} · hecho con Next.js · desplegado en Vercel
+        © {new Date().getFullYear()} {site.author} · {site.name} · hecho con Next.js · desplegado en Vercel
       </div>
     </footer>
   );

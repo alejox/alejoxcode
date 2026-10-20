@@ -1,35 +1,24 @@
 # AlejoxCode
 
-Landing personal de Alejo: plugins, scripts y overlays para OBS + contenido dev.
+Sitio personal de **Alejandro Grajales**: hoja de vida como frontend developer, proyectos personales y, como sección aparte, los plugins para OBS.
 Stack: **Next.js 16 (App Router) · Tailwind CSS 4 · Vercel**. Sitio 100 % estático: sin base de datos ni variables obligatorias.
 
-## Secciones de la landing
+## Secciones
 
-- **Hero** con una ventana estilo OBS (tu foto en el preview) y tarjetas flotantes
-- **Categorías**: plugins, scripts, overlays, temas, herramientas
-- **Descargas OBS** (`#descargas`): se alimenta de [`lib/downloads.ts`](lib/downloads.ts); si está vacío muestra “Próximamente”
-- **Cómo instalar**, **Sobre mí** y CTA final
+- **Hero** con animación de motion graphics (órbitas con el stack, logo que se dibuja) y roles rotativos
+- **Sobre mí**, **Proyectos**, **Herramientas para creadores** y **Experiencia**
+- **OBS** (`#obs`): OBS Now Playing con descargas desde GitHub Releases, y Alejox Theme Panel
+- **Contacto**
 
-## Publicar una descarga
+## Editar el contenido
 
-Edita [`lib/downloads.ts`](lib/downloads.ts) y agrega un objeto por plugin (hay un ejemplo comentado):
+| Qué | Archivo |
+| --- | --- |
+| Nombre, descripción, correo público y redes | [`lib/site.ts`](lib/site.ts) |
+| Roles, stack, datos rápidos, experiencia, proyectos | [`lib/profile.ts`](lib/profile.ts) |
+| Plugins de OBS (versión, funciones, descargas) | [`lib/downloads.ts`](lib/downloads.ts) |
 
-```ts
-{
-  name: "Scene Autopilot",
-  description: "Cambia de escena automáticamente según la ventana activa.",
-  category: "plugin",            // plugin | script | overlay | theme | tool
-  version: "1.0.0",
-  obsMin: "30.0",
-  repo: "https://github.com/alejox/scene-autopilot",
-  files: [
-    { platform: "windows", url: "https://github.com/…/releases/download/v1.0.0/plugin-windows.zip", size: "2.1 MB" },
-    { platform: "macos", url: "/downloads/plugin-macos.pkg" },
-  ],
-}
-```
-
-Los archivos pueden estar en **GitHub Releases** (recomendado) o en `public/downloads/` (se sirven como `/downloads/archivo`). Haz commit y push: Vercel redespliega solo.
+Los botones de descarga de OBS Now Playing apuntan a `releases/latest`, así que siempre llevan a la última versión.
 
 ## Desarrollo local
 
