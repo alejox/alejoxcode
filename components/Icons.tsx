@@ -93,3 +93,44 @@ export const SOCIAL_ICONS: Record<string, (p: P) => React.JSX.Element> = {
   instagram: InstagramIcon,
   tiktok: TiktokIcon,
 };
+
+const line = { fill: "none", stroke: "currentColor", strokeWidth: 1.5, strokeLinecap: "round", strokeLinejoin: "round" } as const;
+
+/** Iconos line-art monocromo por categoría (trazo 1.5px). */
+export function CategoryIcon({ category, ...p }: { category: string } & P) {
+  const paths: Record<string, React.JSX.Element> = {
+    plugin: (
+      <>
+        <path d="M9 3v4M15 3v4M7 7h10v4a5 5 0 0 1-10 0V7zM12 16v5" />
+      </>
+    ),
+    script: <path d="M8 6 3 12l5 6M16 6l5 6-5 6M13.5 4l-3 16" />,
+    overlay: (
+      <>
+        <rect x="3" y="4" width="18" height="14" rx="2" />
+        <path d="M3 14h18M7 21h10" />
+        <rect x="6" y="10" width="7" height="2.5" rx="1" />
+      </>
+    ),
+    theme: (
+      <>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M12 3a9 9 0 0 0 0 18z" fill="currentColor" stroke="none" opacity=".35" />
+      </>
+    ),
+    tool: <path d="M14.7 6.3a4 4 0 0 0-5.4 5.2L3 17.8V21h3.2l6.3-6.3a4 4 0 0 0 5.2-5.4l-2.6 2.6-2.4-.6-.6-2.4 2.6-2.6z" />,
+    all: (
+      <>
+        <rect x="3" y="3" width="7" height="7" rx="1.5" />
+        <rect x="14" y="3" width="7" height="7" rx="1.5" />
+        <rect x="3" y="14" width="7" height="7" rx="1.5" />
+        <rect x="14" y="14" width="7" height="7" rx="1.5" />
+      </>
+    ),
+  };
+  return (
+    <svg width={22} height={22} viewBox="0 0 24 24" {...line} {...p}>
+      {paths[category] ?? paths.all}
+    </svg>
+  );
+}

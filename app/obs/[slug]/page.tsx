@@ -60,25 +60,25 @@ export default async function PluginPage({ params }: Props) {
 
   return (
     <article>
-      <section className="relative overflow-hidden border-b border-line/60">
+      <section className="spotlight relative isolate overflow-hidden">
         <div className="bg-grid absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-6xl px-4 pb-12 pt-8 sm:px-6">
-          <nav className="mb-8 font-mono text-xs text-muted">
+        <div className="mx-auto max-w-[1200px] px-4 pb-16 pt-10 sm:px-6">
+          <nav className="mb-10 font-mono text-xs uppercase tracking-[0.1em] text-muted">
             <Link href="/obs" className="hover:text-white">descargas-obs</Link> / <span className="text-white">{plugin.slug}</span>
           </nav>
 
           <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr]">
             <div>
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-md bg-panel-2 px-2 py-1 font-mono text-xs uppercase tracking-wider text-brand-cyan">
+                <span className="rounded-md bg-panel-2 px-2 py-1 text-xs font-medium text-frost">
                   {CATEGORY_LABEL[plugin.category]}
                 </span>
                 {plugin.tags.map((t) => (
-                  <span key={t} className="rounded-md border border-line px-2 py-1 font-mono text-xs text-muted">#{t}</span>
+                  <span key={t} className="hairline rounded-md px-2 py-1 text-xs text-mist">{t}</span>
                 ))}
               </div>
-              <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">{plugin.name}</h1>
-              <p className="mt-4 text-lg text-muted">{plugin.tagline}</p>
+              <h1 className="text-gradient mt-5 text-[40px] leading-[1.14] sm:text-[48px]">{plugin.name}</h1>
+              <p className="mt-4 text-[17px] leading-relaxed text-mist">{plugin.tagline}</p>
               <dl className="mt-8 grid grid-cols-3 gap-4 font-mono text-xs">
                 <Stat label="versión" value={latest ? `v${latest.version}` : "—"} />
                 <Stat label="descargas" value={formatNumber(totalDownloads(plugin))} />
@@ -89,7 +89,7 @@ export default async function PluginPage({ params }: Props) {
                   href={plugin.repo_url}
                   target="_blank"
                   rel="noreferrer"
-                  className="mt-6 inline-flex items-center gap-2 rounded-xl border border-line bg-panel px-4 py-2.5 text-sm hover:border-brand-violet"
+                  className="btn-ghost mt-6"
                 >
                   <GithubIcon /> Código fuente
                 </a>
@@ -97,27 +97,27 @@ export default async function PluginPage({ params }: Props) {
             </div>
 
             {/* Caja de descarga */}
-            <div className="border-gradient glow h-fit overflow-hidden rounded-2xl">
+            <div className="glass-deep h-fit overflow-hidden">
               <div className="aspect-[16/8]">
                 <PluginCover plugin={plugin} />
               </div>
-              <div className="p-5">
+              <div className="p-6">
                 {latest ? (
                   <>
                     <div className="mb-4 flex items-baseline justify-between">
-                      <h2 className="font-semibold">Descargar v{latest.version}</h2>
+                      <h2 className="text-lg">Descargar v{latest.version}</h2>
                       <span className="font-mono text-xs text-muted">{formatDate(latest.date)}</span>
                     </div>
                     <div className="space-y-2">
-                      {latest.files.map((f) => (
+                      {latest.files.map((f, i) => (
                         <a
                           key={f.id}
                           href={`/api/download/${f.id}`}
-                          className="bg-brand flex items-center gap-3 rounded-xl px-4 py-3 font-semibold transition hover:brightness-110"
+                          className={`${i === 0 ? "btn-primary" : "btn-ghost"} w-full justify-start gap-3 px-5 py-3`}
                         >
                           <PlatformIcon platform={f.platform} />
                           <span className="flex-1">{PLATFORM_LABEL[f.platform]}</span>
-                          <span className="font-mono text-xs font-normal text-white/70">{formatBytes(f.file_size)}</span>
+                          <span className="font-mono text-xs font-normal text-white/60">{formatBytes(f.file_size)}</span>
                           <DownloadIcon />
                         </a>
                       ))}
@@ -136,22 +136,22 @@ export default async function PluginPage({ params }: Props) {
         <DemoBanner />
       </div>
 
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr]">
+      <div className="mx-auto grid max-w-[1200px] gap-12 px-4 sm:px-6 lg:grid-cols-[1.2fr_1fr]">
         <div className="space-y-10">
           {plugin.description && (
             <section>
-              <h2 className="mb-4 font-mono text-sm uppercase tracking-widest text-brand-violet">Descripción</h2>
+              <h2 className="eyebrow eyebrow-left mb-6">Descripción</h2>
               <div className="prose-dev" dangerouslySetInnerHTML={{ __html: renderMarkdown(plugin.description) }} />
             </section>
           )}
 
           <section>
-            <h2 className="mb-4 font-mono text-sm uppercase tracking-widest text-brand-violet">Instalación</h2>
+            <h2 className="eyebrow eyebrow-left mb-6">Instalación</h2>
             <ol className="space-y-3">
               {INSTALL[plugin.category].map((step, i) => (
-                <li key={i} className="flex gap-4 rounded-xl border border-line bg-panel p-4 text-sm">
-                  <span className="bg-brand grid size-7 shrink-0 place-items-center rounded-lg font-mono text-xs font-bold">{i + 1}</span>
-                  <span className="pt-1 text-[#d9d3ea]">{step}</span>
+                <li key={i} className="glass flex gap-4 p-4 text-sm">
+                  <span className="icon-tile size-8 shrink-0 font-mono text-xs">{i + 1}</span>
+                  <span className="pt-1.5 leading-relaxed text-mist">{step}</span>
                 </li>
               ))}
             </ol>
@@ -159,14 +159,14 @@ export default async function PluginPage({ params }: Props) {
         </div>
 
         <aside>
-          <h2 className="mb-4 font-mono text-sm uppercase tracking-widest text-brand-violet">Historial de versiones</h2>
-          <ol className="relative space-y-6 border-l border-line pl-6">
+          <h2 className="eyebrow eyebrow-left mb-6">Historial de versiones</h2>
+          <ol className="relative space-y-8 border-l border-line pl-6">
             {versions.map((v, i) => (
               <li key={v.version} className="relative">
-                <span className={`absolute -left-[31px] top-1 size-3 rounded-full ring-4 ring-ink ${i === 0 ? "bg-brand-cyan" : "bg-line"}`} />
+                <span className={`absolute -left-[31px] top-1 size-3 rounded-full ring-4 ring-ink ${i === 0 ? "bg-ice shadow-[0_0_12px_rgb(186_207_247/0.6)]" : "bg-steel"}`} />
                 <div className="flex items-baseline justify-between gap-2">
-                  <h3 className="font-mono font-semibold">
-                    v{v.version} {i === 0 && <span className="ml-1 rounded bg-brand-cyan/15 px-1.5 py-0.5 text-[10px] text-brand-cyan">latest</span>}
+                  <h3 className="font-mono text-[15px] text-ice">
+                    v{v.version} {i === 0 && <span className="ml-1 rounded-md bg-panel-2 px-1.5 py-0.5 text-[10px] uppercase tracking-[0.1em] text-frost">latest</span>}
                   </h3>
                   <span className="font-mono text-xs text-muted">{formatDate(v.date)}</span>
                 </div>
@@ -181,7 +181,7 @@ export default async function PluginPage({ params }: Props) {
                     <a
                       key={f.id}
                       href={`/api/download/${f.id}`}
-                      className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-panel px-2.5 py-1.5 text-xs text-muted hover:border-brand-violet hover:text-white"
+                      className="btn-ghost gap-1.5 px-3 py-1.5 text-xs"
                     >
                       <PlatformIcon platform={f.platform} width={13} height={13} />
                       {PLATFORM_LABEL[f.platform]}
@@ -200,9 +200,9 @@ export default async function PluginPage({ params }: Props) {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl border border-line bg-panel px-3 py-3">
-      <dt className="uppercase tracking-wider text-muted">{label}</dt>
-      <dd className="mt-1 text-lg font-bold text-white">{value}</dd>
+    <div className="glass px-4 py-3">
+      <dt className="uppercase tracking-[0.1em] text-muted">{label}</dt>
+      <dd className="mt-1 font-display text-lg font-medium text-ice">{value}</dd>
     </div>
   );
 }

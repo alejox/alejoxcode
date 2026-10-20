@@ -59,5 +59,5 @@ Las páginas se regeneran cada 60 s, así que lo que publiques aparece en ~1 min
 ## Personalizar
 
 - Redes sociales y textos: [`lib/site.ts`](lib/site.ts)
-- Colores (morado/azul del logo): tokens `@theme` en [`app/globals.css`](app/globals.css)
+- Estilo visual "Frosted glass cathedral at midnight" (ref. AuthKit): tokens `@theme` y clases `.glass`, `.btn-primary`, `.btn-ghost`, `.eyebrow` en [`app/globals.css`](app/globals.css). El violeta `#663af3` es el único acento: úsalo solo para la acción principal.
 - Imágenes: `public/img/`

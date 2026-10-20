@@ -21,23 +21,19 @@ export default async function ObsDownloads({
 
   return (
     <>
-      <section className="relative overflow-hidden border-b border-line/60">
+      <section className="spotlight relative isolate overflow-hidden">
         <div className="bg-grid absolute inset-0 -z-10" />
-        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6">
-          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-panel px-3 py-1 font-mono text-xs text-muted">
-            <span className="size-2 rounded-full bg-[#3ddc84]" /> obs-studio/plugins
-          </span>
-          <h1 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl">
-            Descargas <span className="text-gradient">OBS</span>
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted">
+        <div className="mx-auto max-w-[1200px] px-4 pb-14 pt-20 text-center sm:px-6">
+          <p className="eyebrow">obs-studio / plugins</p>
+          <h1 className="text-gradient glow-text mt-6 text-[48px] leading-[1.1] sm:text-[72px]">Descargas OBS</h1>
+          <p className="mx-auto mt-5 max-w-[640px] text-[17px] leading-relaxed text-mist">
             Plugins nativos, scripts Lua/Python, overlays para Browser Source y temas. Gratis, actualizados y
             listos para tu próximo directo.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3 font-mono text-xs">
-            <span className="rounded-lg border border-line bg-panel px-3 py-2">{plugins.length} recursos</span>
-            <span className="rounded-lg border border-line bg-panel px-3 py-2">{formatNumber(downloads)} descargas</span>
-            <span className="rounded-lg border border-line bg-panel px-3 py-2">Windows · macOS · Linux</span>
+          <div className="mt-8 flex flex-wrap justify-center gap-2 text-xs">
+            <span className="hairline rounded-full px-4 py-2 text-mist">{plugins.length} recursos</span>
+            <span className="hairline rounded-full px-4 py-2 text-mist">{formatNumber(downloads)} descargas</span>
+            <span className="hairline rounded-full px-4 py-2 text-mist">Windows · macOS · Linux</span>
           </div>
         </div>
       </section>
@@ -46,7 +42,7 @@ export default async function ObsDownloads({
         <DemoBanner />
       </div>
 
-      <section className="mx-auto max-w-6xl px-4 sm:px-6">
+      <section className="mx-auto max-w-[1200px] px-4 sm:px-6">
         <DownloadsExplorer plugins={plugins} initialCategory={cat} />
       </section>
     </>

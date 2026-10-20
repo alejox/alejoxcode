@@ -57,7 +57,7 @@ export function AdminPanel() {
             Tu usuario (<span className="text-white">{session.user.email}</span>) no es administrador. Ejecuta en el SQL
             Editor de Supabase:
           </p>
-          <pre className="mt-3 overflow-x-auto rounded-xl bg-ink p-3 font-mono text-xs text-brand-cyan">
+          <pre className="glass-deep mt-3 overflow-x-auto p-3 font-mono text-xs text-frost">
             {`insert into public.admins (user_id) values ('${session.user.id}');`}
           </pre>
           <Button variant="ghost" className="mt-4" onClick={() => sb.auth.signOut()}>Cerrar sesión</Button>
@@ -75,7 +75,7 @@ export function AdminPanel() {
         </div>
       }
     >
-      <div className="mb-6 flex gap-1 rounded-xl border border-line bg-panel p-1">
+      <div className="hairline mb-8 flex gap-1 rounded-full p-1">
         {([
           ["releases", "⬆ Subir versión"],
           ["plugins", "⚙ Plugins"],
@@ -84,7 +84,7 @@ export function AdminPanel() {
           <button
             key={t}
             onClick={() => setTab(t)}
-            className={`flex-1 rounded-lg px-3 py-2 text-sm ${tab === t ? "bg-brand text-white" : "text-muted hover:text-white"}`}
+            className={`flex-1 rounded-full px-3 py-2 text-sm ${tab === t ? "bg-panel-2 text-white" : "text-mist hover:text-white"}`}
           >
             {l}
           </button>
@@ -109,7 +109,7 @@ function Shell({ children, right }: { children: React.ReactNode; right?: React.R
       <div className="mb-8 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Logo />
-          <span className="rounded-md bg-panel-2 px-2 py-0.5 font-mono text-xs text-brand-cyan">admin</span>
+          <span className="rounded-md bg-panel-2 px-2 py-0.5 font-mono text-[11px] uppercase tracking-[0.1em] text-frost">admin</span>
         </div>
         {right}
       </div>

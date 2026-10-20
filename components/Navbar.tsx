@@ -19,8 +19,8 @@ export function Navbar() {
     href === "/" ? pathname === "/" : !href.includes("#") && pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line/60 bg-ink/70 backdrop-blur-xl">
-      <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
+    <header className="sticky top-0 z-50 bg-ink/60 shadow-[inset_0_-1px_0_rgb(186_215_247/0.08)] backdrop-blur-xl">
+      <nav className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-4 sm:px-6">
         <Link href="/" onClick={() => setOpen(false)}>
           <Logo size={32} />
         </Link>
@@ -30,8 +30,8 @@ export function Navbar() {
             <li key={l.href}>
               <Link
                 href={l.href}
-                className={`rounded-lg px-3 py-2 text-sm transition ${
-                  isActive(l.href) ? "bg-panel-2 text-white" : "text-muted hover:text-white"
+                className={`rounded-full px-4 py-2 text-sm transition ${
+                  isActive(l.href) ? "hairline bg-[rgb(186_214_247/0.06)] text-white" : "text-mist hover:text-white"
                 }`}
               >
                 {l.label}
@@ -42,13 +42,13 @@ export function Navbar() {
 
         <Link
           href="/obs"
-          className="bg-brand hidden rounded-lg px-4 py-2 text-sm font-semibold text-white shadow-lg shadow-brand-purple/30 transition hover:brightness-110 md:inline-flex"
+          className="btn-ghost hidden md:inline-flex"
         >
           Descargar plugins
         </Link>
 
         <button
-          className="rounded-lg p-2 text-muted hover:text-white md:hidden"
+          className="rounded-full p-2 text-mist hover:text-white md:hidden"
           aria-label="Abrir menú"
           aria-expanded={open}
           onClick={() => setOpen((o) => !o)}
@@ -60,13 +60,13 @@ export function Navbar() {
       </nav>
 
       {open && (
-        <ul className="border-t border-line/60 px-4 py-3 md:hidden">
+        <ul className="px-4 py-3 shadow-[inset_0_1px_0_rgb(186_215_247/0.08)] md:hidden">
           {links.map((l) => (
             <li key={l.href}>
               <Link
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className={`block rounded-lg px-3 py-2.5 ${isActive(l.href) ? "bg-panel-2 text-white" : "text-muted"}`}
+                className={`block rounded-full px-4 py-2.5 ${isActive(l.href) ? "hairline bg-[rgb(186_214_247/0.06)] text-white" : "text-mist"}`}
               >
                 {l.label}
               </Link>

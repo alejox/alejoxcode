@@ -3,12 +3,12 @@
 import type { InputHTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttributes } from "react";
 
 const field =
-  "w-full rounded-xl border border-line bg-ink px-3 py-2.5 text-sm outline-none transition focus:border-brand-violet";
+  "w-full rounded-md bg-[rgb(199_211_234/0.06)] px-3 py-2.5 text-sm text-white shadow-[inset_0_0_0_1px_rgb(186_215_247/0.12)] outline-none transition placeholder:text-mist/60 focus:shadow-[inset_0_0_0_1px_rgb(186_215_247/0.3)]";
 
 export function Field({ label, hint, children }: { label: string; hint?: string; children: ReactNode }) {
   return (
     <label className="block space-y-1.5">
-      <span className="text-sm font-medium">{label}</span>
+      <span className="text-sm font-medium text-mist">{label}</span>
       {children}
       {hint && <span className="block text-xs text-muted">{hint}</span>}
     </label>
@@ -27,12 +27,12 @@ export function Button({
   ...p
 }: { variant?: "primary" | "ghost" | "danger" } & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const styles = {
-    primary: "bg-brand text-white hover:brightness-110",
-    ghost: "border border-line bg-panel hover:border-brand-violet",
-    danger: "border border-live/40 text-live hover:bg-live/10",
+    primary: "btn-primary",
+    ghost: "btn-ghost",
+    danger: "btn-ghost text-live",
   }[variant];
   return (
-    <button {...p} className={`rounded-xl px-4 py-2.5 text-sm font-semibold transition disabled:opacity-50 ${styles} ${p.className ?? ""}`}>
+    <button {...p} className={`rounded-full px-4 py-2.5 text-sm font-medium transition disabled:opacity-50 ${styles} ${p.className ?? ""}`}>
       {children}
     </button>
   );
@@ -40,12 +40,12 @@ export function Button({
 
 export function Card({ title, children, actions }: { title: string; children: ReactNode; actions?: ReactNode }) {
   return (
-    <section className="rounded-2xl border border-line bg-panel">
-      <header className="flex items-center justify-between border-b border-line px-5 py-3">
-        <h2 className="font-mono text-xs uppercase tracking-widest text-muted">{title}</h2>
+    <section className="glass">
+      <header className="flex items-center justify-between px-6 py-4 shadow-[inset_0_-1px_0_rgb(186_215_247/0.08)]">
+        <h2 className="font-mono text-xs uppercase tracking-[0.1em] text-mist">{title}</h2>
         {actions}
       </header>
-      <div className="p-5">{children}</div>
+      <div className="p-6">{children}</div>
     </section>
   );
 }
