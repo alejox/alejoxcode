@@ -3,12 +3,12 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { site } from "@/lib/site";
 import { Logo } from "./Logo";
 
 const links = [
   { href: "/", label: "Inicio" },
-  { href: "/obs", label: "Descargas OBS" },
-  { href: "/blog", label: "Blog dev" },
+  { href: "/#descargas", label: "Descargas OBS" },
   { href: "/#sobre-mi", label: "Sobre mí" },
 ];
 
@@ -40,12 +40,9 @@ export function Navbar() {
           ))}
         </ul>
 
-        <Link
-          href="/obs"
-          className="btn-ghost hidden md:inline-flex"
-        >
-          Descargar plugins
-        </Link>
+        <a href={site.socials.github} target="_blank" rel="noreferrer" className="btn-ghost hidden md:inline-flex">
+          GitHub ↗
+        </a>
 
         <button
           className="rounded-full p-2 text-mist hover:text-white md:hidden"

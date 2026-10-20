@@ -1,5 +1,5 @@
 import type { SVGProps } from "react";
-import type { Platform } from "@/lib/types";
+import type { Platform } from "@/lib/downloads";
 
 type P = SVGProps<SVGSVGElement>;
 const base = { width: 18, height: 18, viewBox: "0 0 24 24", fill: "currentColor" } as const;

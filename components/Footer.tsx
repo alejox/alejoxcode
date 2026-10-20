@@ -35,26 +35,17 @@ export function Footer() {
           <p className="max-w-sm text-sm text-muted">{site.description}</p>
           <Socials />
         </div>
-        <div>
+        <div className="md:col-start-3">
           <h4 className="mb-3 font-mono text-xs uppercase tracking-[0.1em] text-muted">Sitio</h4>
           <ul className="space-y-2 text-sm">
-            <li><Link className="text-mist hover:text-white" href="/obs">Descargas OBS</Link></li>
-            <li><Link className="text-mist hover:text-white" href="/blog">Blog dev</Link></li>
+            <li><Link className="text-mist hover:text-white" href="/#descargas">Descargas OBS</Link></li>
             <li><Link className="text-mist hover:text-white" href="/#sobre-mi">Sobre mí</Link></li>
-          </ul>
-        </div>
-        <div>
-          <h4 className="mb-3 font-mono text-xs uppercase tracking-[0.1em] text-muted">OBS</h4>
-          <ul className="space-y-2 text-sm">
-            <li><Link className="text-mist hover:text-white" href="/obs?cat=plugin">Plugins</Link></li>
-            <li><Link className="text-mist hover:text-white" href="/obs?cat=script">Scripts</Link></li>
-            <li><Link className="text-mist hover:text-white" href="/obs?cat=overlay">Overlays</Link></li>
             <li><a className="text-mist hover:text-white" href="https://obsproject.com" target="_blank" rel="noreferrer">obsproject.com ↗</a></li>
           </ul>
         </div>
       </div>
       <div className="py-6 shadow-[inset_0_1px_0_rgb(186_215_247/0.06)] text-center font-mono text-xs text-muted">
-        © {new Date().getFullYear()} {site.name} · hecho con Next.js + Supabase · desplegado en Vercel
+        © {new Date().getFullYear()} {site.name} · hecho con Next.js · desplegado en Vercel
       </div>
     </footer>
   );

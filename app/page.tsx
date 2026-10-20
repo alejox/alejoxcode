@@ -1,17 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
-import { DemoBanner } from "@/components/DemoBanner";
+import { DownloadCard } from "@/components/DownloadCard";
 import { Socials } from "@/components/Footer";
-import { ArrowIcon, CategoryIcon, DownloadIcon } from "@/components/Icons";
+import { ArrowIcon, CategoryIcon, DownloadIcon, GithubIcon } from "@/components/Icons";
 import { ObsHero } from "@/components/ObsHero";
-import { PluginCard } from "@/components/PluginCard";
-import { PostCard } from "@/components/PostCard";
 import { SectionHead } from "@/components/Section";
-import { getPlugins, getPosts } from "@/lib/data";
-import { CATEGORY_LABEL, type Category } from "@/lib/types";
-import { formatNumber, totalDownloads } from "@/lib/utils";
-
-export const revalidate = 60;
+import { CATEGORY_LABEL, downloads, type Category } from "@/lib/downloads";
+import { site } from "@/lib/site";
 
 const stack = ["C / C++", "Lua", "Python", "TypeScript", "Next.js", "Node.js", "obs-websocket", "Supabase", "CMake", "Qt"];
 
@@ -23,11 +17,7 @@ const CATEGORY_BLURB: Record<Category, string> = {
   tool: "Utilidades",
 };
 
-export default async function Home() {
-  const [plugins, posts] = await Promise.all([getPlugins(), getPosts(3)]);
-  const downloads = plugins.reduce((a, p) => a + totalDownloads(p), 0);
-  const featured = [...plugins].sort((a, b) => Number(b.featured) - Number(a.featured)).slice(0, 3);
-
+export default function Home() {
   return (
     <>
       {/* HERO */}
@@ -43,12 +33,12 @@ export default async function Home() {
             tutoriales y todo el contenido dev que voy creando.
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-3">
-            <Link href="/obs" className="btn-primary btn-lg">
-              <DownloadIcon width={16} height={16} /> Ver descargas OBS
-            </Link>
-            <Link href="/blog" className="btn-ghost btn-lg">
-              Leer el blog <ArrowIcon width={16} height={16} />
-            </Link>
+            <a href="#descargas" className="btn-primary btn-lg">
+              <DownloadIcon width={16} height={16} /> Descargas OBS
+            </a>
+            <a href="#sobre-mi" className="btn-ghost btn-lg">
+              Sobre mí <ArrowIcon width={16} height={16} />
+            </a>
           </div>
 
           <div className="mt-20">
@@ -57,8 +47,8 @@ export default async function Home() {
 
           <dl className="mx-auto mt-16 grid max-w-xl grid-cols-3 gap-6">
             {[
-              [plugins.length, "Recursos"],
-              [formatNumber(downloads), "Descargas"],
+              ["5", "Tipos de recurso"],
+              ["3", "Sistemas"],
               ["30+", "OBS compatible"],
             ].map(([n, l]) => (
               <div key={String(l)}>
@@ -70,8 +60,6 @@ export default async function Home() {
         </div>
       </section>
 
-      <DemoBanner />
-
       {/* CATEGORÍAS — fila de tiles conectados */}
       <section className="mx-auto mt-16 max-w-[1200px] px-4 sm:px-6">
         <SectionHead eyebrow="Extensible por diseño" title="Todo lo que tu OBS necesita">
@@ -82,34 +70,46 @@ export default async function Home() {
           <ul className="relative grid grid-cols-2 gap-y-10 sm:grid-cols-5">
             {(Object.keys(CATEGORY_LABEL) as Category[]).map((c) => (
               <li key={c}>
-                <Link href={`/obs?cat=${c}`} className="group flex flex-col items-center text-center">
-                  <span className="icon-tile size-16 bg-ink transition group-hover:shadow-[inset_0_0_0_1px_rgb(186_215_247/0.3),0_0_32px_rgb(152_192_239/0.25)]">
+                <div className="flex flex-col items-center text-center">
+                  <span className="icon-tile size-16 bg-ink">
                     <CategoryIcon category={c} />
                   </span>
                   <span className="mt-4 text-sm font-medium text-frost">{CATEGORY_LABEL[c]}s</span>
                   <span className="mt-1 text-xs text-muted">{CATEGORY_BLURB[c]}</span>
-                </Link>
+                </div>
               </li>
             ))}
           </ul>
         </div>
       </section>
 
-      {/* DESCARGAS DESTACADAS */}
-      <section className="mx-auto mt-30 max-w-[1200px] px-4 sm:px-6">
-        <SectionHead eyebrow="Descargas" title="Lo más nuevo para tu OBS">
-          Los plugins destacados y más descargados del momento.
+      {/* DESCARGAS OBS */}
+      <section id="descargas" className="mx-auto mt-30 max-w-[1200px] scroll-mt-24 px-4 sm:px-6">
+        <SectionHead eyebrow="Descargas OBS" title="Plugins listos para tu OBS">
+          Gratis y para Windows, macOS y Linux.
         </SectionHead>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {featured.map((p) => (
-            <PluginCard key={p.id} plugin={p} />
-          ))}
-        </div>
-        <div className="mt-10 text-center">
-          <Link href="/obs" className="btn-ghost">
-            Ver todas las descargas <ArrowIcon width={15} height={15} />
-          </Link>
-        </div>
+        {downloads.length ? (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {downloads.map((d) => (
+              <DownloadCard key={d.name} item={d} />
+            ))}
+          </div>
+        ) : (
+          <div className="glass spotlight relative isolate mx-auto max-w-2xl overflow-hidden px-8 py-16 text-center">
+            <div className="bg-grid absolute inset-0 -z-10" />
+            <span className="icon-tile mx-auto size-16 bg-ink">
+              <DownloadIcon width={22} height={22} />
+            </span>
+            <p className="eyebrow mt-8">Próximamente</p>
+            <h3 className="mt-4 text-2xl">Los primeros plugins están en camino</h3>
+            <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-mist">
+              Estoy preparando los primeros lanzamientos. Sígueme en GitHub para enterarte cuando salgan.
+            </p>
+            <a href={site.socials.github} target="_blank" rel="noreferrer" className="btn-ghost mt-8">
+              <GithubIcon width={15} height={15} /> Seguir en GitHub
+            </a>
+          </div>
+        )}
       </section>
 
       {/* CÓMO INSTALAR */}
@@ -174,35 +174,16 @@ export default async function Home() {
         </div>
       </section>
 
-      {/* BLOG */}
-      {posts.length > 0 && (
-        <section className="mx-auto mt-30 max-w-[1200px] px-4 sm:px-6">
-          <SectionHead eyebrow="Contenido dev" title="Últimos posts">
-            Tutoriales, notas de desarrollo y trucos de OBS.
-          </SectionHead>
-          <div className="grid gap-6 md:grid-cols-3">
-            {posts.map((p) => (
-              <PostCard key={p.id} post={p} />
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Link href="/blog" className="btn-ghost">
-              Ir al blog <ArrowIcon width={15} height={15} />
-            </Link>
-          </div>
-        </section>
-      )}
-
       {/* CTA */}
       <section className="mx-auto mt-30 max-w-[1200px] px-4 sm:px-6">
         <div className="glass spotlight relative isolate overflow-hidden px-8 py-20 text-center">
           <div className="bg-grid absolute inset-0 -z-10" />
           <p className="eyebrow">Brilla en vivo</p>
           <h2 className="text-gradient mt-5 text-[32px] sm:text-[44px]">¿Listo para mejorar tu stream?</h2>
-          <p className="mx-auto mt-4 max-w-lg text-mist">Todos los plugins en un solo lugar, siempre actualizados.</p>
-          <Link href="/obs" className="btn-primary btn-lg mt-10">
+          <p className="mx-auto mt-4 max-w-lg text-mist">Plugins, scripts y overlays para OBS en un solo lugar.</p>
+          <a href="#descargas" className="btn-primary btn-lg mt-10">
             <DownloadIcon width={16} height={16} /> Ir a descargas
-          </Link>
+          </a>
         </div>
       </section>
     </>
