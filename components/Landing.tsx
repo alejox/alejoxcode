@@ -4,7 +4,7 @@ import { nowPlaying } from "@/lib/downloads";
 import { site } from "@/lib/site";
 import { Footer } from "./Footer";
 import { HeroMotion } from "./HeroMotion";
-import { ArrowIcon, DownloadIcon, GithubIcon, PlatformIcon } from "./Icons";
+import { ArrowIcon, DownloadIcon, GithubIcon, GlobeIcon, PlatformIcon } from "./Icons";
 import { Navbar } from "./Navbar";
 import { RoleTicker } from "./RoleTicker";
 import { SectionHead } from "./Section";
@@ -270,7 +270,7 @@ function ProjectCard({ project, index, wide }: { project: Project; index: number
           ))}
         </div>
         <span className="inline-flex items-center gap-1.5 text-xs text-mist transition group-hover:text-white">
-          {project.external && <GithubIcon width={13} height={13} />} {project.linkLabel}
+          {project.external && <GlobeIcon width={13} height={13} />} {project.linkLabel}
           <ArrowIcon width={12} height={12} className="transition group-hover:translate-x-0.5" />
         </span>
       </div>
