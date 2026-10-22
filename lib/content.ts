@@ -28,7 +28,7 @@ const es = {
   },
   nav: { about: "Sobre mí", projects: "Proyectos", experience: "Experiencia", obs: "OBS", contact: "Contacto" },
   hero: {
-    eyebrow: "Frontend Developer Semi-Senior · Linktic",
+    eyebrow: "Frontend Developer Semi-Senior",
     roles: ["Frontend Developer", "Vue · React · Next.js", "Productos web de punta a punta", "Diseño + código"],
     summary:
       "Estudié desarrollo de software y vengo de más de 15 años en diseño gráfico. Construyo interfaces cuidadas y productos completos: del diseño en Figma a la base de datos, con integraciones e IA.",
@@ -187,7 +187,7 @@ const en: Content = {
   },
   nav: { about: "About", projects: "Projects", experience: "Experience", obs: "OBS", contact: "Contact" },
   hero: {
-    eyebrow: "Mid-Level Frontend Developer · Linktic",
+    eyebrow: "Mid-Level Frontend Developer",
     roles: ["Frontend Developer", "Vue · React · Next.js", "End-to-end web products", "Design + code"],
     summary:
       "I studied software development and bring 15+ years of graphic design experience. I build polished interfaces and complete products: from the Figma design to the database, with integrations and AI.",
