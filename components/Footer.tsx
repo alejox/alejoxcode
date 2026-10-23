@@ -1,5 +1,4 @@
 import { content, localePath, type Locale } from "@/lib/content";
-import { nowPlaying } from "@/lib/downloads";
 import { site } from "@/lib/site";
 import { SOCIAL_ICONS } from "./Icons";
 import { Logo } from "./Logo";
@@ -41,17 +40,13 @@ export function Footer({ locale }: { locale: Locale }) {
         <div className="md:col-start-3">
           <h4 className="mb-3 font-mono text-xs uppercase tracking-[0.1em] text-muted">{t.footer.site}</h4>
           <ul className="space-y-2 text-sm">
-            {(["projects", "experience", "obs", "contact"] as const).map((k) =>
-              k === "obs" ? (
-                <li key={k}>
-                  <a className="text-mist hover:text-white" href={nowPlaying.repo} target="_blank" rel="noreferrer">
-                    {t.nav[k]}
-                  </a>
-                </li>
-              ) : (
-                <li key={k}><a className="text-mist hover:text-white" href={`${base}#${k}`}>{t.nav[k]}</a></li>
-              )
-            )}
+            {(["projects", "experience", "plugins", "contact"] as const).map((k) => (
+              <li key={k}>
+                <a className="text-mist hover:text-white" href={k === "plugins" ? `${base}/plugins` : `${base}#${k}`}>
+                  {t.nav[k]}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
