@@ -3,17 +3,25 @@
 import Link from "next/link";
 import { useState } from "react";
 import { content, localePath, type Locale } from "@/lib/content";
+import { nowPlaying } from "@/lib/downloads";
 import { GlobeIcon } from "./Icons";
 import { Logo } from "./Logo";
 
 const sections = ["about", "projects", "experience", "obs", "contact"] as const;
+
+// El plugin OBS vive independiente en GitHub: se abre en una ventana nueva.
+const OBS_REPO = nowPlaying.repo;
 
 export function Navbar({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
   const t = content[locale];
   const home = localePath[locale];
   const other: Locale = locale === "es" ? "en" : "es";
-  const links = sections.map((s) => ({ href: `${home === "/" ? "" : home}#${s}`, label: t.nav[s] }));
+  const links = sections.map((s) =>
+    s === "obs"
+      ? { href: OBS_REPO, label: t.nav[s], external: true as const }
+      : { href: `${home === "/" ? "" : home}#${s}`, label: t.nav[s], external: false as const }
+  );
 
   const LangSwitch = ({ className = "" }: { className?: string }) => (
     <a href={localePath[other]} hrefLang={other} className={`btn-ghost gap-2 px-3.5 py-2 ${className}`} aria-label={t.langLabel}>
@@ -34,7 +42,11 @@ export function Navbar({ locale }: { locale: Locale }) {
         <ul className="hidden items-center gap-1 lg:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className="rounded-full px-4 py-2 text-sm text-mist transition hover:text-white">
+              <a
+                href={l.href}
+                {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}
+                className="rounded-full px-4 py-2 text-sm text-mist transition hover:text-white"
+              >
                 {l.label}
               </a>
             </li>
@@ -60,7 +72,12 @@ export function Navbar({ locale }: { locale: Locale }) {
         <ul className="px-4 py-3 shadow-[inset_0_1px_0_rgb(186_215_247/0.08)] lg:hidden">
           {links.map((l) => (
             <li key={l.href}>
-              <a href={l.href} onClick={() => setOpen(false)} className="block rounded-full px-4 py-2.5 text-mist">
+              <a
+                href={l.href}
+                {...(l.external ? { target: "_blank", rel: "noreferrer" } : {})}
+                onClick={() => setOpen(false)}
+                className="block rounded-full px-4 py-2.5 text-mist"
+              >
                 {l.label}
               </a>
             </li>
