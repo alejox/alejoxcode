@@ -26,7 +26,7 @@ const es = {
     description:
       "Frontend Developer en Linktic, trabajando con Vue. Construyo productos web con Vue, React, Next.js y Supabase, con integraciones e IA. Más de 15 años de experiencia previa en diseño gráfico.",
   },
-  nav: { about: "Sobre mí", projects: "Proyectos", experience: "Experiencia", plugins: "Plugins", contact: "Contacto" },
+  nav: { about: "Sobre mí", projects: "Proyectos", experience: "Experiencia", plugins: "OBS", contact: "Contacto" },
   hero: {
     eyebrow: "Frontend Developer",
     roles: ["Frontend Developer", "Vue · React · Next.js", "Productos web de punta a punta", "Diseño + código"],
@@ -193,7 +193,7 @@ const en: Content = {
     description:
       "Frontend Developer at Linktic, working with Vue. I build web products with Vue, React, Next.js and Supabase, including integrations and AI. 15+ years of prior experience in graphic design.",
   },
-  nav: { about: "About", projects: "Projects", experience: "Experience", plugins: "Plugins", contact: "Contact" },
+  nav: { about: "About", projects: "Projects", experience: "Experience", plugins: "OBS", contact: "Contact" },
   hero: {
     eyebrow: "Frontend Developer",
     roles: ["Frontend Developer", "Vue · React · Next.js", "End-to-end web products", "Design + code"],
