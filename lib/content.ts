@@ -39,7 +39,7 @@ const es = {
     eyebrow: "Sobre mí",
     title: "Del diseño al desarrollo de producto.",
     body: [
-      "Desde septiembre de 2025 soy Frontend Developer Semi-Senior en Linktic, donde trabajo con Vue; en mis proyectos uso también React, Next.js y TypeScript. Estudié desarrollo de software y, antes, trabajé más de 15 años como diseñador gráfico y web. Esa base me permite llevar un diseño de Figma a una interfaz precisa y consistente, y proponer mejoras de experiencia de usuario.",
+      "Desde septiembre de 2025 soy Frontend Developer en Linktic, donde trabajo con Vue; en mis proyectos uso también React, Next.js y TypeScript. Estudié desarrollo de software y, antes, trabajé más de 15 años como diseñador gráfico y web. Esa base me permite llevar un diseño de Figma a una interfaz precisa y consistente, y proponer mejoras de experiencia de usuario.",
       "Más allá de la interfaz, construyo productos completos: bases de datos y autenticación con Supabase, integraciones con APIs externas, bots y procesos con IA. También soy graduado en música, y esa combinación de música y código terminó en un plugin para OBS.",
     ],
     facts: [
@@ -198,7 +198,7 @@ const en: Content = {
     eyebrow: "About",
     title: "From design to product development.",
     body: [
-      "Since September 2025 I've been a Mid-Level Frontend Developer at Linktic, where I work with Vue; in my own projects I also use React, Next.js and TypeScript. I studied software development, and before that I spent 15+ years as a graphic and web designer. That background lets me turn a Figma design into a precise, consistent interface and suggest user experience improvements.",
+      "Since September 2025 I've been a Frontend Developer at Linktic, where I work with Vue; in my own projects I also use React, Next.js and TypeScript. I studied software development, and before that I spent 15+ years as a graphic and web designer. That background lets me turn a Figma design into a precise, consistent interface and suggest user experience improvements.",
       "Beyond the interface, I build complete products: databases and authentication with Supabase, integrations with external APIs, bots and AI-powered workflows. I also hold a degree in music, and mixing music with code led to a plugin for OBS.",
     ],
     facts: [
