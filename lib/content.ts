@@ -24,7 +24,7 @@ const es = {
   meta: {
     title: "Alejandro Grajales — Frontend Developer",
     description:
-      "Frontend Developer Semi-Senior en Linktic, trabajando con Vue. Construyo productos web con Vue, React, Next.js y Supabase, con integraciones e IA. Más de 15 años de experiencia previa en diseño gráfico.",
+      "Frontend Developer en Linktic, trabajando con Vue. Construyo productos web con Vue, React, Next.js y Supabase, con integraciones e IA. Más de 15 años de experiencia previa en diseño gráfico.",
   },
   nav: { about: "Sobre mí", projects: "Proyectos", experience: "Experiencia", obs: "OBS", contact: "Contacto" },
   hero: {
@@ -43,7 +43,7 @@ const es = {
       "Más allá de la interfaz, construyo productos completos: bases de datos y autenticación con Supabase, integraciones con APIs externas, bots y procesos con IA. También soy graduado en música, y esa combinación de música y código terminó en un plugin para OBS.",
     ],
     facts: [
-      { label: "Rol actual", value: "Frontend Developer Semi-Senior · Linktic" },
+      { label: "Rol actual", value: "Frontend Developer · Linktic" },
       { label: "Formación", value: "Desarrollo de software · Música" },
       { label: "Experiencia previa", value: "Diseño gráfico y web desde 2006" },
       { label: "Ubicación", value: "Colombia" },
@@ -132,7 +132,7 @@ const es = {
     title: "Trayectoria",
     now: "Actualidad",
     items: [
-      { period: "Sep 2025 – Actualidad", mark: "25", role: "Frontend Developer Semi-Senior", company: "Linktic", detail: "Desarrollo frontend de productos web con Vue.", current: true },
+      { period: "Sep 2025 – Actualidad", mark: "25", role: "Frontend Developer", company: "Linktic", detail: "Desarrollo frontend de productos web con Vue.", current: true },
       { period: "2022", mark: "22", role: "Frontend Vue Developer", company: "EOS Capital", detail: "Desarrollo web con Vue, HTML y CSS, implementando los diseños de Figma." },
       { period: "Formación", mark: "EDU", role: "Desarrollo de software", company: "Estudios", detail: "Formación en desarrollo de software, base de mi paso del diseño a la programación." },
       { period: "2006 – 2022", mark: "06", role: "Diseñador gráfico y web", company: "VITA AG SAS · Cuarta Dimensión · La Tribu", detail: "Diseño web en HTML y CSS, diseño vectorial, campañas publicitarias, animación 2D y edición de video." },
@@ -183,7 +183,7 @@ const en: Content = {
   meta: {
     title: "Alejandro Grajales — Frontend Developer",
     description:
-      "Mid-Level Frontend Developer at Linktic, working with Vue. I build web products with Vue, React, Next.js and Supabase, including integrations and AI. 15+ years of prior experience in graphic design.",
+      "Frontend Developer at Linktic, working with Vue. I build web products with Vue, React, Next.js and Supabase, including integrations and AI. 15+ years of prior experience in graphic design.",
   },
   nav: { about: "About", projects: "Projects", experience: "Experience", obs: "OBS", contact: "Contact" },
   hero: {
@@ -202,7 +202,7 @@ const en: Content = {
       "Beyond the interface, I build complete products: databases and authentication with Supabase, integrations with external APIs, bots and AI-powered workflows. I also hold a degree in music, and mixing music with code led to a plugin for OBS.",
     ],
     facts: [
-      { label: "Current role", value: "Mid-Level Frontend Developer · Linktic" },
+      { label: "Current role", value: "Frontend Developer · Linktic" },
       { label: "Education", value: "Software development · Music" },
       { label: "Prior experience", value: "Graphic & web design since 2006" },
       { label: "Location", value: "Colombia" },
@@ -291,7 +291,7 @@ const en: Content = {
     title: "Career",
     now: "Present",
     items: [
-      { period: "Sep 2025 – Present", mark: "25", role: "Mid-Level Frontend Developer", company: "Linktic", detail: "Frontend development of web products with Vue.", current: true },
+      { period: "Sep 2025 – Present", mark: "25", role: "Frontend Developer", company: "Linktic", detail: "Frontend development of web products with Vue.", current: true },
       { period: "2022", mark: "22", role: "Frontend Vue Developer", company: "EOS Capital", detail: "Web development with Vue, HTML and CSS, implementing Figma designs." },
       { period: "Education", mark: "EDU", role: "Software development", company: "Studies", detail: "Software development studies, the foundation of my move from design to programming." },
       { period: "2006 – 2022", mark: "06", role: "Graphic & web designer", company: "VITA AG SAS · Cuarta Dimensión · La Tribu", detail: "Web design in HTML and CSS, vector design, advertising campaigns, 2D animation and video editing." },
