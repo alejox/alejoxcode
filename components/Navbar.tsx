@@ -15,7 +15,7 @@ export function Navbar({ locale }: { locale: Locale }) {
   const other: Locale = locale === "es" ? "en" : "es";
   const pluginsPath = `${home === "/" ? "" : home}/plugins`;
   const links = sections.map((s) => ({
-    href: s === "plugins" ? pluginsPath : `${home === "/" ? "" : home}#${s}`,
+    href: s === "plugins" ? pluginsPath : `${home}#${s}`,
     label: t.nav[s],
   }));
 

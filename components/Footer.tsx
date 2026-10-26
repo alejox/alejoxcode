@@ -29,6 +29,7 @@ export function Socials({ className = "" }: { className?: string }) {
 export function Footer({ locale }: { locale: Locale }) {
   const t = content[locale];
   const base = localePath[locale] === "/" ? "" : localePath[locale];
+  const home = localePath[locale];
   return (
     <footer className="mt-30 shadow-[inset_0_1px_0_rgb(186_215_247/0.08)]">
       <div className="mx-auto grid max-w-[1200px] gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr]">
@@ -42,7 +43,7 @@ export function Footer({ locale }: { locale: Locale }) {
           <ul className="space-y-2 text-sm">
             {(["projects", "experience", "plugins", "contact"] as const).map((k) => (
               <li key={k}>
-                <a className="text-mist hover:text-white" href={k === "plugins" ? `${base}/plugins` : `${base}#${k}`}>
+                <a className="text-mist hover:text-white" href={k === "plugins" ? `${base}/plugins` : `${home}#${k}`}>
                   {t.nav[k]}
                 </a>
               </li>
