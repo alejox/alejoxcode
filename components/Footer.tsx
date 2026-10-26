@@ -1,5 +1,5 @@
 import { content, localePath, type Locale } from "@/lib/content";
-import { site } from "@/lib/site";
+import { SOCIAL_LABEL, site } from "@/lib/site";
 import { SOCIAL_ICONS } from "./Icons";
 import { Logo } from "./Logo";
 
@@ -15,7 +15,8 @@ export function Socials({ className = "" }: { className?: string }) {
             href={url}
             target="_blank"
             rel="noreferrer"
-            aria-label={key}
+            aria-label={SOCIAL_LABEL[key] ?? key}
+            title={SOCIAL_LABEL[key] ?? key}
             className="icon-tile size-10 transition hover:text-white"
           >
             {Icon && <Icon />}

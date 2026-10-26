@@ -91,6 +91,19 @@ export const LinkedinIcon = (p: P) => (
   </svg>
 );
 
+export const FacebookIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M13.5 21v-7.5h2.6l.4-3h-3V8.6c0-.9.3-1.5 1.5-1.5h1.6V4.4c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.2H7.8v3h2.6V21h3.1z" />
+  </svg>
+);
+
+export const MailIcon = (p: P) => (
+  <svg {...base} fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" {...p}>
+    <rect x="3" y="5" width="18" height="14" rx="2" />
+    <path d="m3 7 9 6 9-6" />
+  </svg>
+);
+
 export const SOCIAL_ICONS: Record<string, (p: P) => React.JSX.Element> = {
   github: GithubIcon,
   linkedin: LinkedinIcon,
@@ -99,6 +112,7 @@ export const SOCIAL_ICONS: Record<string, (p: P) => React.JSX.Element> = {
   x: XIcon,
   instagram: InstagramIcon,
   tiktok: TiktokIcon,
+  facebook: FacebookIcon,
 };
 
 const line = { fill: "none", stroke: "currentColor", strokeWidth: 1.5, strokeLinecap: "round", strokeLinejoin: "round" } as const;

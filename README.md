@@ -1,7 +1,9 @@
 # AlejoxCode
 
 Sitio personal de **Alejandro Grajales**, Frontend Developer en Linktic: hoja de vida, proyectos y, como sección aparte, su plugin para OBS. Disponible en español (`/`) e inglés (`/en`).
-Stack: **Next.js 16 (App Router) · Tailwind CSS 4 · Vercel**. Sitio 100 % estático: sin ba## Secciones
+Stack: **Next.js 16 (App Router) · Tailwind CSS 4 · Vercel**. Sitio 100 % estático: sin base de datos ni variables obligatorias.
+
+## Secciones
 
 - **Hero** con animación de motion graphics (órbitas con el stack, logo que se dibuja) y roles rotativos
 - **Sobre mí**, **Proyectos destacados** (Ventex, Cotejo, Devtecia, ENSAMA, OBS Now Playing) y **Experiencia**
@@ -17,8 +19,6 @@ Stack: **Next.js 16 (App Router) · Tailwind CSS 4 · Vercel**. Sitio 100 % est�
 | Versión y enlaces del plugin de OBS | [`lib/downloads.ts`](lib/downloads.ts) |
 
 Los botones de descarga de OBS Now Playing apuntan a `releases/latest`, así que siempre llevan a la última versión.
-
-ue siempre llevan a la última versión.
 
 ## Desarrollo local
 

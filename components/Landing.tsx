@@ -2,9 +2,9 @@ import Image from "next/image";
 import { content, type Locale, type Project } from "@/lib/content";
 import { nowPlaying } from "@/lib/downloads";
 import { site } from "@/lib/site";
-import { Footer } from "./Footer";
+import { Footer, Socials } from "./Footer";
 import { HeroMotion } from "./HeroMotion";
-import { ArrowIcon, DownloadIcon, GithubIcon, PlatformIcon } from "./Icons";
+import { ArrowIcon, DownloadIcon, GithubIcon, LinkedinIcon, MailIcon, PlatformIcon } from "./Icons";
 import { Navbar } from "./Navbar";
 import { RoleTicker } from "./RoleTicker";
 import { SectionHead } from "./Section";
@@ -217,22 +217,21 @@ export function Landing({ locale }: { locale: Locale }) {
             <h2 className="text-gradient mt-5 text-[32px] sm:text-[44px]">{t.contact.title}</h2>
             <p className="mx-auto mt-4 max-w-lg text-mist">{t.contact.text}</p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
-              {site.email && (
-                <a href={`mailto:${site.email}`} className="btn-primary btn-lg">{t.contact.email}</a>
-              )}
-              {site.socials.linkedin && (
-                <a href={site.socials.linkedin} target="_blank" rel="noreferrer" className={`${site.email ? "btn-ghost" : "btn-primary"} btn-lg`}>
-                  LinkedIn
-                </a>
-              )}
-              <a
-                href={site.socials.github}
-                target="_blank"
-                rel="noreferrer"
-                className={`${site.email || site.socials.linkedin ? "btn-ghost" : "btn-primary"} btn-lg`}
-              >
-                <GithubIcon width={16} height={16} /> github.com/alejox
+              <a href={`mailto:${site.email}`} className="btn-primary btn-lg">
+                <MailIcon width={16} height={16} /> {site.email}
               </a>
+              <a href={site.socials.linkedin} target="_blank" rel="noreferrer" className="btn-ghost btn-lg">
+                <LinkedinIcon width={16} height={16} /> LinkedIn
+              </a>
+              <a href={site.socials.github} target="_blank" rel="noreferrer" className="btn-ghost btn-lg">
+                <GithubIcon width={16} height={16} /> GitHub
+              </a>
+            </div>
+            <div className="mt-10 flex flex-col items-center gap-4">
+              <p className="font-mono text-xs uppercase tracking-[0.1em] text-muted">
+                {t.contact.follow} <span className="text-frost normal-case">{site.handle}</span>
+              </p>
+              <Socials className="justify-center" />
             </div>
           </div>
         </section>
