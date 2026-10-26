@@ -6,8 +6,8 @@ Stack: **Next.js 16 (App Router) · Tailwind CSS 4 · Vercel**. Sitio 100 % est�
 ## Secciones
 
 - **Hero** con animación de motion graphics (órbitas con el stack, logo que se dibuja) y roles rotativos
-- **Sobre mí**, **Proyectos destacados** (Ventex, Cotejo, Devtecia, ENSAMA, OBS Now Playing) y **Experiencia**
-- **OBS** (`#obs`): OBS Now Playing con descargas desde GitHub Releases
+- **Sobre mí**, **Proyectos destacados** (Ventex, Cotejo, Devtecia, ENSAMA) y **Experiencia**
+- **Plugins** (`/plugins` y `/en/plugins`): página aparte con Music Now Playing y descargas por plataforma
 - **Contacto**
 
 ## Editar el contenido
@@ -16,9 +16,8 @@ Stack: **Next.js 16 (App Router) · Tailwind CSS 4 · Vercel**. Sitio 100 % est�
 | --- | --- |
 | Todos los textos en español e inglés (perfil, proyectos, experiencia, OBS) | [`lib/content.ts`](lib/content.ts) |
 | Correo público, LinkedIn y redes | [`lib/site.ts`](lib/site.ts) |
-| Versión y enlaces del plugin de OBS | [`lib/downloads.ts`](lib/downloads.ts) |
+| Versión y descargas de los plugins | [`lib/downloads.ts`](lib/downloads.ts) |
 
-Los botones de descarga de OBS Now Playing apuntan a `releases/latest`, así que siempre llevan a la última versión.
 
 ## Desarrollo local
 

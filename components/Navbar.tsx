@@ -6,14 +6,18 @@ import { content, localePath, type Locale } from "@/lib/content";
 import { GlobeIcon } from "./Icons";
 import { Logo } from "./Logo";
 
-const sections = ["about", "projects", "experience", "obs", "contact"] as const;
+const sections = ["about", "projects", "experience", "plugins", "contact"] as const;
 
 export function Navbar({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
   const t = content[locale];
   const home = localePath[locale];
   const other: Locale = locale === "es" ? "en" : "es";
-  const links = sections.map((s) => ({ href: `${home === "/" ? "" : home}#${s}`, label: t.nav[s] }));
+  const pluginsPath = `${home === "/" ? "" : home}/plugins`;
+  const links = sections.map((s) => ({
+    href: s === "plugins" ? pluginsPath : `${home}#${s}`,
+    label: t.nav[s],
+  }));
 
   const LangSwitch = ({ className = "" }: { className?: string }) => (
     <a href={localePath[other]} hrefLang={other} className={`btn-ghost gap-2 px-3.5 py-2 ${className}`} aria-label={t.langLabel}>

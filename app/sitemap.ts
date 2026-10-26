@@ -3,8 +3,11 @@ import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const languages = { es: `${site.url}/`, en: `${site.url}/en` };
+  const pluginsLanguages = { es: `${site.url}/plugins`, en: `${site.url}/en/plugins` };
   return [
     { url: `${site.url}/`, changeFrequency: "monthly", priority: 1, alternates: { languages } },
     { url: `${site.url}/en`, changeFrequency: "monthly", priority: 0.9, alternates: { languages } },
+    { url: `${site.url}/plugins`, changeFrequency: "monthly", priority: 0.8, alternates: { languages: pluginsLanguages } },
+    { url: `${site.url}/en/plugins`, changeFrequency: "monthly", priority: 0.8, alternates: { languages: pluginsLanguages } },
   ];
 }
