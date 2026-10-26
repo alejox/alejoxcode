@@ -44,39 +44,44 @@ export function PluginDownloads({ items, urls, fallbackUrl, repoUrl, version, la
 
   return (
     <div className="mt-6">
-      <div className="space-y-2">
-        {items.map((d) => {
-          const direct = urls[d.id];
-          const isDetected = d.id === detected;
-          return (
-            <div key={d.id}>
-              <a
-                href={direct ?? fallbackUrl}
-                {...(!direct ? { target: "_blank", rel: "noreferrer" } : {})}
-                className={`${isDetected ? "btn-primary" : "btn-ghost"} w-full justify-start gap-3 px-5 py-3`}
-              >
-                <PlatformIcon platform={d.platform} width={15} height={15} />
-                <span className="flex-1 text-left">{d.label}</span>
-                <span className="hidden text-xs font-normal text-white/60 sm:inline">{d.hint}</span>
-                <DownloadIcon width={15} height={15} />
-              </a>
-              {isDetected && (
-                <p className="mt-1.5 flex items-center gap-1.5 px-1 text-[11px] text-brand-blue">
-                  <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
-                  {labels.detected}
-                </p>
-              )}
-            </div>
-          );
-        })}
+      {/* 1. Todas las versiones (GitHub) */}
+      <a href={fallbackUrl} target="_blank" rel="noreferrer" className="btn-primary w-full justify-center gap-2 px-5 py-3">
+        <GithubIcon width={15} height={15} /> {labels.allReleases}
+      </a>
+
+      {/* 2. Descarga recomendada para el equipo, 3. resto de plataformas */}
+      <div className="mt-3 space-y-2">
+        {[...items]
+          .sort((a, b) => Number(b.id === detected) - Number(a.id === detected))
+          .map((d) => {
+            const direct = urls[d.id];
+            const isDetected = d.id === detected;
+            return (
+              <div key={d.id}>
+                <a
+                  href={direct ?? fallbackUrl}
+                  {...(!direct ? { target: "_blank", rel: "noreferrer" } : {})}
+                  className={`${isDetected ? "btn-primary" : "btn-ghost"} w-full justify-start gap-3 px-5 py-3`}
+                >
+                  <PlatformIcon platform={d.platform} width={15} height={15} />
+                  <span className="flex-1 text-left">{d.label}</span>
+                  <span className="hidden text-xs font-normal text-white/60 sm:inline">{d.hint}</span>
+                  <DownloadIcon width={15} height={15} />
+                </a>
+                {isDetected && (
+                  <p className="mt-1.5 flex items-center gap-1.5 px-1 text-[11px] text-brand-blue">
+                    <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
+                    {labels.detected}
+                  </p>
+                )}
+              </div>
+            );
+          })}
       </div>
       <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">
         v{version} · {labels.directNote}
       </p>
-      <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
-        <a href={fallbackUrl} target="_blank" rel="noreferrer" className="btn-primary gap-2 px-5 py-3">
-          <GithubIcon width={15} height={15} /> {labels.allReleases}
-        </a>
+      <div className="mt-4 text-sm">
         <a href={repoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-mist hover:text-white">
           <GithubIcon width={14} height={14} /> {labels.repoLink} <ArrowIcon width={13} height={13} />
         </a>
