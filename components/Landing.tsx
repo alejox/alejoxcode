@@ -141,9 +141,6 @@ export function Landing({ locale }: { locale: Locale }) {
               <a href={site.socials.linkedin} target="_blank" rel="noreferrer" className="btn-ghost btn-lg">
                 <LinkedinIcon width={16} height={16} /> LinkedIn
               </a>
-              <a href={site.socials.github} target="_blank" rel="noreferrer" className="btn-ghost btn-lg">
-                <GithubIcon width={16} height={16} /> GitHub
-              </a>
             </div>
             <div className="mt-10 flex flex-col items-center gap-4">
               <p className="font-mono text-xs uppercase tracking-[0.1em] text-muted">
