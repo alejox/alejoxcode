@@ -112,7 +112,7 @@ const es = {
         external: true,
       },
       {
-        name: "OBS Now Playing",
+        name: "Music Now Playing",
         kind: "Plugin para OBS · C++",
         summary: "Plugin nativo para OBS Studio que muestra en el stream la canción que suena, con su carátula y controles.",
         highlights: [
@@ -144,19 +144,23 @@ const es = {
     intro: "Plugins que desarrollo y publico de forma independiente. Gratuitos, de código abierto y con descargas para cada sistema.",
     free: "Gratis · MIT",
     repoLink: "Código, instalación y FAQ",
+    detected: "Recomendado para tu equipo",
+    directNote: "Descarga directa desde GitHub",
+    allReleases: "Todas las versiones",
     items: [
       {
         slug: "obs-now-playing",
-        name: "OBS Now Playing",
+        name: "Music Now Playing",
         kind: "Plugin para OBS Studio · C++",
         tagline: "Muestra en tu stream la canción que estás escuchando, con su carátula, sus colores y botones para controlarla.",
         players: "Spotify, YouTube Music, Apple Music y cualquier reproductor que reconozca tu sistema. Sin cuentas ni API keys.",
         image: "/img/now-playing.png",
-        imageAlt: "Overlay de OBS Now Playing mostrando la canción actual",
+        imageAlt: "Overlay de Music Now Playing mostrando la canción actual",
         downloads: [
-          { label: "Windows", hint: "Instalador .exe (app + plugin)", platform: "windows" as const },
-          { label: "macOS · Apple Silicon", hint: "App .zip", platform: "macos" as const },
-          { label: "macOS · Intel", hint: "App .zip", platform: "macos" as const },
+          { id: "windows" as const, label: "Windows", hint: "Instalador .exe", platform: "windows" as const },
+          { id: "macos-apple" as const, label: "macOS · Apple Silicon", hint: "App .zip", platform: "macos" as const },
+          { id: "macos-intel" as const, label: "macOS · Intel", hint: "App .zip", platform: "macos" as const },
+          { id: "linux" as const, label: "Linux", hint: "App .tar.gz", platform: "linux" as const },
         ],
         features: [
           { title: "Colores de la carátula", text: "La tarjeta toma los colores de cada canción con una transición suave." },
@@ -279,7 +283,7 @@ const en: Content = {
         external: true,
       },
       {
-        name: "OBS Now Playing",
+        name: "Music Now Playing",
         kind: "OBS plugin · C++",
         summary: "Native OBS Studio plugin that shows the song currently playing on stream, with cover art and controls.",
         highlights: [
@@ -311,19 +315,23 @@ const en: Content = {
     intro: "Plugins I build and publish independently. Free, open source, with downloads for every platform.",
     free: "Free · MIT",
     repoLink: "Code, install guide and FAQ",
+    detected: "Recommended for your device",
+    directNote: "Direct download from GitHub",
+    allReleases: "All releases",
     items: [
       {
         slug: "obs-now-playing",
-        name: "OBS Now Playing",
+        name: "Music Now Playing",
         kind: "OBS Studio plugin · C++",
         tagline: "Shows the song you're listening to on your stream, with its cover art, its colors and buttons to control it.",
         players: "Spotify, YouTube Music, Apple Music and any player your system recognizes. No accounts, no API keys.",
         image: "/img/now-playing.png",
-        imageAlt: "OBS Now Playing overlay showing the current song",
+        imageAlt: "Music Now Playing overlay showing the current song",
         downloads: [
-          { label: "Windows", hint: ".exe installer (app + plugin)", platform: "windows" as const },
-          { label: "macOS · Apple Silicon", hint: "App .zip", platform: "macos" as const },
-          { label: "macOS · Intel", hint: "App .zip", platform: "macos" as const },
+          { id: "windows" as const, label: "Windows", hint: ".exe installer", platform: "windows" as const },
+          { id: "macos-apple" as const, label: "macOS · Apple Silicon", hint: "App .zip", platform: "macos" as const },
+          { id: "macos-intel" as const, label: "macOS · Intel", hint: "App .zip", platform: "macos" as const },
+          { id: "linux" as const, label: "Linux", hint: "App .tar.gz", platform: "linux" as const },
         ],
         features: [
           { title: "Cover art colors", text: "The card takes the colors of each song's cover, with a smooth transition." },
