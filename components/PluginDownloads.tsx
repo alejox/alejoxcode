@@ -73,9 +73,9 @@ export function PluginDownloads({ items, urls, fallbackUrl, repoUrl, version, la
       <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">
         v{version} · {labels.directNote}
       </p>
-      <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
-        <a href={fallbackUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-mist hover:text-white">
-          {labels.allReleases} <ArrowIcon width={13} height={13} />
+      <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-3 text-sm">
+        <a href={fallbackUrl} target="_blank" rel="noreferrer" className="btn-primary gap-2 px-5 py-3">
+          <GithubIcon width={15} height={15} /> {labels.allReleases}
         </a>
         <a href={repoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-mist hover:text-white">
           <GithubIcon width={14} height={14} /> {labels.repoLink} <ArrowIcon width={13} height={13} />
