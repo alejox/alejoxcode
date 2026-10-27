@@ -144,9 +144,6 @@ const es = {
     intro: "Plugins que desarrollo y publico de forma independiente. Gratuitos, de código abierto y con descargas para cada sistema.",
     free: "Gratis · MIT",
     repoLink: "Código, instalación y FAQ",
-    detected: "Recomendado para tu equipo",
-    directNote: "Descarga directa desde GitHub",
-    allReleases: "Todas las versiones",
     items: [
       {
         slug: "obs-now-playing",
@@ -157,7 +154,7 @@ const es = {
         image: "/img/now-playing.png",
         imageAlt: "Overlay de Music Now Playing mostrando la canción actual",
         downloads: [
-          { id: "windows" as const, label: "Windows", hint: "Instalador .exe", platform: "windows" as const },
+          { id: "windows" as const, label: "Windows", hint: "Instalador .exe (app + plugin)", platform: "windows" as const },
           { id: "macos-apple" as const, label: "macOS · Apple Silicon", hint: "App .zip", platform: "macos" as const },
           { id: "macos-intel" as const, label: "macOS · Intel", hint: "App .zip", platform: "macos" as const },
           { id: "linux" as const, label: "Linux", hint: "App .tar.gz", platform: "linux" as const },
@@ -316,9 +313,6 @@ const en: Content = {
     intro: "Plugins I build and publish independently. Free, open source, with downloads for every platform.",
     free: "Free · MIT",
     repoLink: "Code, install guide and FAQ",
-    detected: "Recommended for your device",
-    directNote: "Direct download from GitHub",
-    allReleases: "All releases",
     items: [
       {
         slug: "obs-now-playing",
@@ -329,7 +323,7 @@ const en: Content = {
         image: "/img/now-playing.png",
         imageAlt: "Music Now Playing overlay showing the current song",
         downloads: [
-          { id: "windows" as const, label: "Windows", hint: ".exe installer", platform: "windows" as const },
+          { id: "windows" as const, label: "Windows", hint: ".exe installer (app + plugin)", platform: "windows" as const },
           { id: "macos-apple" as const, label: "macOS · Apple Silicon", hint: "App .zip", platform: "macos" as const },
           { id: "macos-intel" as const, label: "macOS · Intel", hint: "App .zip", platform: "macos" as const },
           { id: "linux" as const, label: "Linux", hint: "App .tar.gz", platform: "linux" as const },

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { content, type Locale } from "@/lib/content";
-import { getLatestDownloads } from "@/lib/downloads";
+import { getLatestRelease } from "@/lib/downloads";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import { PluginDownloads } from "./PluginDownloads";
@@ -8,7 +8,7 @@ import { SectionHead } from "./Section";
 
 export async function Plugins({ locale }: { locale: Locale }) {
   const t = content[locale];
-  const latest = await getLatestDownloads();
+  const latest = await getLatestRelease();
 
   return (
     <>
@@ -55,18 +55,11 @@ export async function Plugins({ locale }: { locale: Locale }) {
 
                     <PluginDownloads
                       items={p.downloads}
-                      urls={latest.urls}
-                      fallbackUrl={latest.releases}
+                      releasesUrl={latest.releases}
                       repoUrl={latest.repo}
-                      version={latest.version}
-                      labels={{
-                        detected: t.pluginsPage.detected,
-                        directNote: t.pluginsPage.directNote,
-                        allReleases: t.pluginsPage.allReleases,
-                        repoLink: t.pluginsPage.repoLink,
-                      }}
+                      repoLink={t.pluginsPage.repoLink}
+                      requirements={latest.requirements}
                     />
-                    <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{latest.requirements}</p>
                   </div>
                 </div>
 
