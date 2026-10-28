@@ -210,7 +210,7 @@ const es = {
     email: "Escríbeme",
     follow: "Sígueme en redes como",
   },
-  footer: { site: "Sitio", built: "hecho con Next.js · desplegado en Vercel" },
+  footer: { site: "Sitio", tagline: "Diseño y desarrollo productos web y herramientas de código abierto." },
   langLabel: "English",
   stack,
 };
@@ -407,7 +407,7 @@ const en: Content = {
     email: "Email me",
     follow: "Follow me on social media as",
   },
-  footer: { site: "Site", built: "built with Next.js · deployed on Vercel" },
+  footer: { site: "Site", tagline: "I design and build web products and open-source tools." },
   langLabel: "Español",
   stack,
 };
