@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import type { DownloadId, LatestRelease, Platform } from "@/lib/downloads";
 import { ArrowIcon, DownloadIcon, GithubIcon, PlatformIcon } from "./Icons";
 
@@ -15,27 +18,59 @@ type Props = {
   repoUrl: string;
   repoLink: string;
   requirements: string;
+  detectedLabel: string;
 };
 
-/** Botones por plataforma: descargan directo el archivo del repo (respaldo: página de releases). */
-export function PluginDownloads({ items, urls, releasesUrl, repoUrl, repoLink, requirements }: Props) {
+function detectOS(): DownloadId | null {
+  const ua = navigator.userAgent;
+  if (/windows/i.test(ua)) return "windows";
+  if (/mac os x|macintosh/i.test(ua)) return "macos";
+  if (/linux/i.test(ua)) return "linux";
+  return null;
+}
+
+/** Botones por plataforma: detecta el SO y muestra esa descarga de primero. */
+export function PluginDownloads({ items, urls, releasesUrl, repoUrl, repoLink, requirements, detectedLabel }: Props) {
+  const [detected, setDetected] = useState<DownloadId | null>(null);
+
+  useEffect(() => {
+    const os = detectOS();
+    const ids = items.map((i) => i.id);
+    // Compatibilidad con plugins que separan Apple Silicon e Intel.
+    if (os === "macos" && !ids.includes("macos") && ids.includes("macos-apple")) {
+      setDetected("macos-apple");
+      return;
+    }
+    setDetected(os && ids.includes(os) ? os : null);
+  }, [items]);
+
+  const ordered = [...items].sort((a, b) => Number(b.id === detected) - Number(a.id === detected));
+
   return (
     <div className="mt-6">
       <div className="space-y-2">
-        {items.map((d, i) => {
+        {ordered.map((d, i) => {
           const direct = urls[d.id];
+          const isDetected = d.id === detected;
           return (
-            <a
-              key={d.id}
-              href={direct ?? releasesUrl}
-              {...(!direct ? { target: "_blank", rel: "noreferrer" } : {})}
-              className={`${i === 0 ? "btn-primary" : "btn-ghost"} w-full justify-start gap-3 px-5 py-3`}
-            >
-              <PlatformIcon platform={d.platform} width={15} height={15} />
-              <span className="flex-1 text-left">{d.label}</span>
-              <span className="hidden text-xs font-normal text-white/60 sm:inline">{d.hint}</span>
-              <DownloadIcon width={15} height={15} />
-            </a>
+            <div key={d.id}>
+              <a
+                href={direct ?? releasesUrl}
+                {...(!direct ? { target: "_blank", rel: "noreferrer" } : {})}
+                className={`${isDetected || (detected === null && i === 0) ? "btn-primary" : "btn-ghost"} w-full justify-start gap-3 px-5 py-3`}
+              >
+                <PlatformIcon platform={d.platform} width={15} height={15} />
+                <span className="flex-1 text-left">{d.label}</span>
+                <span className="hidden text-xs font-normal text-white/60 sm:inline">{d.hint}</span>
+                <DownloadIcon width={15} height={15} />
+              </a>
+              {isDetected && (
+                <p className="mt-1.5 flex items-center gap-1.5 px-1 text-[11px] text-brand-blue">
+                  <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
+                  {detectedLabel}
+                </p>
+              )}
+            </div>
           );
         })}
       </div>

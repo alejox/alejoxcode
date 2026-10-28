@@ -144,6 +144,7 @@ const es = {
     intro: "Plugins que desarrollo y publico de forma independiente. Gratuitos, de código abierto y con descargas para cada sistema.",
     free: "Gratis · MIT",
     repoLink: "Código, instalación y FAQ",
+    detected: "Recomendado para tu equipo",
     coffee: "Apóyame en Ko-fi",
     coffeeCta: "¿Te sirven mis plugins? Invítame un café y ayúdame a crear más herramientas para streamers.",
     items: [
@@ -342,6 +343,7 @@ const en: Content = {
     intro: "Plugins I build and publish independently. Free, open source, with downloads for every platform.",
     free: "Free · MIT",
     repoLink: "Code, install guide and FAQ",
+    detected: "Recommended for your device",
     coffee: "Support me on Ko-fi",
     coffeeCta: "Are my plugins useful to you? Buy me a coffee and help me build more tools for streamers.",
     items: [

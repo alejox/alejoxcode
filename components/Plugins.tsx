@@ -91,6 +91,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
                       repoUrl={latest.repo}
                       repoLink={t.pluginsPage.repoLink}
                       requirements={latest.requirements}
+                      detectedLabel={t.pluginsPage.detected}
                     />
                   </div>
                 </div>
