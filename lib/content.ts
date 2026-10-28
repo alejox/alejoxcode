@@ -157,10 +157,9 @@ const es = {
         image: "/img/now-playing.png",
         imageAlt: "Overlay de Music Now Playing mostrando la canción actual",
         downloads: [
-          { id: "windows" as const, label: "Windows", hint: "Instalador .exe (app + plugin)", platform: "windows" as const },
-          { id: "macos-apple" as const, label: "macOS · Apple Silicon", hint: "App .zip", platform: "macos" as const },
-          { id: "macos-intel" as const, label: "macOS · Intel", hint: "App .zip", platform: "macos" as const },
-          { id: "linux" as const, label: "Linux", hint: "App .tar.gz", platform: "linux" as const },
+          { id: "windows" as const, label: "Windows", hint: "App + plugin .zip", platform: "windows" as const },
+          { id: "macos" as const, label: "macOS", hint: "App .zip", platform: "macos" as const },
+          { id: "linux" as const, label: "Linux", hint: "App .zip", platform: "linux" as const },
         ],
         features: [
           { title: "Colores de la carátula", text: "La tarjeta toma los colores de cada canción con una transición suave." },
@@ -356,10 +355,9 @@ const en: Content = {
         image: "/img/now-playing.png",
         imageAlt: "Music Now Playing overlay showing the current song",
         downloads: [
-          { id: "windows" as const, label: "Windows", hint: ".exe installer (app + plugin)", platform: "windows" as const },
-          { id: "macos-apple" as const, label: "macOS · Apple Silicon", hint: "App .zip", platform: "macos" as const },
-          { id: "macos-intel" as const, label: "macOS · Intel", hint: "App .zip", platform: "macos" as const },
-          { id: "linux" as const, label: "Linux", hint: "App .tar.gz", platform: "linux" as const },
+          { id: "windows" as const, label: "Windows", hint: "App + plugin .zip", platform: "windows" as const },
+          { id: "macos" as const, label: "macOS", hint: "App .zip", platform: "macos" as const },
+          { id: "linux" as const, label: "Linux", hint: "App .zip", platform: "linux" as const },
         ],
         features: [
           { title: "Cover art colors", text: "The card takes the colors of each song's cover, with a smooth transition." },

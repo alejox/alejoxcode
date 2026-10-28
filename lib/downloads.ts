@@ -30,9 +30,12 @@ const pluginReleases: Record<string, PluginRelease> = {
     version: "2.4.25",
     requirements: "OBS 31+ · Windows 10/11 · macOS 12+ · Linux",
     matchers: [
+      ["windows", /windows-x64\.zip$/i],
       ["windows", /Setup-[\d.]+\.exe$/i],
+      ["macos", /macos\.zip$/i],
       ["macos-apple", /mac-apple\.zip$/i],
       ["macos-intel", /mac-intel\.zip$/i],
+      ["linux", /linux-x86_64\.zip$/i],
       ["linux", /linux-x64\.tar\.gz$/i],
     ],
   },
