@@ -86,6 +86,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
 
                     <PluginDownloads
                       items={p.downloads}
+                      urls={latest.urls}
                       releasesUrl={latest.releases}
                       repoUrl={latest.repo}
                       repoLink={t.pluginsPage.repoLink}
