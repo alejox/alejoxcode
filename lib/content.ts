@@ -24,7 +24,7 @@ const es = {
   meta: {
     title: "Alejandro Grajales — Frontend Developer",
     description:
-      "Frontend Developer en Linktic, trabajando con Vue. Construyo productos web con Vue, React, Next.js y Supabase, con integraciones e IA. Más de 15 años de experiencia previa en diseño gráfico.",
+      "Frontend Developer. Construyo productos web con Vue, React, Next.js y Supabase, con integraciones e IA. Más de 15 años de experiencia previa en diseño gráfico.",
   },
   nav: { about: "Sobre mí", projects: "Proyectos", experience: "Experiencia", plugins: "OBS", contact: "Contacto" },
   hero: {
@@ -39,11 +39,11 @@ const es = {
     eyebrow: "Sobre mí",
     title: "Del diseño al desarrollo de producto.",
     body: [
-      "Desde septiembre de 2025 soy Frontend Developer en Linktic, donde trabajo con Vue; en mis proyectos uso también React, Next.js y TypeScript. Estudié desarrollo de software y, antes, trabajé más de 15 años como diseñador gráfico y web. Esa base me permite llevar un diseño de Figma a una interfaz precisa y consistente, y proponer mejoras de experiencia de usuario.",
+      "Soy Frontend Developer y trabajo con Vue; en mis proyectos uso también React, Next.js y TypeScript. Estudié desarrollo de software y, antes, trabajé más de 15 años como diseñador gráfico y web. Esa base me permite llevar un diseño de Figma a una interfaz precisa y consistente, y proponer mejoras de experiencia de usuario.",
       "Más allá de la interfaz, construyo productos completos: bases de datos y autenticación con Supabase, integraciones con APIs externas, bots y procesos con IA. También soy graduado en música, y esa combinación de música y código terminó en un plugin para OBS.",
     ],
     facts: [
-      { label: "Rol actual", value: "Frontend Developer · Linktic" },
+      { label: "Rol actual", value: "Frontend Developer" },
       { label: "Formación", value: "Desarrollo de software · Música" },
       { label: "Experiencia previa", value: "Diseño gráfico y web desde 2006" },
       { label: "Ubicación", value: "Colombia" },
@@ -145,6 +145,7 @@ const es = {
     free: "Gratis · MIT",
     repoLink: "Código, instalación y FAQ",
     coffee: "Apóyame en Ko-fi",
+    coffeeCta: "¿Te sirven mis plugins? Invítame un café y ayúdame a crear más herramientas para streamers.",
     items: [
       {
         slug: "obs-now-playing",
@@ -222,7 +223,7 @@ const en: Content = {
   meta: {
     title: "Alejandro Grajales — Frontend Developer",
     description:
-      "Frontend Developer at Linktic, working with Vue. I build web products with Vue, React, Next.js and Supabase, including integrations and AI. 15+ years of prior experience in graphic design.",
+      "Frontend Developer. I build web products with Vue, React, Next.js and Supabase, including integrations and AI. 15+ years of prior experience in graphic design.",
   },
   nav: { about: "About", projects: "Projects", experience: "Experience", plugins: "OBS", contact: "Contact" },
   hero: {
@@ -237,11 +238,11 @@ const en: Content = {
     eyebrow: "About",
     title: "From design to product development.",
     body: [
-      "Since September 2025 I've been a Frontend Developer at Linktic, where I work with Vue; in my own projects I also use React, Next.js and TypeScript. I studied software development, and before that I spent 15+ years as a graphic and web designer. That background lets me turn a Figma design into a precise, consistent interface and suggest user experience improvements.",
+      "I'm a Frontend Developer working with Vue; in my own projects I also use React, Next.js and TypeScript. I studied software development, and before that I spent 15+ years as a graphic and web designer. That background lets me turn a Figma design into a precise, consistent interface and suggest user experience improvements.",
       "Beyond the interface, I build complete products: databases and authentication with Supabase, integrations with external APIs, bots and AI-powered workflows. I also hold a degree in music, and mixing music with code led to a plugin for OBS.",
     ],
     facts: [
-      { label: "Current role", value: "Frontend Developer · Linktic" },
+      { label: "Current role", value: "Frontend Developer" },
       { label: "Education", value: "Software development · Music" },
       { label: "Prior experience", value: "Graphic & web design since 2006" },
       { label: "Location", value: "Colombia" },
@@ -343,6 +344,7 @@ const en: Content = {
     free: "Free · MIT",
     repoLink: "Code, install guide and FAQ",
     coffee: "Support me on Ko-fi",
+    coffeeCta: "Are my plugins useful to you? Buy me a coffee and help me build more tools for streamers.",
     items: [
       {
         slug: "obs-now-playing",

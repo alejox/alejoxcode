@@ -26,14 +26,15 @@ export async function Plugins({ locale }: { locale: Locale }) {
             </SectionHead>
 
             {site.kofi && (
-              <div className="mt-8 flex justify-center">
+              <div className="mt-10 flex flex-col items-center gap-4">
+                <p className="max-w-md text-center text-[15px] leading-relaxed text-mist">{t.pluginsPage.coffeeCta}</p>
                 <a
                   href={site.kofi}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-[#13C3FF] px-7 py-3 text-[15px] font-semibold text-white shadow-[0_8px_30px_-8px_rgb(19_195_255/0.5)] transition hover:scale-[1.03] hover:brightness-105"
+                  className="coffee-cta inline-flex items-center gap-2.5 rounded-full bg-[#13C3FF] px-8 py-3.5 text-base font-semibold text-white transition hover:scale-[1.05] hover:brightness-110"
                 >
-                  <span aria-hidden className="text-lg">☕</span>
+                  <span aria-hidden className="coffee-cup text-xl">☕</span>
                   {t.pluginsPage.coffee}
                 </a>
               </div>
