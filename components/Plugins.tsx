@@ -92,6 +92,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
                       repoLink={t.pluginsPage.repoLink}
                       requirements={latest.requirements}
                       detectedLabel={t.pluginsPage.detected}
+                      macInstall={t.pluginsPage.macInstall}
                     />
                   </div>
                 </div>

@@ -145,6 +145,7 @@ const es = {
     free: "Gratis · MIT",
     repoLink: "Código, instalación y FAQ",
     detected: "Recomendado para tu equipo",
+    macInstall: "Instalación en macOS: descomprime el .zip y copia el plugin en:",
     coffee: "Apóyame en Ko-fi",
     coffeeCta: "¿Te sirven mis plugins? Invítame un café y ayúdame a crear más herramientas para streamers.",
     items: [
@@ -344,6 +345,7 @@ const en: Content = {
     free: "Free · MIT",
     repoLink: "Code, install guide and FAQ",
     detected: "Recommended for your device",
+    macInstall: "To install on macOS, unzip and copy the plugin into:",
     coffee: "Support me on Ko-fi",
     coffeeCta: "Are my plugins useful to you? Buy me a coffee and help me build more tools for streamers.",
     items: [

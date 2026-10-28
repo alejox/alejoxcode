@@ -19,6 +19,7 @@ type Props = {
   repoLink: string;
   requirements: string;
   detectedLabel: string;
+  macInstall: string;
 };
 
 function detectOS(): DownloadId | null {
@@ -30,7 +31,7 @@ function detectOS(): DownloadId | null {
 }
 
 /** Botones por plataforma: detecta el SO y muestra esa descarga de primero. */
-export function PluginDownloads({ items, urls, releasesUrl, repoUrl, repoLink, requirements, detectedLabel }: Props) {
+export function PluginDownloads({ items, urls, releasesUrl, repoUrl, repoLink, requirements, detectedLabel, macInstall }: Props) {
   const [detected, setDetected] = useState<DownloadId | null>(null);
 
   useEffect(() => {
@@ -74,6 +75,14 @@ export function PluginDownloads({ items, urls, releasesUrl, repoUrl, repoLink, r
           );
         })}
       </div>
+      {items.some((d) => d.platform === "macos") && (
+        <p className="mt-4 text-xs leading-relaxed text-muted">
+          {macInstall}{" "}
+          <code className="rounded bg-panel-2 px-1.5 py-0.5 font-mono text-[11px] break-all text-frost">
+            ~/Library/Application Support/obs-studio/plugins/
+          </code>
+        </p>
+      )}
       <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{requirements}</p>
       <a href={repoUrl} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm text-mist hover:text-white">
         <GithubIcon width={15} height={15} /> {repoLink} <ArrowIcon width={14} height={14} />
