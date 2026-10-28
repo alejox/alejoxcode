@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { content, type Locale } from "@/lib/content";
 import { getLatestRelease } from "@/lib/downloads";
+import { site } from "@/lib/site";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import { PluginDownloads } from "./PluginDownloads";
@@ -23,6 +24,20 @@ export async function Plugins({ locale }: { locale: Locale }) {
             <SectionHead eyebrow={t.pluginsPage.eyebrow} title={t.pluginsPage.title}>
               {t.pluginsPage.intro}
             </SectionHead>
+
+            {site.buyMeACoffee && (
+              <div className="mt-8 flex justify-center">
+                <a
+                  href={site.buyMeACoffee}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-[#FFDD00] px-7 py-3 text-[15px] font-semibold text-black shadow-[0_8px_30px_-8px_rgb(255_221_0/0.5)] transition hover:scale-[1.03] hover:brightness-105"
+                >
+                  <span aria-hidden className="text-lg">☕</span>
+                  {t.pluginsPage.coffee}
+                </a>
+              </div>
+            )}
 
             {items.map(({ p, latest }) => (
               <article key={p.slug} className="mt-14">

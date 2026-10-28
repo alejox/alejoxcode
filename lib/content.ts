@@ -144,6 +144,7 @@ const es = {
     intro: "Plugins que desarrollo y publico de forma independiente. Gratuitos, de código abierto y con descargas para cada sistema.",
     free: "Gratis · MIT",
     repoLink: "Código, instalación y FAQ",
+    coffee: "Buy me a coffee",
     items: [
       {
         slug: "obs-now-playing",
@@ -341,6 +342,7 @@ const en: Content = {
     intro: "Plugins I build and publish independently. Free, open source, with downloads for every platform.",
     free: "Free · MIT",
     repoLink: "Code, install guide and FAQ",
+    coffee: "Buy me a coffee",
     items: [
       {
         slug: "obs-now-playing",
