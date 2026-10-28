@@ -25,13 +25,13 @@ export async function Plugins({ locale }: { locale: Locale }) {
               {t.pluginsPage.intro}
             </SectionHead>
 
-            {site.buyMeACoffee && (
+            {site.kofi && (
               <div className="mt-8 flex justify-center">
                 <a
-                  href={site.buyMeACoffee}
+                  href={site.kofi}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-2.5 rounded-full bg-[#FFDD00] px-7 py-3 text-[15px] font-semibold text-black shadow-[0_8px_30px_-8px_rgb(255_221_0/0.5)] transition hover:scale-[1.03] hover:brightness-105"
+                  className="inline-flex items-center gap-2.5 rounded-full bg-[#13C3FF] px-7 py-3 text-[15px] font-semibold text-white shadow-[0_8px_30px_-8px_rgb(19_195_255/0.5)] transition hover:scale-[1.03] hover:brightness-105"
                 >
                   <span aria-hidden className="text-lg">☕</span>
                   {t.pluginsPage.coffee}
