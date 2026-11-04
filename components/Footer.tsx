@@ -36,7 +36,7 @@ export function Footer({ locale }: { locale: Locale }) {
       <div className="mx-auto grid max-w-[1200px] gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.5fr_1fr_1fr]">
         <div className="space-y-4">
           <Logo />
-          <p className="max-w-sm text-sm text-muted">{t.meta.description}</p>
+          <p className="max-w-sm text-sm text-muted">{t.footer.tagline}</p>
           <Socials />
         </div>
         <div className="md:col-start-3">
@@ -53,7 +53,7 @@ export function Footer({ locale }: { locale: Locale }) {
         </div>
       </div>
       <div className="py-6 text-center font-mono text-xs text-muted shadow-[inset_0_1px_0_rgb(186_215_247/0.06)]">
-        © {new Date().getFullYear()} {site.author} · {site.name} · {t.footer.built}
+        © {new Date().getFullYear()} {site.author} · {site.name}
       </div>
     </footer>
   );

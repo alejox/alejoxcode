@@ -7,6 +7,8 @@ export const site = {
   email: "alejoxcode@gmail.com",
   // Usuario de las redes sociales (se muestra en Contacto).
   handle: "@alejoxcode",
+  // Ko-fi (botón de apoyo en la página de plugins; pagos por PayPal).
+  kofi: "https://ko-fi.com/alejoxcode",
   // El orden aquí es el orden en que aparecen los íconos.
   socials: {
     linkedin: "https://www.linkedin.com/in/alejoxcode",

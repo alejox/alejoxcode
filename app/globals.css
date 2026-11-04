@@ -279,3 +279,20 @@ h1, h2, h3, h4 {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
 
+
+/* Botón Ko-fi: pulso luminoso + vaivén de la taza para llamar la atención. */
+@keyframes coffee-pulse {
+  0% { box-shadow: 0 0 0 0 rgb(19 195 255 / 0.45), 0 8px 30px -8px rgb(19 195 255 / 0.5); }
+  70% { box-shadow: 0 0 0 18px rgb(19 195 255 / 0), 0 8px 30px -8px rgb(19 195 255 / 0.5); }
+  100% { box-shadow: 0 0 0 0 rgb(19 195 255 / 0), 0 8px 30px -8px rgb(19 195 255 / 0.5); }
+}
+@keyframes coffee-wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-14deg); }
+  40% { transform: rotate(10deg); }
+  60% { transform: rotate(-6deg); }
+  80% { transform: rotate(4deg); }
+}
+.coffee-cta { animation: coffee-pulse 2.4s ease-out infinite; }
+.coffee-cup { display: inline-block; transform-origin: 50% 80%; animation: coffee-wiggle 1.8s ease-in-out infinite; }
+.coffee-cta:hover { animation-play-state: paused; }

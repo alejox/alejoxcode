@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { content, type Locale } from "@/lib/content";
 import { getLatestRelease } from "@/lib/downloads";
+import { site } from "@/lib/site";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 import { PluginDownloads } from "./PluginDownloads";
@@ -8,7 +9,9 @@ import { SectionHead } from "./Section";
 
 export async function Plugins({ locale }: { locale: Locale }) {
   const t = content[locale];
-  const latest = await getLatestRelease();
+  const items = await Promise.all(
+    t.pluginsPage.items.map(async (p) => ({ p, latest: await getLatestRelease(p.slug) }))
+  );
 
   return (
     <>
@@ -22,24 +25,52 @@ export async function Plugins({ locale }: { locale: Locale }) {
               {t.pluginsPage.intro}
             </SectionHead>
 
-            {t.pluginsPage.items.map((p) => (
+            {site.kofi && (
+              <div className="mt-10 flex flex-col items-center gap-4">
+                <p className="max-w-md text-center text-[15px] leading-relaxed text-mist">{t.pluginsPage.coffeeCta}</p>
+                <a
+                  href={site.kofi}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="coffee-cta inline-flex items-center gap-2.5 rounded-full bg-[#13C3FF] px-8 py-3.5 text-base font-semibold text-white transition hover:scale-[1.05] hover:brightness-110"
+                >
+                  <span aria-hidden className="coffee-cup text-xl">☕</span>
+                  {t.pluginsPage.coffee}
+                </a>
+              </div>
+            )}
+
+            {items.map(({ p, latest }) => (
               <article key={p.slug} className="mt-14">
                 <div className="glass-deep grid overflow-hidden lg:grid-cols-[1.15fr_1fr]">
                   <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_30%_20%,rgb(102_58_243/0.28),transparent_60%),radial-gradient(ellipse_at_80%_90%,rgb(152_192_239/0.16),transparent_55%),#070914] p-6 sm:p-10">
-                    <Image
-                      src={p.image}
-                      alt={p.imageAlt}
-                      width={1120}
-                      height={400}
-                      className="float w-full rounded-2xl shadow-[0_30px_60px_-20px_rgb(0_0_0/0.8)]"
-                    />
+                    {p.image ? (
+                      <Image
+                        src={p.image}
+                        alt={p.imageAlt}
+                        width={1120}
+                        height={400}
+                        className="float w-full rounded-2xl shadow-[0_30px_60px_-20px_rgb(0_0_0/0.8)]"
+                      />
+                    ) : (
+                      <div className="float glass flex w-full flex-col items-center gap-5 rounded-2xl px-6 py-14 shadow-[0_30px_60px_-20px_rgb(0_0_0/0.8)]">
+                        <span className="text-gradient text-3xl font-semibold sm:text-4xl">{p.name}</span>
+                        <div className="flex flex-wrap justify-center gap-2">
+                          {p.platforms.split(" · ").map((name) => (
+                            <span key={name} className="rounded-md bg-panel-2 px-3 py-1.5 text-sm text-frost">
+                              {name}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                     <div className="mt-6 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.1em] text-mist">
                       <span className="eq flex h-4 items-end gap-[3px]">
                         {[0.2, 0.5, 0.1, 0.35].map((d) => (
                           <span key={d} className="h-full w-[3px] rounded-full bg-frost" style={{ animationDelay: `${d}s` }} />
                         ))}
                       </span>
-                      Spotify · YouTube Music · Apple Music
+                      {p.platforms}
                     </div>
                   </div>
 
@@ -55,10 +86,13 @@ export async function Plugins({ locale }: { locale: Locale }) {
 
                     <PluginDownloads
                       items={p.downloads}
+                      urls={latest.urls}
                       releasesUrl={latest.releases}
                       repoUrl={latest.repo}
                       repoLink={t.pluginsPage.repoLink}
                       requirements={latest.requirements}
+                      detectedLabel={t.pluginsPage.detected}
+                      macInstall={t.pluginsPage.macInstall}
                     />
                   </div>
                 </div>

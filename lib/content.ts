@@ -24,7 +24,7 @@ const es = {
   meta: {
     title: "Alejandro Grajales — Frontend Developer",
     description:
-      "Frontend Developer en Linktic, trabajando con Vue. Construyo productos web con Vue, React, Next.js y Supabase, con integraciones e IA. Más de 15 años de experiencia previa en diseño gráfico.",
+      "Frontend Developer. Construyo productos web con Vue, React, Next.js y Supabase, con integraciones e IA. Más de 15 años de experiencia previa en diseño gráfico.",
   },
   nav: { about: "Sobre mí", projects: "Proyectos", experience: "Experiencia", plugins: "OBS", contact: "Contacto" },
   hero: {
@@ -39,11 +39,11 @@ const es = {
     eyebrow: "Sobre mí",
     title: "Del diseño al desarrollo de producto.",
     body: [
-      "Desde septiembre de 2025 soy Frontend Developer en Linktic, donde trabajo con Vue; en mis proyectos uso también React, Next.js y TypeScript. Estudié desarrollo de software y, antes, trabajé más de 15 años como diseñador gráfico y web. Esa base me permite llevar un diseño de Figma a una interfaz precisa y consistente, y proponer mejoras de experiencia de usuario.",
+      "Soy Frontend Developer y trabajo con Vue; en mis proyectos uso también React, Next.js y TypeScript. Estudié desarrollo de software y, antes, trabajé más de 15 años como diseñador gráfico y web. Esa base me permite llevar un diseño de Figma a una interfaz precisa y consistente, y proponer mejoras de experiencia de usuario.",
       "Más allá de la interfaz, construyo productos completos: bases de datos y autenticación con Supabase, integraciones con APIs externas, bots y procesos con IA. También soy graduado en música, y esa combinación de música y código terminó en un plugin para OBS.",
     ],
     facts: [
-      { label: "Rol actual", value: "Frontend Developer · Linktic" },
+      { label: "Rol actual", value: "Frontend Developer" },
       { label: "Formación", value: "Desarrollo de software · Música" },
       { label: "Experiencia previa", value: "Diseño gráfico y web desde 2006" },
       { label: "Ubicación", value: "Colombia" },
@@ -144,6 +144,10 @@ const es = {
     intro: "Plugins que desarrollo y publico de forma independiente. Gratuitos, de código abierto y con descargas para cada sistema.",
     free: "Gratis · MIT",
     repoLink: "Código, instalación y FAQ",
+    detected: "Recomendado para tu equipo",
+    macInstall: "Instalación en macOS: descomprime el .zip y copia el plugin en:",
+    coffee: "Apóyame en Ko-fi",
+    coffeeCta: "¿Te sirven mis plugins? Invítame un café y ayúdame a crear más herramientas para streamers.",
     items: [
       {
         slug: "obs-now-playing",
@@ -151,13 +155,13 @@ const es = {
         kind: "Plugin para OBS Studio · C++",
         tagline: "Muestra en tu stream la canción que estás escuchando, con su carátula, sus colores y botones para controlarla.",
         players: "Spotify, YouTube Music, Apple Music y cualquier reproductor que reconozca tu sistema. Sin cuentas ni API keys.",
+        platforms: "Spotify · YouTube Music · Apple Music",
         image: "/img/now-playing.png",
         imageAlt: "Overlay de Music Now Playing mostrando la canción actual",
         downloads: [
-          { id: "windows" as const, label: "Windows", hint: "Instalador .exe (app + plugin)", platform: "windows" as const },
-          { id: "macos-apple" as const, label: "macOS · Apple Silicon", hint: "App .zip", platform: "macos" as const },
-          { id: "macos-intel" as const, label: "macOS · Intel", hint: "App .zip", platform: "macos" as const },
-          { id: "linux" as const, label: "Linux", hint: "App .tar.gz", platform: "linux" as const },
+          { id: "windows" as const, label: "Windows", hint: "App + plugin .zip", platform: "windows" as const },
+          { id: "macos" as const, label: "macOS", hint: "App .zip", platform: "macos" as const },
+          { id: "linux" as const, label: "Linux", hint: "App .zip", platform: "linux" as const },
         ],
         features: [
           { title: "Colores de la carátula", text: "La tarjeta toma los colores de cada canción con una transición suave." },
@@ -173,6 +177,33 @@ const es = {
           "Builds y releases para Windows y macOS con GitHub Actions",
         ],
       },
+      {
+        slug: "multi-chat",
+        name: "Multi Chat",
+        kind: "Plugin para OBS Studio · C++",
+        tagline: "Los chats de Twitch, YouTube, Kick y TikTok juntos en un dock de OBS y en tu escena. Detecta cuándo haces multistream y conecta solo los chats de las plataformas donde estás en vivo.",
+        players: "Plugin nativo para OBS 33: no necesita Python, cuentas ni claves de API.",
+        platforms: "Twitch · YouTube · Kick · TikTok",
+        image: "",
+        imageAlt: "",
+        downloads: [
+          { id: "windows" as const, label: "Windows", hint: "Plugin .zip", platform: "windows" as const },
+          { id: "macos" as const, label: "macOS", hint: "Plugin .zip", platform: "macos" as const },
+        ],
+        features: [
+          { title: "Dock Multichat", text: "Todos los mensajes juntos con el logo de cada plataforma, insignias, emotes, Super Chats, bits y regalos." },
+          { title: "Multistream automático", text: "Detecta en qué plataformas estás en vivo y conecta solo esos chats. También con Restream o StreamYard." },
+          { title: "Chat en tu escena", text: "Fuente con fondo transparente, en vertical u horizontal, con estilos como Cristal, Synthwave o Cyberpunk." },
+          { title: "Espectadores y reloj", text: "Recuadros con los espectadores de cada plataforma, el total y la fecha y hora, listos para tu escena." },
+        ],
+        builtTitle: "Cómo está hecho",
+        built: [
+          "Plugin nativo en C++ sobre la API de OBS 33, con dock en Qt",
+          "Conexión directa a Twitch, YouTube, Kick y TikTok, sin cuentas ni API keys",
+          "Fuentes de escena configurables y mensajes de prueba sin estar en directo",
+          "Builds y releases para Windows y macOS con GitHub Actions",
+        ],
+      },
     ],
   },
   contact: {
@@ -182,7 +213,7 @@ const es = {
     email: "Escríbeme",
     follow: "Sígueme en redes como",
   },
-  footer: { site: "Sitio", built: "hecho con Next.js · desplegado en Vercel" },
+  footer: { site: "Sitio", tagline: "Diseño y desarrollo productos web y herramientas de código abierto." },
   langLabel: "English",
   stack,
 };
@@ -193,7 +224,7 @@ const en: Content = {
   meta: {
     title: "Alejandro Grajales — Frontend Developer",
     description:
-      "Frontend Developer at Linktic, working with Vue. I build web products with Vue, React, Next.js and Supabase, including integrations and AI. 15+ years of prior experience in graphic design.",
+      "Frontend Developer. I build web products with Vue, React, Next.js and Supabase, including integrations and AI. 15+ years of prior experience in graphic design.",
   },
   nav: { about: "About", projects: "Projects", experience: "Experience", plugins: "OBS", contact: "Contact" },
   hero: {
@@ -208,11 +239,11 @@ const en: Content = {
     eyebrow: "About",
     title: "From design to product development.",
     body: [
-      "Since September 2025 I've been a Frontend Developer at Linktic, where I work with Vue; in my own projects I also use React, Next.js and TypeScript. I studied software development, and before that I spent 15+ years as a graphic and web designer. That background lets me turn a Figma design into a precise, consistent interface and suggest user experience improvements.",
+      "I'm a Frontend Developer working with Vue; in my own projects I also use React, Next.js and TypeScript. I studied software development, and before that I spent 15+ years as a graphic and web designer. That background lets me turn a Figma design into a precise, consistent interface and suggest user experience improvements.",
       "Beyond the interface, I build complete products: databases and authentication with Supabase, integrations with external APIs, bots and AI-powered workflows. I also hold a degree in music, and mixing music with code led to a plugin for OBS.",
     ],
     facts: [
-      { label: "Current role", value: "Frontend Developer · Linktic" },
+      { label: "Current role", value: "Frontend Developer" },
       { label: "Education", value: "Software development · Music" },
       { label: "Prior experience", value: "Graphic & web design since 2006" },
       { label: "Location", value: "Colombia" },
@@ -313,6 +344,10 @@ const en: Content = {
     intro: "Plugins I build and publish independently. Free, open source, with downloads for every platform.",
     free: "Free · MIT",
     repoLink: "Code, install guide and FAQ",
+    detected: "Recommended for your device",
+    macInstall: "To install on macOS, unzip and copy the plugin into:",
+    coffee: "Support me on Ko-fi",
+    coffeeCta: "Are my plugins useful to you? Buy me a coffee and help me build more tools for streamers.",
     items: [
       {
         slug: "obs-now-playing",
@@ -320,13 +355,13 @@ const en: Content = {
         kind: "OBS Studio plugin · C++",
         tagline: "Shows the song you're listening to on your stream, with its cover art, its colors and buttons to control it.",
         players: "Spotify, YouTube Music, Apple Music and any player your system recognizes. No accounts, no API keys.",
+        platforms: "Spotify · YouTube Music · Apple Music",
         image: "/img/now-playing.png",
         imageAlt: "Music Now Playing overlay showing the current song",
         downloads: [
-          { id: "windows" as const, label: "Windows", hint: ".exe installer (app + plugin)", platform: "windows" as const },
-          { id: "macos-apple" as const, label: "macOS · Apple Silicon", hint: "App .zip", platform: "macos" as const },
-          { id: "macos-intel" as const, label: "macOS · Intel", hint: "App .zip", platform: "macos" as const },
-          { id: "linux" as const, label: "Linux", hint: "App .tar.gz", platform: "linux" as const },
+          { id: "windows" as const, label: "Windows", hint: "App + plugin .zip", platform: "windows" as const },
+          { id: "macos" as const, label: "macOS", hint: "App .zip", platform: "macos" as const },
+          { id: "linux" as const, label: "Linux", hint: "App .zip", platform: "linux" as const },
         ],
         features: [
           { title: "Cover art colors", text: "The card takes the colors of each song's cover, with a smooth transition." },
@@ -342,6 +377,33 @@ const en: Content = {
           "Windows and macOS builds and releases with GitHub Actions",
         ],
       },
+      {
+        slug: "multi-chat",
+        name: "Multi Chat",
+        kind: "OBS Studio plugin · C++",
+        tagline: "Twitch, YouTube, Kick and TikTok chats together in an OBS dock and in your scene. It detects when you're multistreaming and connects only the chats of the platforms where you're live.",
+        players: "Native plugin for OBS 33: no Python, no accounts, no API keys.",
+        platforms: "Twitch · YouTube · Kick · TikTok",
+        image: "",
+        imageAlt: "",
+        downloads: [
+          { id: "windows" as const, label: "Windows", hint: "Plugin .zip", platform: "windows" as const },
+          { id: "macos" as const, label: "macOS", hint: "Plugin .zip", platform: "macos" as const },
+        ],
+        features: [
+          { title: "Multichat dock", text: "Every message in one place with each platform's logo, badges, emotes, Super Chats, bits and gifts." },
+          { title: "Automatic multistream", text: "Detects which platforms you're live on and connects only those chats. Works with Restream and StreamYard too." },
+          { title: "Chat in your scene", text: "Transparent-background source, vertical or horizontal, with styles like Glass, Synthwave or Cyberpunk." },
+          { title: "Viewers and clock", text: "Panels with per-platform viewers, the total and the current date and time, ready for your scene." },
+        ],
+        builtTitle: "How it's built",
+        built: [
+          "Native C++ plugin on the OBS 33 API, with a Qt dock",
+          "Direct connections to Twitch, YouTube, Kick and TikTok, no accounts or API keys",
+          "Configurable scene sources and test messages while offline",
+          "Windows and macOS builds and releases with GitHub Actions",
+        ],
+      },
     ],
   },
   contact: {
@@ -351,7 +413,7 @@ const en: Content = {
     email: "Email me",
     follow: "Follow me on social media as",
   },
-  footer: { site: "Site", built: "built with Next.js · deployed on Vercel" },
+  footer: { site: "Site", tagline: "I design and build web products and open-source tools." },
   langLabel: "Español",
   stack,
 };
