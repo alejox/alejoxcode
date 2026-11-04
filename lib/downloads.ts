@@ -45,10 +45,11 @@ const pluginReleases: Record<string, PluginRelease> = {
   "multi-chat": {
     repo: "alejox/multi-chat",
     version: "2.0.5",
-    requirements: "OBS 33 · Windows 10/11 · macOS 13+",
+    requirements: "OBS 33+ · Windows 10/11 · macOS 13+ · Linux (Ubuntu 24.04+)",
     matchers: [
       ["windows", /windows-x64\.zip$/i],
       ["macos", /macos\.zip$/i],
+      ["linux", /linux-x86_64\.tar\.gz$/i],
     ],
   },
 };

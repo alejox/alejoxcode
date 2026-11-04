@@ -189,6 +189,7 @@ const es = {
         downloads: [
           { id: "windows" as const, label: "Windows", hint: "Plugin .zip", platform: "windows" as const },
           { id: "macos" as const, label: "macOS", hint: "Plugin .zip", platform: "macos" as const },
+          { id: "linux" as const, label: "Linux", hint: "Plugin .tar.gz", platform: "linux" as const },
         ],
         features: [
           { title: "Dock Multichat", text: "Todos los mensajes juntos con el logo de cada plataforma, insignias, emotes, Super Chats, bits y regalos." },
@@ -389,6 +390,7 @@ const en: Content = {
         downloads: [
           { id: "windows" as const, label: "Windows", hint: "Plugin .zip", platform: "windows" as const },
           { id: "macos" as const, label: "macOS", hint: "Plugin .zip", platform: "macos" as const },
+          { id: "linux" as const, label: "Linux", hint: "Plugin .tar.gz", platform: "linux" as const },
         ],
         features: [
           { title: "Multichat dock", text: "Every message in one place with each platform's logo, badges, emotes, Super Chats, bits and gifts." },
