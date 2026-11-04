@@ -2,7 +2,9 @@
 // Las URLs de descarga se resuelven desde la última release de GitHub:
 // cada botón descarga directamente el archivo de su plataforma y, si no
 // se encuentra el asset, abre la página de releases como respaldo.
-// Todo se revalida cada hora, así que un release nuevo aparece solo.
+// Las páginas de plugins se regeneran cada hora (export const revalidate) y en cada
+// deploy. Los fetch no usan la caché de datos de Next a propósito: así un deploy
+// (p. ej. el deploy hook que lanza cada release) siempre lee el release más nuevo.
 // Para publicar un plugin nuevo: agrega su entrada aquí y su ficha en content.ts.
 
 export type Platform = "windows" | "macos" | "linux" | "any";
@@ -24,8 +26,6 @@ type PluginRelease = {
   // Nombres de los assets publicados en cada release, por plataforma.
   matchers: [DownloadId, RegExp][];
 };
-
-const REVALIDATE = 3600;
 
 const pluginReleases: Record<string, PluginRelease> = {
   "obs-now-playing": {
@@ -64,7 +64,6 @@ async function fromApi(config: PluginRelease) {
   if (process.env.GITHUB_TOKEN) headers.Authorization = `Bearer ${process.env.GITHUB_TOKEN}`;
   const res = await fetch(`https://api.github.com/repos/${config.repo}/releases/latest`, {
     headers,
-    next: { revalidate: REVALIDATE },
   });
   if (!res.ok) return null;
 
@@ -86,7 +85,6 @@ async function fromRedirect(config: PluginRelease) {
   const res = await fetch(`https://github.com/${config.repo}/releases/latest`, {
     method: "HEAD",
     redirect: "manual",
-    next: { revalidate: REVALIDATE },
   });
   const match = (res.headers.get("location") ?? "").match(/\/releases\/tag\/([^/?#]+)/);
   const version = match ? cleanVersion(decodeURIComponent(match[1])) : null;

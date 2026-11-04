@@ -32,6 +32,25 @@ npm run dev      # http://localhost:3000
 2. Opcional: agrega `NEXT_PUBLIC_SITE_URL` con tu dominio para los metadatos y el sitemap.
 3. Deploy.
 
+### Actualizar la página de plugins al publicar un release
+
+La página `/plugins` lee el último release de cada plugin en GitHub y se regenera sola cada hora. Para que se actualice al instante:
+
+1. En Vercel: **Project → Settings → Git → Deploy Hooks**, crea un hook (nombre `release`, rama `main`) y copia la URL.
+2. En cada repo de plugin (`music-now-playing`, `multi-chat`): **Settings → Secrets and variables → Actions → New repository secret**, nombre `VERCEL_DEPLOY_HOOK`, valor la URL del paso 1.
+3. Al final del job que publica la Release, añade:
+
+```yaml
+      - name: Actualizar alejoxcode
+        env:
+          VERCEL_DEPLOY_HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          [ -n "$VERCEL_DEPLOY_HOOK" ] || { echo "Sin VERCEL_DEPLOY_HOOK: se omite"; exit 0; }
+          curl -fsS -X POST "$VERCEL_DEPLOY_HOOK"
+```
+
+Opcional: agrega `GITHUB_TOKEN` (token de solo lectura) en las variables de Vercel para no depender del límite de 60 consultas/hora de la API de GitHub.
+
 ## Personalizar
 
 - Redes sociales y textos: [`lib/site.ts`](lib/site.ts) (las redes vacías no se muestran)
