@@ -131,7 +131,23 @@ export async function Plugins({ locale }: { locale: Locale }) {
             </SectionHead>
 
             {t.alerts.items.map((a) => (
-              <article key={a.slug} className="mt-14">
+              <article key={a.slug} className="relative mt-14">
+                {a.comingSoon && (
+                  <div className="absolute inset-0 z-10 flex items-center justify-center p-6">
+                    <div className="glass-deep flex max-w-md flex-col items-center gap-3 px-8 py-8 text-center shadow-[0_30px_60px_-20px_rgb(0_0_0/0.8)]">
+                      <span className="flex items-center gap-2 rounded-full bg-panel-2 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-brand-blue">
+                        <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
+                        {t.alerts.soon}
+                      </span>
+                      <h3 className="text-gradient text-[28px] leading-tight">{a.name}</h3>
+                      <p className="leading-relaxed text-mist">{t.alerts.soonText}</p>
+                    </div>
+                  </div>
+                )}
+                <div
+                  {...(a.comingSoon ? { "aria-hidden": true, inert: true } : {})}
+                  className={a.comingSoon ? "pointer-events-none select-none blur-md opacity-60" : undefined}
+                >
                 <div className="glass-deep grid overflow-hidden lg:grid-cols-[1.15fr_1fr]">
                   <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_85%_0%,rgb(123_44_255/0.35),transparent_60%),radial-gradient(ellipse_at_0%_100%,rgb(255_63_164/0.25),transparent_60%),#120a1c] p-6 sm:p-10">
                     <div className="float grid w-full grid-cols-3 place-items-center gap-4 sm:gap-6">
@@ -157,13 +173,13 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     <p className="mt-2 text-sm text-muted">{a.note}</p>
 
                     <div className="mt-6 space-y-2">
-                      <a href={a.download} className="btn-primary w-full justify-start gap-3 px-5 py-3">
+                      <a href={a.comingSoon ? undefined : a.download} className="btn-primary w-full justify-start gap-3 px-5 py-3">
                         <DownloadIcon width={15} height={15} />
                         <span className="flex-1 text-left">{t.alerts.download}</span>
                         <span className="hidden text-xs font-normal text-white/60 sm:inline">StreamElements · Streamlabs</span>
                       </a>
                       <a
-                        href={a.streamlabs}
+                        href={a.comingSoon ? undefined : a.streamlabs}
                         target="_blank"
                         rel="noreferrer"
                         className="btn-ghost w-full justify-start gap-3 px-5 py-3"
@@ -172,7 +188,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
                         <span className="flex-1 text-left">{t.alerts.oneClick}</span>
                       </a>
                     </div>
-                    <a href={a.repo} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm text-mist hover:text-white">
+                    <a href={a.comingSoon ? undefined : a.repo} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm text-mist hover:text-white">
                       <GithubIcon width={15} height={15} /> {t.alerts.repoLink} <ArrowIcon width={14} height={14} />
                     </a>
                   </div>
@@ -186,6 +202,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     </li>
                   ))}
                 </ul>
+                </div>
               </article>
             ))}
           </div>

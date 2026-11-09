@@ -215,9 +215,12 @@ const es = {
     download: "Descargar pack .zip",
     oneClick: "Instalar en Streamlabs en un clic",
     repoLink: "Recursos e instrucciones en GitHub",
+    soon: "Próximamente",
+    soonText: "Un regalo para nuestra comunidad. Muy pronto podrás descargarlo gratis.",
     items: [
       {
         slug: "gta6",
+        comingSoon: true,
         name: "GTA 6 · Vice City",
         kind: "Pack de alertas · StreamElements y Streamlabs",
         tagline: "9 alertas animadas con estética de Vice City: seguidor, sub, resub, regalos, donación, raid, KICKs, bits y host. Con stickers y sonidos.",
@@ -445,9 +448,12 @@ const en: Content = {
     download: "Download pack .zip",
     oneClick: "One-click install on Streamlabs",
     repoLink: "Assets and instructions on GitHub",
+    soon: "Coming soon",
+    soonText: "A gift for our community. Soon you'll be able to download it for free.",
     items: [
       {
         slug: "gta6",
+        comingSoon: true,
         name: "GTA 6 · Vice City",
         kind: "Alert pack · StreamElements & Streamlabs",
         tagline: "9 animated Vice City–style alerts: follower, sub, resub, gifts, donation, raid, KICKs, bits and host. With stickers and sounds.",
