@@ -3,6 +3,7 @@ import { content, type Locale } from "@/lib/content";
 import { getLatestRelease } from "@/lib/downloads";
 import { site } from "@/lib/site";
 import { Footer } from "./Footer";
+import { ArrowIcon, DownloadIcon, GithubIcon } from "./Icons";
 import { Navbar } from "./Navbar";
 import { PluginDownloads } from "./PluginDownloads";
 import { SectionHead } from "./Section";
@@ -118,6 +119,73 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     </ul>
                   </div>
                 </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="alertas" className="relative isolate scroll-mt-20 overflow-hidden pb-16 lg:pb-24">
+          <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+            <SectionHead eyebrow={t.alerts.eyebrow} title={t.alerts.title}>
+              {t.alerts.intro}
+            </SectionHead>
+
+            {t.alerts.items.map((a) => (
+              <article key={a.slug} className="mt-14">
+                <div className="glass-deep grid overflow-hidden lg:grid-cols-[1.15fr_1fr]">
+                  <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_85%_0%,rgb(123_44_255/0.35),transparent_60%),radial-gradient(ellipse_at_0%_100%,rgb(255_63_164/0.25),transparent_60%),#120a1c] p-6 sm:p-10">
+                    <div className="float grid w-full grid-cols-3 place-items-center gap-4 sm:gap-6">
+                      {a.stickers.map((s) => (
+                        <Image
+                          key={s}
+                          src={`/img/alertas/${a.slug}/${s}.png`}
+                          alt=""
+                          width={120}
+                          height={120}
+                          className="h-16 w-auto object-contain drop-shadow-[0_6px_12px_rgb(0_0_0/0.5)] sm:h-24"
+                        />
+                      ))}
+                    </div>
+                    <div className="mt-6 font-mono text-[11px] uppercase tracking-[0.1em] text-mist">{a.platforms}</div>
+                  </div>
+
+                  <div className="p-6 sm:p-10">
+                    <span className="rounded-md bg-panel-2 px-2 py-1 text-[11px] text-frost">{t.alerts.free}</span>
+                    <h3 className="mt-4 text-[28px] leading-tight">{a.name}</h3>
+                    <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{a.kind}</p>
+                    <p className="mt-3 leading-relaxed text-mist">{a.tagline}</p>
+                    <p className="mt-2 text-sm text-muted">{a.note}</p>
+
+                    <div className="mt-6 space-y-2">
+                      <a href={a.download} className="btn-primary w-full justify-start gap-3 px-5 py-3">
+                        <DownloadIcon width={15} height={15} />
+                        <span className="flex-1 text-left">{t.alerts.download}</span>
+                        <span className="hidden text-xs font-normal text-white/60 sm:inline">StreamElements · Streamlabs</span>
+                      </a>
+                      <a
+                        href={a.streamlabs}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="btn-ghost w-full justify-start gap-3 px-5 py-3"
+                      >
+                        <ArrowIcon width={15} height={15} />
+                        <span className="flex-1 text-left">{t.alerts.oneClick}</span>
+                      </a>
+                    </div>
+                    <a href={a.repo} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm text-mist hover:text-white">
+                      <GithubIcon width={15} height={15} /> {t.alerts.repoLink} <ArrowIcon width={14} height={14} />
+                    </a>
+                  </div>
+                </div>
+
+                <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {a.features.map((f) => (
+                    <li key={f.title} className="glass p-5">
+                      <h4 className="text-[15px]">{f.title}</h4>
+                      <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.text}</p>
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
