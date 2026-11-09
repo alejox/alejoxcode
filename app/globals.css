@@ -296,3 +296,20 @@ h1, h2, h3, h4 {
 .coffee-cta { animation: coffee-pulse 2.4s ease-out infinite; }
 .coffee-cup { display: inline-block; transform-origin: 50% 80%; animation: coffee-wiggle 1.8s ease-in-out infinite; }
 .coffee-cta:hover { animation-play-state: paused; }
+
+/* Vistas animadas de los plugins */
+.chat-in { animation: chat-in 0.45s ease-out both; }
+@keyframes chat-in { from { opacity: 0; transform: translateY(14px); } }
+.goal-fill { box-shadow: 0 0 18px rgb(102 58 243 / 0.6); }
+.goal-glow { animation: goal-glow 1s ease-in-out infinite alternate; }
+@keyframes goal-glow { to { box-shadow: 0 0 0 1px rgb(152 192 239 / 0.6), 0 0 40px rgb(102 58 243 / 0.55); } }
+.goal-pop { animation: goal-pop 0.5s cubic-bezier(0.2, 1.6, 0.4, 1) both; }
+@keyframes goal-pop { from { opacity: 0; transform: scale(0.5) translateY(10px); } }
+.confetti { animation: confetti 1.6s ease-out both; }
+@keyframes confetti {
+  from { opacity: 1; transform: translate(0, 0) rotate(0); }
+  to { opacity: 0; transform: translate(var(--dx), var(--dy)) rotate(var(--r)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .chat-in, .goal-glow, .goal-pop, .confetti { animation: none; }
+}

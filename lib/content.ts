@@ -144,6 +144,8 @@ const es = {
     intro: "Plugins que desarrollo y publico de forma independiente. Gratuitos, de código abierto y con descargas para cada sistema.",
     free: "Gratis · MIT",
     repoLink: "Código, instalación y FAQ",
+    play: "Ver video",
+    videoSoon: "Video próximamente",
     detected: "Recomendado para tu equipo",
     macInstall: "Instalación en macOS: descomprime el .zip y copia el plugin en:",
     coffee: "Apóyame en Ko-fi",
@@ -156,6 +158,8 @@ const es = {
         tagline: "Muestra en tu stream la canción que estás escuchando, con su carátula, sus colores y botones para controlarla.",
         players: "Spotify, YouTube Music, Apple Music y cualquier reproductor que reconozca tu sistema. Sin cuentas ni API keys.",
         platforms: "Spotify · YouTube Music · Apple Music",
+        video: "KeSJ-YOZpvQ",
+        videoSoon: false,
         image: "/img/now-playing.png",
         imageAlt: "Overlay de Music Now Playing mostrando la canción actual",
         downloads: [
@@ -184,6 +188,8 @@ const es = {
         tagline: "Los chats de Twitch, YouTube, Kick y TikTok juntos en un dock de OBS y en tu escena. Detecta cuándo haces multistream y conecta solo los chats de las plataformas donde estás en vivo.",
         players: "Plugin nativo para OBS 33: no necesita Python, cuentas ni claves de API.",
         platforms: "Twitch · YouTube · Kick · TikTok",
+        video: "JKLlxJfqe9A",
+        videoSoon: false,
         image: "",
         imageAlt: "",
         downloads: [
@@ -212,6 +218,8 @@ const es = {
         tagline: "Una barra de progreso que avanza en vivo hacia tu meta de me gusta, suscriptores o seguidores, y celebra cuando la alcanzas.",
         players: "YouTube sin iniciar sesión, Twitch con su API oficial o modo manual. Sin claves de API.",
         platforms: "YouTube · Twitch · Manual",
+        video: "",
+        videoSoon: true,
         image: "",
         imageAlt: "",
         downloads: [
@@ -405,6 +413,8 @@ const en: Content = {
     intro: "Plugins I build and publish independently. Free, open source, with downloads for every platform.",
     free: "Free · MIT",
     repoLink: "Code, install guide and FAQ",
+    play: "Watch video",
+    videoSoon: "Video coming soon",
     detected: "Recommended for your device",
     macInstall: "To install on macOS, unzip and copy the plugin into:",
     coffee: "Support me on Ko-fi",
@@ -417,6 +427,8 @@ const en: Content = {
         tagline: "Shows the song you're listening to on your stream, with its cover art, its colors and buttons to control it.",
         players: "Spotify, YouTube Music, Apple Music and any player your system recognizes. No accounts, no API keys.",
         platforms: "Spotify · YouTube Music · Apple Music",
+        video: "KeSJ-YOZpvQ",
+        videoSoon: false,
         image: "/img/now-playing.png",
         imageAlt: "Music Now Playing overlay showing the current song",
         downloads: [
@@ -445,6 +457,8 @@ const en: Content = {
         tagline: "Twitch, YouTube, Kick and TikTok chats together in an OBS dock and in your scene. It detects when you're multistreaming and connects only the chats of the platforms where you're live.",
         players: "Native plugin for OBS 33: no Python, no accounts, no API keys.",
         platforms: "Twitch · YouTube · Kick · TikTok",
+        video: "JKLlxJfqe9A",
+        videoSoon: false,
         image: "",
         imageAlt: "",
         downloads: [
@@ -473,6 +487,8 @@ const en: Content = {
         tagline: "A progress bar that fills live toward your likes, subscribers or followers goal, and celebrates when you reach it.",
         players: "YouTube without signing in, Twitch with its official API, or manual mode. No API keys.",
         platforms: "YouTube · Twitch · Manual",
+        video: "",
+        videoSoon: true,
         image: "",
         imageAlt: "",
         downloads: [

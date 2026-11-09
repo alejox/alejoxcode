@@ -6,6 +6,9 @@ import { Footer } from "./Footer";
 import { ArrowIcon, DownloadIcon, GithubIcon } from "./Icons";
 import { Navbar } from "./Navbar";
 import { PluginDownloads } from "./PluginDownloads";
+import { PluginShowcase, YouTubeVideo } from "./PluginShowcase";
+
+const SHOWCASES = ["multi-chat", "goal-bar"];
 import { SectionHead } from "./Section";
 
 export async function Plugins({ locale }: { locale: Locale }) {
@@ -45,7 +48,21 @@ export async function Plugins({ locale }: { locale: Locale }) {
               <article key={p.slug} className="mt-14">
                 <div className="glass-deep grid overflow-hidden lg:grid-cols-[1.15fr_1fr]">
                   <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_30%_20%,rgb(102_58_243/0.28),transparent_60%),radial-gradient(ellipse_at_80%_90%,rgb(152_192_239/0.16),transparent_55%),#070914] p-6 sm:p-10">
-                    {p.image ? (
+                    {p.video ? (
+                      <YouTubeVideo id={p.video} title={p.name} playLabel={t.pluginsPage.play} />
+                    ) : SHOWCASES.includes(p.slug) ? (
+                      <div className="relative w-full">
+                        <PluginShowcase slug={p.slug} locale={locale} />
+                        {p.videoSoon && (
+                          <span className="absolute -top-3 left-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-[#FF0033] px-3 py-1 text-[11px] font-semibold text-white shadow-[0_8px_20px_rgb(255_0_51/0.4)]">
+                            <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                              <path d="M8 5v14l11-7z" />
+                            </svg>
+                            {t.pluginsPage.videoSoon}
+                          </span>
+                        )}
+                      </div>
+                    ) : p.image ? (
                       <Image
                         src={p.image}
                         alt={p.imageAlt}
