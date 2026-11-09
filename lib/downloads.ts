@@ -30,7 +30,7 @@ type PluginRelease = {
 const pluginReleases: Record<string, PluginRelease> = {
   "obs-now-playing": {
     repo: "alejox/music-now-playing",
-    version: "2.4.29",
+    version: "2.4.32",
     requirements: "OBS 31+ · Windows 10/11 · macOS 12+ · Linux",
     matchers: [
       ["windows", /windows-x64\.zip$/i],
@@ -44,7 +44,7 @@ const pluginReleases: Record<string, PluginRelease> = {
   },
   "multi-chat": {
     repo: "alejox/multi-chat",
-    version: "2.0.5",
+    version: "2.1.1",
     requirements: "OBS 33+ · Windows 10/11 · macOS 13+ · Linux (Ubuntu 24.04+)",
     matchers: [
       ["windows", /windows-x64\.zip$/i],
