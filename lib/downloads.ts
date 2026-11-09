@@ -52,6 +52,16 @@ const pluginReleases: Record<string, PluginRelease> = {
       ["linux", /linux-x86_64\.tar\.gz$/i],
     ],
   },
+  "goal-bar": {
+    repo: "alejox/alejox-obs-goal-bar-",
+    version: "0.1.1",
+    requirements: "OBS 33+ · Windows 10/11 · macOS 13+ (Apple Silicon) · Linux (Ubuntu 24.04+)",
+    matchers: [
+      ["windows", /windows-x64\.zip$/i],
+      ["macos", /macos-arm64\.zip$/i],
+      ["linux", /linux-x86_64\.tar\.gz$/i],
+    ],
+  },
 };
 
 const cleanVersion = (tag: unknown) => {
