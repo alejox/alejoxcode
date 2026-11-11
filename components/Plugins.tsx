@@ -3,7 +3,7 @@ import { content, type Locale } from "@/lib/content";
 import { getLatestRelease } from "@/lib/downloads";
 import { site } from "@/lib/site";
 import { Footer } from "./Footer";
-import { ArrowIcon, DownloadIcon, GithubIcon } from "./Icons";
+import { ArrowIcon, DownloadIcon, GithubIcon, PlatformIcon } from "./Icons";
 import { Navbar } from "./Navbar";
 import { PluginDownloads } from "./PluginDownloads";
 import { PluginShowcase, YouTubeVideo } from "./PluginShowcase";
@@ -136,6 +136,73 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     </ul>
                   </div>
                 </div>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="apps" className="relative isolate scroll-mt-20 overflow-hidden pb-16 lg:pb-24">
+          <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+            <SectionHead eyebrow={t.apps.eyebrow} title={t.apps.title}>
+              {t.apps.intro}
+            </SectionHead>
+
+            {t.apps.items.map((app) => (
+              <article key={app.slug} className="mt-14">
+                <div className="glass-deep grid overflow-hidden lg:grid-cols-[1.15fr_1fr]">
+                  <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_30%_20%,rgb(102_58_243/0.28),transparent_60%),radial-gradient(ellipse_at_80%_90%,rgb(152_192_239/0.16),transparent_55%),#070914] p-6 sm:p-10">
+                    <Image
+                      src={app.image}
+                      alt={app.imageAlt}
+                      width={1283}
+                      height={821}
+                      className="float w-full rounded-xl shadow-[0_30px_60px_-20px_rgb(0_0_0/0.8)]"
+                    />
+                    <div className="mt-6 font-mono text-[11px] uppercase tracking-[0.1em] text-mist">{app.platforms}</div>
+                  </div>
+
+                  <div className="p-6 sm:p-10">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="flex items-center gap-2 rounded-md bg-panel-2 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-brand-blue">
+                        <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
+                        {t.apps.soon}
+                      </span>
+                      <span className="rounded-md bg-panel-2 px-2 py-1 text-[11px] text-frost">{t.apps.free}</span>
+                    </div>
+                    <h3 className="mt-4 text-[28px] leading-tight">{app.name}</h3>
+                    <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{app.kind}</p>
+                    <p className="mt-3 leading-relaxed text-mist">{app.tagline}</p>
+                    <p className="mt-2 text-sm text-muted">{app.note}</p>
+
+                    <div className="mt-6 space-y-2">
+                      {app.downloads.map((d, i) => (
+                        <button
+                          key={d.label}
+                          type="button"
+                          disabled
+                          aria-disabled
+                          title={t.apps.disabledHint}
+                          className={`${i === 0 ? "btn-primary" : "btn-ghost"} w-full cursor-not-allowed justify-start gap-3 px-5 py-3 opacity-50 shadow-none hover:brightness-100`}
+                        >
+                          <PlatformIcon platform={d.platform} width={15} height={15} />
+                          <span className="flex-1 text-left">{d.label}</span>
+                          <span className="hidden text-xs font-normal text-white/60 sm:inline">{d.hint}</span>
+                          <DownloadIcon width={15} height={15} />
+                        </button>
+                      ))}
+                    </div>
+                    <p className="mt-4 text-sm text-mist">{t.apps.soonText}</p>
+                  </div>
+                </div>
+
+                <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  {app.features.map((f) => (
+                    <li key={f.title} className="glass p-5">
+                      <h4 className="text-[15px]">{f.title}</h4>
+                      <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.text}</p>
+                    </li>
+                  ))}
+                </ul>
               </article>
             ))}
           </div>
