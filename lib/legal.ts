@@ -25,6 +25,7 @@ const terms: Record<Locale, LegalDoc> = {
         heading: "2. Compras y pagos",
         paragraphs: [
           "Speed Deck se vende por $12 USD en un pago único. El pago se hace a través de Lemon Squeezy, que actúa como revendedor autorizado (Merchant of Record): procesa el pago, calcula y cobra los impuestos que correspondan y emite el recibo. Al comprar también aceptas los términos de Lemon Squeezy.",
+          "Speed Deck está en preventa. Al comprar ahora reservas tu licencia de por vida; cuando la app esté lista para descargar, te escribiré al correo con el que compraste.",
           "Puedo cambiar el precio en el futuro. Un cambio de precio no afecta las compras ya hechas.",
         ],
       },
@@ -99,6 +100,7 @@ const terms: Record<Locale, LegalDoc> = {
         heading: "2. Purchases and payments",
         paragraphs: [
           "Speed Deck is sold for $12 USD as a one-time payment. Payment is handled by Lemon Squeezy, which acts as the authorized reseller (Merchant of Record): it processes the payment, calculates and collects any applicable taxes, and issues the receipt. By buying, you also agree to Lemon Squeezy's terms.",
+          "Speed Deck is currently on pre-order. Buying now reserves your lifetime license; when the app is ready to download, I will email you at the address you used to buy.",
           "I may change the price in the future. A price change does not affect purchases already made.",
         ],
       },

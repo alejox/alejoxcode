@@ -11,6 +11,7 @@ import { PluginShowcase, YouTubeVideo } from "./PluginShowcase";
 
 const SHOWCASES = ["multi-chat", "goal-bar"];
 import { SectionHead } from "./Section";
+import { LemonBuyButton } from "./LemonBuyButton";
 import { SpeedDeckMock } from "./SpeedDeckMock";
 
 export async function Plugins({ locale }: { locale: Locale }) {
@@ -62,15 +63,9 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     </ul>
 
                     <div className="mt-6 space-y-2">
-                      <button
-                        type="button"
-                        disabled
-                        aria-disabled
-                        title={t.apps.disabledHint}
-                        className="btn-primary w-full cursor-not-allowed justify-center gap-2 px-5 py-3 opacity-50 shadow-none hover:brightness-100"
-                      >
+                      <LemonBuyButton href={site.speedDeckCheckout} className="btn-primary w-full justify-center gap-2 px-5 py-3">
                         {t.apps.buy}
-                      </button>
+                      </LemonBuyButton>
                       <p className="pb-2 text-center text-xs text-muted">
                         {t.apps.buyNote} {legalLabels[locale].agree}{" "}
                         <a href={legalPath[locale].terms} className="text-frost underline decoration-line underline-offset-4 hover:text-white">
