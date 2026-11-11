@@ -8,7 +8,7 @@ import { Logo } from "./Logo";
 
 const sections = ["about", "projects", "experience", "plugins", "contact"] as const;
 
-export function Navbar({ locale }: { locale: Locale }) {
+export function Navbar({ locale, altHref }: { locale: Locale; altHref?: string }) {
   const [open, setOpen] = useState(false);
   const t = content[locale];
   const home = localePath[locale];
@@ -20,7 +20,7 @@ export function Navbar({ locale }: { locale: Locale }) {
   }));
 
   const LangSwitch = ({ className = "" }: { className?: string }) => (
-    <a href={localePath[other]} hrefLang={other} className={`btn-ghost gap-2 px-3.5 py-2 ${className}`} aria-label={t.langLabel}>
+    <a href={altHref ?? localePath[other]} hrefLang={other} className={`btn-ghost gap-2 px-3.5 py-2 ${className}`} aria-label={t.langLabel}>
       <GlobeIcon width={15} height={15} />
       <span className="font-mono text-xs uppercase tracking-[0.1em]">{locale === "es" ? "ES" : "EN"}</span>
       <span className="text-muted">/</span>

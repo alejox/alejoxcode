@@ -1,4 +1,5 @@
 import { content, localePath, type Locale } from "@/lib/content";
+import { legalLabels, legalPath } from "@/lib/legal";
 import { SOCIAL_LABEL, site } from "@/lib/site";
 import { SOCIAL_ICONS } from "./Icons";
 import { Logo } from "./Logo";
@@ -39,7 +40,7 @@ export function Footer({ locale }: { locale: Locale }) {
           <p className="max-w-sm text-sm text-muted">{t.footer.tagline}</p>
           <Socials />
         </div>
-        <div className="md:col-start-3">
+        <div>
           <h4 className="mb-3 font-mono text-xs uppercase tracking-[0.1em] text-muted">{t.footer.site}</h4>
           <ul className="space-y-2 text-sm">
             {(["projects", "experience", "plugins", "contact"] as const).map((k) => (
@@ -49,6 +50,13 @@ export function Footer({ locale }: { locale: Locale }) {
                 </a>
               </li>
             ))}
+          </ul>
+        </div>
+        <div>
+          <h4 className="mb-3 font-mono text-xs uppercase tracking-[0.1em] text-muted">{legalLabels[locale].title}</h4>
+          <ul className="space-y-2 text-sm">
+            <li><a className="text-mist hover:text-white" href={legalPath[locale].terms}>{legalLabels[locale].terms}</a></li>
+            <li><a className="text-mist hover:text-white" href={legalPath[locale].privacy}>{legalLabels[locale].privacy}</a></li>
           </ul>
         </div>
       </div>

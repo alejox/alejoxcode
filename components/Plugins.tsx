@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { content, type Locale } from "@/lib/content";
 import { getLatestRelease } from "@/lib/downloads";
+import { legalLabels, legalPath } from "@/lib/legal";
 import { site } from "@/lib/site";
 import { Footer } from "./Footer";
 import { ArrowIcon, DownloadIcon, GithubIcon, PlatformIcon } from "./Icons";
@@ -73,7 +74,17 @@ export async function Plugins({ locale }: { locale: Locale }) {
                       >
                         {t.apps.buy}
                       </button>
-                      <p className="pb-2 text-center text-xs text-muted">{t.apps.buyNote}</p>
+                      <p className="pb-2 text-center text-xs text-muted">
+                        {t.apps.buyNote} {legalLabels[locale].agree}{" "}
+                        <a href={legalPath[locale].terms} className="text-frost underline decoration-line underline-offset-4 hover:text-white">
+                          {legalLabels[locale].terms}
+                        </a>{" "}
+                        {legalLabels[locale].and}{" "}
+                        <a href={legalPath[locale].privacy} className="text-frost underline decoration-line underline-offset-4 hover:text-white">
+                          {legalLabels[locale].privacy}
+                        </a>
+                        .
+                      </p>
                       {app.downloads.map((d) => (
                         <button
                           key={d.label}
