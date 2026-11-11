@@ -101,6 +101,11 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{p.kind}</p>
                     <p className="mt-3 leading-relaxed text-mist">{p.tagline}</p>
                     <p className="mt-2 text-sm text-muted">{p.players}</p>
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {p.features.map((f) => (
+                        <li key={f.title} className="rounded-md bg-panel-2 px-2.5 py-1 text-xs text-frost">{f.title}</li>
+                      ))}
+                    </ul>
 
                     <PluginDownloads
                       items={p.downloads}
@@ -115,27 +120,6 @@ export async function Plugins({ locale }: { locale: Locale }) {
                   </div>
                 </div>
 
-                <div className="mt-6 grid gap-6 lg:grid-cols-[1.15fr_1fr]">
-                  <ul className="grid gap-4 sm:grid-cols-2">
-                    {p.features.map((f) => (
-                      <li key={f.title} className="glass p-5">
-                        <h4 className="text-[15px]">{f.title}</h4>
-                        <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.text}</p>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="glass p-6">
-                    <span className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{p.builtTitle}</span>
-                    <ul className="mt-4 space-y-3">
-                      {p.built.map((b) => (
-                        <li key={b} className="flex gap-3 text-sm leading-relaxed text-mist">
-                          <span className="mt-2 size-1.5 shrink-0 rounded-full bg-brand-blue" />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
               </article>
             ))}
           </div>
@@ -143,9 +127,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
 
         <section id="apps" className="relative isolate scroll-mt-20 overflow-hidden pb-16 lg:pb-24">
           <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
-            <SectionHead eyebrow={t.apps.eyebrow} title={t.apps.title}>
-              {t.apps.intro}
-            </SectionHead>
+            <SectionHead eyebrow={t.apps.eyebrow} title={t.apps.title} />
 
             {t.apps.items.map((app) => (
               <article key={app.slug} className="mt-14">
@@ -172,7 +154,11 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     <h3 className="mt-4 text-[28px] leading-tight">{app.name}</h3>
                     <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{app.kind}</p>
                     <p className="mt-3 leading-relaxed text-mist">{app.tagline}</p>
-                    <p className="mt-2 text-sm text-muted">{app.note}</p>
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {app.highlights.map((h) => (
+                        <li key={h} className="rounded-md bg-panel-2 px-2.5 py-1 text-xs text-frost">{h}</li>
+                      ))}
+                    </ul>
 
                     <div className="mt-6 space-y-2">
                       {app.downloads.map((d, i) => (
@@ -195,14 +181,6 @@ export async function Plugins({ locale }: { locale: Locale }) {
                   </div>
                 </div>
 
-                <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {app.features.map((f) => (
-                    <li key={f.title} className="glass p-5">
-                      <h4 className="text-[15px]">{f.title}</h4>
-                      <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.text}</p>
-                    </li>
-                  ))}
-                </ul>
               </article>
             ))}
           </div>
@@ -255,6 +233,11 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{a.kind}</p>
                     <p className="mt-3 leading-relaxed text-mist">{a.tagline}</p>
                     <p className="mt-2 text-sm text-muted">{a.note}</p>
+                    <ul className="mt-5 flex flex-wrap gap-2">
+                      {a.features.map((f) => (
+                        <li key={f.title} className="rounded-md bg-panel-2 px-2.5 py-1 text-xs text-frost">{f.title}</li>
+                      ))}
+                    </ul>
 
                     <div className="mt-6 space-y-2">
                       <a href={a.comingSoon ? undefined : a.download} className="btn-primary w-full justify-start gap-3 px-5 py-3">
@@ -278,14 +261,6 @@ export async function Plugins({ locale }: { locale: Locale }) {
                   </div>
                 </div>
 
-                <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                  {a.features.map((f) => (
-                    <li key={f.title} className="glass p-5">
-                      <h4 className="text-[15px]">{f.title}</h4>
-                      <p className="mt-1.5 text-sm leading-relaxed text-muted">{f.text}</p>
-                    </li>
-                  ))}
-                </ul>
                 </div>
               </article>
             ))}
