@@ -24,7 +24,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
     <>
       <Navbar locale={locale} />
       <main>
-        <section id="apps" className="relative isolate scroll-mt-20 overflow-hidden pt-16 lg:pt-24">
+        <section id="apps" className="relative isolate scroll-mt-20 overflow-hidden pb-16 pt-16 lg:pb-24 lg:pt-24">
           <div className="spotlight absolute inset-0 -z-10" />
           <div className="bg-grid absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,black,transparent_75%)]" />
           <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
