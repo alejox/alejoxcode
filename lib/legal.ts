@@ -10,7 +10,7 @@ const email = site.email;
 const terms: Record<Locale, LegalDoc> = {
   es: {
     title: "Términos de servicio",
-    description: "Condiciones de compra, licencia y reembolso de Speed Deck y de uso de los plugins y recursos de AlejoxCode.",
+    description: "Condiciones de uso de Speed Deck, compra de la versión sin anuncios y reembolsos, y uso de los plugins y recursos de AlejoxCode.",
     updated: "Última actualización: 11 de noviembre de 2026",
     intro:
       "Estos términos aplican a este sitio, a la compra y uso de Speed Deck y a los plugins y recursos gratuitos que publico. Al comprar o usar cualquiera de ellos, los aceptas.",
@@ -24,15 +24,16 @@ const terms: Record<Locale, LegalDoc> = {
       {
         heading: "2. Compras y pagos",
         paragraphs: [
-          "Speed Deck se vende por $12 USD en un pago único. El pago se hace a través de Lemon Squeezy, que actúa como revendedor autorizado (Merchant of Record): procesa el pago, calcula y cobra los impuestos que correspondan y emite el recibo. Al comprar también aceptas los términos de Lemon Squeezy.",
-          "Speed Deck está en preventa. Al comprar ahora reservas tu licencia de por vida; cuando la app esté lista para descargar, te escribiré al correo con el que compraste.",
+          "Speed Deck es gratis y muestra anuncios. Puedes quitarlos de por vida con un pago único de $12 USD. El pago se hace a través de Lemon Squeezy, que actúa como revendedor autorizado (Merchant of Record): procesa el pago, calcula y cobra los impuestos que correspondan y emite el recibo. Al comprar también aceptas los términos de Lemon Squeezy.",
+          "Speed Deck está en preventa. Al comprar ahora reservas la versión sin anuncios de por vida; cuando la app esté lista para descargar, te escribiré al correo con el que compraste.",
           "Puedo cambiar el precio en el futuro. Un cambio de precio no afecta las compras ya hechas.",
         ],
       },
       {
         heading: "3. Licencia",
         paragraphs: [
-          "Al comprar Speed Deck recibes una licencia de por vida, personal, no exclusiva e intransferible para instalarlo y usarlo en tus propios equipos. Es un pago único, sin suscripción.",
+          "Puedes instalar y usar Speed Deck gratis, con anuncios, en tus propios equipos. Al comprar la versión sin anuncios recibes una licencia de por vida, personal, no exclusiva e intransferible para usarla sin anuncios. Es un pago único, sin suscripción.",
+          "Los anuncios de la versión gratuita pueden ser de mis propios productos o de patrocinadores. Si haces clic en uno, se abre el sitio del anunciante, que tiene sus propias condiciones.",
           "No puedes revender, alquilar, redistribuir ni compartir el instalador o tu licencia con otras personas, ni descompilar o modificar la app, salvo en lo que la ley te permita expresamente.",
         ],
       },
@@ -85,7 +86,7 @@ const terms: Record<Locale, LegalDoc> = {
   },
   en: {
     title: "Terms of Service",
-    description: "Purchase, license and refund terms for Speed Deck, and terms of use for AlejoxCode plugins and resources.",
+    description: "Terms for using Speed Deck, buying the ad-free version and refunds, and terms of use for AlejoxCode plugins and resources.",
     updated: "Last updated: November 11, 2026",
     intro:
       "These terms apply to this website, to buying and using Speed Deck, and to the free plugins and resources I publish. By buying or using any of them, you agree to these terms.",
@@ -99,15 +100,16 @@ const terms: Record<Locale, LegalDoc> = {
       {
         heading: "2. Purchases and payments",
         paragraphs: [
-          "Speed Deck is sold for $12 USD as a one-time payment. Payment is handled by Lemon Squeezy, which acts as the authorized reseller (Merchant of Record): it processes the payment, calculates and collects any applicable taxes, and issues the receipt. By buying, you also agree to Lemon Squeezy's terms.",
-          "Speed Deck is currently on pre-order. Buying now reserves your lifetime license; when the app is ready to download, I will email you at the address you used to buy.",
+          "Speed Deck is free and shows ads. You can remove them for life with a one-time payment of $12 USD. Payment is handled by Lemon Squeezy, which acts as the authorized reseller (Merchant of Record): it processes the payment, calculates and collects any applicable taxes, and issues the receipt. By buying, you also agree to Lemon Squeezy's terms.",
+          "Speed Deck is currently on pre-order. Buying now reserves the ad-free version for life; when the app is ready to download, I will email you at the address you used to buy.",
           "I may change the price in the future. A price change does not affect purchases already made.",
         ],
       },
       {
         heading: "3. License",
         paragraphs: [
-          "When you buy Speed Deck you get a lifetime, personal, non-exclusive and non-transferable license to install and use it on your own devices. It is a one-time payment with no subscription.",
+          "You can install and use Speed Deck for free, with ads, on your own devices. When you buy the ad-free version you get a lifetime, personal, non-exclusive and non-transferable license to use it without ads. It is a one-time payment with no subscription.",
+          "Ads in the free version may promote my own products or sponsors. If you click one, the advertiser's site opens, with its own terms.",
           "You may not resell, rent, redistribute or share the installer or your license with others, or decompile or modify the app, except as expressly allowed by law.",
         ],
       },
@@ -165,7 +167,7 @@ const privacy: Record<Locale, LegalDoc> = {
     title: "Política de privacidad",
     description: "Qué datos se tratan en este sitio, en las compras de Speed Deck y en la app, y cómo ejercer tus derechos.",
     updated: "Última actualización: 11 de noviembre de 2026",
-    intro: "Aquí explico qué datos se tratan cuando visitas este sitio, cuando compras Speed Deck y cuando usas la app. La versión corta: este sitio no usa cookies propias ni analítica, y Speed Deck no envía tus datos a ningún servidor.",
+    intro: "Aquí explico qué datos se tratan cuando visitas este sitio, cuando compras Speed Deck y cuando usas la app. La versión corta: este sitio no usa cookies propias ni analítica, y Speed Deck no envía tus datos personales ni tu uso a ningún servidor.",
     sections: [
       {
         heading: "1. Responsable",
@@ -192,7 +194,8 @@ const privacy: Record<Locale, LegalDoc> = {
       {
         heading: "4. La app Speed Deck",
         paragraphs: [
-          "Speed Deck funciona de forma local en tu computador y en tu red. Se conecta a OBS Studio y, si lo usas, a tu celular a través de tu red Wi-Fi. No envía datos a mis servidores ni a terceros, y tu configuración se guarda en tu propio equipo.",
+          "Speed Deck funciona de forma local en tu computador y en tu red. Se conecta a OBS Studio y, si lo usas, a tu celular a través de tu red Wi-Fi. Tu configuración se guarda en tu propio equipo, y la app no envía tus datos personales ni tu uso a mis servidores ni a terceros.",
+          "Para mostrar anuncios, la versión gratuita descarga al iniciar y cada pocas horas un pequeño archivo con el anuncio desde www.alejoxcode.com (y su imagen, si tiene). Como cualquier visita, esa descarga deja datos técnicos, como la dirección IP y la hora, en los registros de Vercel. Si haces clic en un anuncio, se abre el sitio del anunciante, con su propia política de privacidad.",
         ],
       },
       {
@@ -223,7 +226,7 @@ const privacy: Record<Locale, LegalDoc> = {
     title: "Privacy Policy",
     description: "What data is processed on this website, in Speed Deck purchases and in the app, and how to exercise your rights.",
     updated: "Last updated: November 11, 2026",
-    intro: "This page explains what data is processed when you visit this website, buy Speed Deck and use the app. The short version: this website uses no cookies of its own or analytics, and Speed Deck does not send your data to any server.",
+    intro: "This page explains what data is processed when you visit this website, buy Speed Deck and use the app. The short version: this website uses no cookies of its own or analytics, and Speed Deck does not send your personal data or usage to any server.",
     sections: [
       {
         heading: "1. Data controller",
@@ -250,7 +253,8 @@ const privacy: Record<Locale, LegalDoc> = {
       {
         heading: "4. The Speed Deck app",
         paragraphs: [
-          "Speed Deck runs locally on your computer and your network. It connects to OBS Studio and, if you use it, to your phone over your Wi-Fi network. It does not send data to my servers or to third parties, and your settings are stored on your own device.",
+          "Speed Deck runs locally on your computer and your network. It connects to OBS Studio and, if you use it, to your phone over your Wi-Fi network. Your settings are stored on your own device, and the app does not send your personal data or usage to my servers or to third parties.",
+          "To show ads, the free version downloads a small file with the ad from www.alejoxcode.com when it starts and every few hours (plus its image, if any). Like any visit, that download leaves technical data, such as IP address and time, in Vercel's logs. If you click an ad, the advertiser's site opens, with its own privacy policy.",
         ],
       },
       {
