@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { content, type Locale, type Project } from "@/lib/content";
+import { legalLabels, legalPath } from "@/lib/legal";
 import { site } from "@/lib/site";
 import { Footer, Socials } from "./Footer";
 import { HeroMotion } from "./HeroMotion";
@@ -10,6 +11,7 @@ import { SectionHead } from "./Section";
 
 export function Landing({ locale }: { locale: Locale }) {
   const t = content[locale];
+  const pluginsPath = locale === "es" ? "/plugins" : "/en/plugins";
 
   return (
     <>
@@ -34,6 +36,7 @@ export function Landing({ locale }: { locale: Locale }) {
                 <a href="#projects" className="btn-primary btn-lg">
                   {t.hero.ctaProjects} <ArrowIcon width={16} height={16} />
                 </a>
+                <a href="#productos" className="btn-ghost btn-lg">{t.store.heroCta}</a>
                 <a href="#contact" className="btn-ghost btn-lg">{t.hero.ctaContact}</a>
                 <a href={site.socials.github} target="_blank" rel="noreferrer" className="btn-ghost btn-lg" aria-label="GitHub">
                   <GithubIcon width={16} height={16} />
@@ -49,6 +52,82 @@ export function Landing({ locale }: { locale: Locale }) {
                 <span key={i} className="hairline rounded-full px-4 py-2 font-mono text-xs text-mist">{s}</span>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* PRODUCTOS PARA STREAMERS */}
+        <section id="productos" className="mx-auto mt-24 max-w-[1200px] scroll-mt-24 px-4 sm:px-6">
+          <div className="glass-deep relative isolate overflow-hidden p-6 sm:p-10">
+            <div className="bg-grid absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
+            <div className="mx-auto max-w-[680px] text-center">
+              <p className="eyebrow">{t.store.eyebrow}</p>
+              <h2 className="text-gradient mt-5 text-[30px] leading-[1.16] sm:text-[40px]">{t.store.title}</h2>
+              <p className="mt-4 leading-relaxed text-mist">{t.store.intro}</p>
+            </div>
+
+            <div className="mt-10 grid gap-5 md:grid-cols-2">
+              {/* Speed Deck (de pago) */}
+              <div className="glass flex flex-col p-6">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="rounded-md bg-brand-purple px-2 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-white">{t.store.paidLabel}</span>
+                  <span className="flex items-center gap-2 rounded-md bg-panel-2 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-brand-blue">
+                    <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
+                    {t.apps.soon}
+                  </span>
+                </div>
+                <div className="mt-4 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <h3 className="text-2xl">Speed Deck</h3>
+                  <p className="flex items-baseline gap-2">
+                    <span className="font-display text-2xl font-medium text-ice">{t.apps.price}</span>
+                    <span className="text-sm text-muted">{t.apps.priceNote}</span>
+                  </p>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-mist">{t.store.deckText}</p>
+                <p className="mt-2 text-sm text-muted">{t.apps.includes[0]}</p>
+                <div className="mt-auto pt-6">
+                  <a href={`${pluginsPath}#apps`} className="btn-primary w-full justify-center gap-2 px-5 py-3">
+                    {t.store.deckCta} <ArrowIcon width={15} height={15} />
+                  </a>
+                </div>
+              </div>
+
+              {/* Plugins (gratis) */}
+              <div className="glass flex flex-col p-6">
+                <span className="self-start rounded-md bg-panel-2 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-frost">{t.store.freeLabel}</span>
+                <h3 className="mt-4 text-2xl">{t.store.pluginsTitle}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-mist">{t.store.pluginsText}</p>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {t.pluginsPage.items.map((p) => (
+                    <li key={p.slug} className="rounded-md bg-panel-2 px-2.5 py-1 text-xs text-frost">{p.name}</li>
+                  ))}
+                </ul>
+                <div className="mt-6 grid gap-2 sm:grid-cols-2">
+                  <a href={pluginsPath} className="btn-ghost justify-center gap-2 px-5 py-3">
+                    {t.store.pluginsCta} <ArrowIcon width={15} height={15} />
+                  </a>
+                  {site.kofi && (
+                    <a href={site.kofi} target="_blank" rel="noreferrer" className="btn-ghost justify-center gap-2 px-5 py-3">
+                      <span aria-hidden>☕</span> {t.store.support}
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <p className="mt-8 flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center text-xs text-muted">
+              <span>{t.store.trust[0]}</span>
+              <span aria-hidden className="hidden sm:inline">·</span>
+              <span>{t.store.trust[1]}</span>
+              <span aria-hidden className="hidden sm:inline">·</span>
+              <span>
+                {t.store.trust[2]}{" "}
+                <a href={`mailto:${site.email}`} className="text-frost hover:text-white">{site.email}</a>
+              </span>
+              <span aria-hidden className="hidden sm:inline">·</span>
+              <a href={legalPath[locale].terms} className="text-frost hover:text-white">{legalLabels[locale].terms}</a>
+              <span aria-hidden className="hidden sm:inline">·</span>
+              <a href={legalPath[locale].privacy} className="text-frost hover:text-white">{legalLabels[locale].privacy}</a>
+            </p>
           </div>
         </section>
 
