@@ -265,7 +265,6 @@ const es = {
         name: "Speed Deck",
         kind: "App de escritorio · Control de stream",
         tagline: "Un deck de botones para controlar OBS desde el computador o desde tu celular por Wi-Fi.",
-        image: "/img/apps/speed-deck.webp",
         imageAlt: "Panel de Speed Deck con botones de escenas, fuentes, sonidos y controles de volumen",
         platforms: "Windows · macOS · Linux",
         downloads: [
@@ -568,7 +567,6 @@ const en: Content = {
         name: "Speed Deck",
         kind: "Desktop app · Stream control",
         tagline: "A button deck to control OBS from your computer or from your phone over Wi-Fi.",
-        image: "/img/apps/speed-deck.webp",
         imageAlt: "Speed Deck panel with scene, source and sound buttons and volume controls",
         platforms: "Windows · macOS · Linux",
         downloads: [

@@ -11,6 +11,7 @@ import { PluginShowcase, YouTubeVideo } from "./PluginShowcase";
 
 const SHOWCASES = ["multi-chat", "goal-bar"];
 import { SectionHead } from "./Section";
+import { SpeedDeckMock } from "./SpeedDeckMock";
 
 export async function Plugins({ locale }: { locale: Locale }) {
   const t = content[locale];
@@ -32,13 +33,9 @@ export async function Plugins({ locale }: { locale: Locale }) {
               <article key={app.slug} className="mt-14">
                 <div className="glass-deep grid overflow-hidden lg:grid-cols-[1.15fr_1fr]">
                   <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_30%_20%,rgb(102_58_243/0.28),transparent_60%),radial-gradient(ellipse_at_80%_90%,rgb(152_192_239/0.16),transparent_55%),#070914] p-6 sm:p-10">
-                    <Image
-                      src={app.image}
-                      alt={app.imageAlt}
-                      width={1283}
-                      height={821}
-                      className="float w-full rounded-xl shadow-[0_30px_60px_-20px_rgb(0_0_0/0.8)]"
-                    />
+                    <div role="img" aria-label={app.imageAlt} className="w-full">
+                      <SpeedDeckMock locale={locale} />
+                    </div>
                     <div className="mt-6 font-mono text-[11px] uppercase tracking-[0.1em] text-mist">{app.platforms}</div>
                   </div>
 
