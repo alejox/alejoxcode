@@ -10,8 +10,8 @@ const email = site.email;
 const terms: Record<Locale, LegalDoc> = {
   es: {
     title: "Términos de servicio",
-    description: "Condiciones de uso de Speed Deck, compra de la versión sin anuncios y reembolsos, y uso de los plugins y recursos de AlejoxCode.",
-    updated: "Última actualización: 11 de noviembre de 2026",
+    description: "Condiciones de uso de Speed Deck, la compra «Quitar publicidad» en Google Play y reembolsos, y uso de los plugins y recursos de AlejoxCode.",
+    updated: "Última actualización: 12 de noviembre de 2026",
     intro:
       "Estos términos aplican a este sitio, a la compra y uso de Speed Deck y a los plugins y recursos gratuitos que publico. Al comprar o usar cualquiera de ellos, los aceptas.",
     sections: [
@@ -24,17 +24,19 @@ const terms: Record<Locale, LegalDoc> = {
       {
         heading: "2. Compras y pagos",
         paragraphs: [
-          "Speed Deck es gratis y muestra anuncios. Puedes quitarlos de por vida con un pago único de $12 USD. El pago se hace a través de Lemon Squeezy, que actúa como revendedor autorizado (Merchant of Record): procesa el pago, calcula y cobra los impuestos que correspondan y emite el recibo. Al comprar también aceptas los términos de Lemon Squeezy.",
-          "Speed Deck está en preventa. Al comprar ahora reservas la versión sin anuncios de por vida; cuando la app esté lista para descargar, te escribiré al correo con el que compraste.",
+          "Speed Deck es gratis en Android y en escritorio (Windows, macOS y Linux) y muestra anuncios.",
+          "En la app de Android puedes quitar los anuncios con «Quitar publicidad», una compra única dentro de la app. El pago lo procesa Google Play con tu cuenta de Google: Google cobra los impuestos que correspondan, emite el recibo y muestra el precio en tu moneda. Al comprar también aceptas los términos de Google Play.",
+          "La app de escritorio es gratis y no tiene compras.",
           "Puedo cambiar el precio en el futuro. Un cambio de precio no afecta las compras ya hechas.",
         ],
       },
       {
         heading: "3. Licencia",
         paragraphs: [
-          "Puedes instalar y usar Speed Deck gratis, con anuncios, en tus propios equipos. Al comprar la versión sin anuncios recibes una licencia de por vida, personal, no exclusiva e intransferible para usarla sin anuncios. Es un pago único, sin suscripción.",
-          "Los anuncios de la versión gratuita pueden ser de mis propios productos o de patrocinadores. Si haces clic en uno, se abre el sitio del anunciante, que tiene sus propias condiciones.",
-          "No puedes revender, alquilar, redistribuir ni compartir el instalador o tu licencia con otras personas, ni descompilar o modificar la app, salvo en lo que la ley te permita expresamente.",
+          "Puedes instalar y usar Speed Deck gratis, con anuncios, en tus propios dispositivos. La licencia es personal, no exclusiva e intransferible.",
+          "Al comprar «Quitar publicidad» en Android, la app deja de mostrar anuncios para siempre en tu cuenta de Google, sin suscripción. La compra se restaura si reinstalas la app o cambias de celular con la misma cuenta.",
+          "Los anuncios pueden ser de Google AdMob, de mis propios productos o de patrocinadores. Si haces clic en uno, se abre el sitio del anunciante, que tiene sus propias condiciones.",
+          "No puedes revender, alquilar, redistribuir ni descompilar o modificar la app, salvo en lo que la ley te permita expresamente.",
         ],
       },
       {
@@ -46,8 +48,8 @@ const terms: Record<Locale, LegalDoc> = {
       {
         heading: "5. Reembolsos",
         paragraphs: [
-          `Tienes 14 días desde la compra para pedir el reembolso completo, sin necesidad de explicar el motivo. Escríbeme a ${email} desde el correo con el que compraste e indica tu número de pedido si lo tienes.`,
-          "El reembolso se procesa a través de Lemon Squeezy al mismo medio de pago que usaste. Una vez reembolsada, la licencia deja de ser válida.",
+          "Los reembolsos de «Quitar publicidad» siguen la política de Google Play: en las primeras 48 horas después de la compra puedes pedirlo directamente en Google Play.",
+          "Pasado ese plazo, escríbeme a alejoxcode@gmail.com con el número de pedido de Google Play (empieza por GPA) y reviso tu caso. Si se reembolsa, la app vuelve a mostrar anuncios.",
         ],
       },
       {
@@ -86,8 +88,8 @@ const terms: Record<Locale, LegalDoc> = {
   },
   en: {
     title: "Terms of Service",
-    description: "Terms for using Speed Deck, buying the ad-free version and refunds, and terms of use for AlejoxCode plugins and resources.",
-    updated: "Last updated: November 11, 2026",
+    description: "Terms for using Speed Deck, the \"Remove ads\" purchase on Google Play and refunds, and terms of use for AlejoxCode plugins and resources.",
+    updated: "Last updated: November 12, 2026",
     intro:
       "These terms apply to this website, to buying and using Speed Deck, and to the free plugins and resources I publish. By buying or using any of them, you agree to these terms.",
     sections: [
@@ -100,17 +102,19 @@ const terms: Record<Locale, LegalDoc> = {
       {
         heading: "2. Purchases and payments",
         paragraphs: [
-          "Speed Deck is free and shows ads. You can remove them for life with a one-time payment of $12 USD. Payment is handled by Lemon Squeezy, which acts as the authorized reseller (Merchant of Record): it processes the payment, calculates and collects any applicable taxes, and issues the receipt. By buying, you also agree to Lemon Squeezy's terms.",
-          "Speed Deck is currently on pre-order. Buying now reserves the ad-free version for life; when the app is ready to download, I will email you at the address you used to buy.",
+          "Speed Deck is free on Android and desktop (Windows, macOS and Linux) and shows ads.",
+          "In the Android app you can remove ads with \"Remove ads\", a one-time in-app purchase. Payment is processed by Google Play with your Google account: Google collects any applicable taxes, issues the receipt and shows the price in your currency. By buying, you also agree to Google Play's terms.",
+          "The desktop app is free and has no purchases.",
           "I may change the price in the future. A price change does not affect purchases already made.",
         ],
       },
       {
         heading: "3. License",
         paragraphs: [
-          "You can install and use Speed Deck for free, with ads, on your own devices. When you buy the ad-free version you get a lifetime, personal, non-exclusive and non-transferable license to use it without ads. It is a one-time payment with no subscription.",
-          "Ads in the free version may promote my own products or sponsors. If you click one, the advertiser's site opens, with its own terms.",
-          "You may not resell, rent, redistribute or share the installer or your license with others, or decompile or modify the app, except as expressly allowed by law.",
+          "You can install and use Speed Deck for free, with ads, on your own devices. The license is personal, non-exclusive and non-transferable.",
+          "When you buy \"Remove ads\" on Android, the app stops showing ads for good on your Google account, with no subscription. The purchase is restored if you reinstall the app or switch phones with the same account.",
+          "Ads may come from Google AdMob, my own products or sponsors. If you click one, the advertiser's site opens, with its own terms.",
+          "You may not resell, rent, redistribute, decompile or modify the app, except as expressly allowed by law.",
         ],
       },
       {
@@ -122,8 +126,8 @@ const terms: Record<Locale, LegalDoc> = {
       {
         heading: "5. Refunds",
         paragraphs: [
-          `You have 14 days from purchase to request a full refund, no questions asked. Email me at ${email} from the address you used to buy, and include your order number if you have it.`,
-          "Refunds are processed through Lemon Squeezy to your original payment method. Once refunded, the license is no longer valid.",
+          "Refunds for \"Remove ads\" follow Google Play's policy: within the first 48 hours after purchase you can request one directly on Google Play.",
+          "After that, email me at alejoxcode@gmail.com with your Google Play order number (it starts with GPA) and I'll review your case. If it is refunded, the app shows ads again.",
         ],
       },
       {
@@ -166,8 +170,8 @@ const privacy: Record<Locale, LegalDoc> = {
   es: {
     title: "Política de privacidad",
     description: "Qué datos se tratan en este sitio, en las compras de Speed Deck y en la app, y cómo ejercer tus derechos.",
-    updated: "Última actualización: 11 de noviembre de 2026",
-    intro: "Aquí explico qué datos se tratan cuando visitas este sitio, cuando compras Speed Deck y cuando usas la app. La versión corta: este sitio no usa cookies propias ni analítica, y Speed Deck no envía tus datos personales ni tu uso a ningún servidor.",
+    updated: "Última actualización: 12 de noviembre de 2026",
+    intro: "Aquí explico qué datos se tratan cuando visitas este sitio, cuando compras Speed Deck y cuando usas la app. La versión corta: este sitio no usa cookies propias ni analítica, y Speed Deck no envía tus datos personales ni tu uso a mis servidores; la app de Android muestra anuncios de Google AdMob.",
     sections: [
       {
         heading: "1. Responsable",
@@ -181,21 +185,23 @@ const privacy: Record<Locale, LegalDoc> = {
           "No uso cookies propias, herramientas de analítica ni publicidad, y el sitio no tiene formularios ni cuentas de usuario. Las fuentes tipográficas se sirven desde este mismo sitio.",
           "El sitio está alojado en Vercel. Como cualquier servidor, registra datos técnicos de las visitas (dirección IP, navegador, página solicitada y fecha) para funcionar y protegerse de abusos.",
           "Las miniaturas de los videos se cargan desde los servidores de YouTube (Google). El video solo se carga cuando pulsas reproducir, desde youtube-nocookie.com; a partir de ahí aplica la política de privacidad de Google.",
-          "Los enlaces a GitHub, Ko-fi, Lemon Squeezy y redes sociales llevan a sitios de terceros con sus propias políticas.",
+          "Los enlaces a GitHub, Ko-fi, Google Play y redes sociales llevan a sitios de terceros con sus propias políticas.",
         ],
       },
       {
         heading: "3. Compras de Speed Deck",
         paragraphs: [
-          "Las compras las procesa Lemon Squeezy como revendedor autorizado (Merchant of Record). Lemon Squeezy recoge tu nombre, correo, país y datos de pago según su propia política de privacidad. Yo no recibo ni guardo los datos completos de tu tarjeta.",
-          "De cada venta recibo la información necesaria para gestionarla: nombre, correo, país, producto y número de pedido. La uso para entregarte la licencia, darte soporte, procesar reembolsos y cumplir obligaciones legales y contables.",
+          "La compra de «Quitar publicidad» en la app de Android la procesa Google Play. Google recoge tus datos de pago según su propia política de privacidad; yo no los recibo.",
+          "Google me comparte los datos necesarios de cada pedido, como el número de pedido, el producto, la fecha y el país. Los uso para darte soporte, gestionar reembolsos y cumplir obligaciones legales y contables. La app consulta a Google Play si ya compraste, para no mostrarte anuncios.",
         ],
       },
       {
         heading: "4. La app Speed Deck",
         paragraphs: [
-          "Speed Deck funciona de forma local en tu computador y en tu red. Se conecta a OBS Studio y, si lo usas, a tu celular a través de tu red Wi-Fi. Tu configuración se guarda en tu propio equipo, y la app no envía tus datos personales ni tu uso a mis servidores ni a terceros.",
-          "Para mostrar anuncios, la versión gratuita descarga al iniciar y cada pocas horas un pequeño archivo con el anuncio desde www.alejoxcode.com (y su imagen, si tiene). Como cualquier visita, esa descarga deja datos técnicos, como la dirección IP y la hora, en los registros de Vercel. Si haces clic en un anuncio, se abre el sitio del anunciante, con su propia política de privacidad.",
+          "Speed Deck se conecta a OBS Studio y, si lo usas, a tu celular a través de tu red Wi-Fi. Tu configuración se guarda en tus propios dispositivos, y la app no envía tus datos personales ni tu uso a mis servidores.",
+          "La app de Android muestra anuncios de Google AdMob. Para mostrarlos y medirlos, Google puede recoger el identificador de publicidad de tu dispositivo, tu dirección IP y datos técnicos del dispositivo y de tu interacción con los anuncios. Si vives en una región que lo exige, la app te pide tu consentimiento antes de mostrar anuncios personalizados. Puedes restablecer o eliminar el ID de publicidad en los ajustes de Android. Más información en policies.google.com/technologies/partner-sites.",
+          "La app de escritorio descarga al iniciar y cada pocas horas un pequeño archivo con el anuncio desde www.alejoxcode.com (y su imagen, si tiene). Como cualquier visita, esa descarga deja datos técnicos, como la dirección IP y la hora, en los registros de Vercel.",
+          "Si haces clic en un anuncio, se abre el sitio del anunciante, con su propia política de privacidad.",
         ],
       },
       {
@@ -225,8 +231,8 @@ const privacy: Record<Locale, LegalDoc> = {
   en: {
     title: "Privacy Policy",
     description: "What data is processed on this website, in Speed Deck purchases and in the app, and how to exercise your rights.",
-    updated: "Last updated: November 11, 2026",
-    intro: "This page explains what data is processed when you visit this website, buy Speed Deck and use the app. The short version: this website uses no cookies of its own or analytics, and Speed Deck does not send your personal data or usage to any server.",
+    updated: "Last updated: November 12, 2026",
+    intro: "This page explains what data is processed when you visit this website, buy Speed Deck and use the app. The short version: this website uses no cookies of its own or analytics, and Speed Deck does not send your personal data or usage to my servers; the Android app shows ads from Google AdMob.",
     sections: [
       {
         heading: "1. Data controller",
@@ -240,21 +246,23 @@ const privacy: Record<Locale, LegalDoc> = {
           "I do not use cookies of my own, analytics tools or advertising, and the website has no forms or user accounts. Fonts are served from this website itself.",
           "The website is hosted on Vercel. Like any server, it logs technical visit data (IP address, browser, requested page and time) to operate and protect against abuse.",
           "Video thumbnails are loaded from YouTube (Google) servers. The video itself only loads when you press play, from youtube-nocookie.com; from then on, Google's privacy policy applies.",
-          "Links to GitHub, Ko-fi, Lemon Squeezy and social networks lead to third-party sites with their own policies.",
+          "Links to GitHub, Ko-fi, Google Play and social networks lead to third-party sites with their own policies.",
         ],
       },
       {
         heading: "3. Speed Deck purchases",
         paragraphs: [
-          "Purchases are processed by Lemon Squeezy as the authorized reseller (Merchant of Record). Lemon Squeezy collects your name, email, country and payment details under its own privacy policy. I do not receive or store your full card details.",
-          "For each sale I receive the information needed to manage it: name, email, country, product and order number. I use it to deliver your license, provide support, process refunds and meet legal and accounting obligations.",
+          "The \"Remove ads\" purchase in the Android app is processed by Google Play. Google collects your payment details under its own privacy policy; I do not receive them.",
+          "Google shares with me the details needed for each order, such as the order number, product, date and country. I use them to provide support, handle refunds and meet legal and accounting obligations. The app checks with Google Play whether you have already bought it, so it doesn't show you ads.",
         ],
       },
       {
         heading: "4. The Speed Deck app",
         paragraphs: [
-          "Speed Deck runs locally on your computer and your network. It connects to OBS Studio and, if you use it, to your phone over your Wi-Fi network. Your settings are stored on your own device, and the app does not send your personal data or usage to my servers or to third parties.",
-          "To show ads, the free version downloads a small file with the ad from www.alejoxcode.com when it starts and every few hours (plus its image, if any). Like any visit, that download leaves technical data, such as IP address and time, in Vercel's logs. If you click an ad, the advertiser's site opens, with its own privacy policy.",
+          "Speed Deck connects to OBS Studio and, if you use it, to your phone over your Wi-Fi network. Your settings are stored on your own devices, and the app does not send your personal data or usage to my servers.",
+          "The Android app shows ads from Google AdMob. To show and measure them, Google may collect your device's advertising ID, your IP address and technical data about your device and your interaction with ads. If you live in a region that requires it, the app asks for your consent before showing personalized ads. You can reset or delete your advertising ID in Android settings. More information at policies.google.com/technologies/partner-sites.",
+          "The desktop app downloads a small file with the ad from www.alejoxcode.com when it starts and every few hours (plus its image, if any). Like any visit, that download leaves technical data, such as IP address and time, in Vercel's logs.",
+          "If you click an ad, the advertiser's site opens, with its own privacy policy.",
         ],
       },
       {
@@ -289,6 +297,6 @@ export const legalPath: Record<Locale, { terms: string; privacy: string }> = {
 };
 
 export const legalLabels: Record<Locale, { title: string; terms: string; privacy: string; agree: string; and: string }> = {
-  es: { title: "Legal", terms: "Términos", privacy: "Privacidad", agree: "Al comprar aceptas los", and: "y la" },
-  en: { title: "Legal", terms: "Terms", privacy: "Privacy", agree: "By buying you agree to the", and: "and the" },
+  es: { title: "Legal", terms: "Términos", privacy: "Privacidad", agree: "Al usar Speed Deck aceptas los", and: "y la" },
+  en: { title: "Legal", terms: "Terms", privacy: "Privacy", agree: "By using Speed Deck you agree to the", and: "and the" },
 };

@@ -45,10 +45,17 @@ export const GlobeIcon = (p: P) => (
   </svg>
 );
 
+export const AndroidIcon = (p: P) => (
+  <svg {...base} {...p}>
+    <path d="M17.5 9.2 19.3 6a.4.4 0 0 0-.7-.4l-1.8 3.2a11 11 0 0 0-9.6 0L5.4 5.6a.4.4 0 0 0-.7.4l1.8 3.2A10 10 0 0 0 1.5 17h21a10 10 0 0 0-5-7.8zM7 14.2a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm10 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+  </svg>
+);
+
 export function PlatformIcon({ platform, ...p }: { platform: Platform } & P) {
   if (platform === "windows") return <WindowsIcon {...p} />;
   if (platform === "macos") return <AppleIcon {...p} />;
   if (platform === "linux") return <LinuxIcon {...p} />;
+  if (platform === "android") return <AndroidIcon {...p} />;
   return <GlobeIcon {...p} />;
 }
 

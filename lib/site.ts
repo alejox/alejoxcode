@@ -9,8 +9,6 @@ export const site = {
   handle: "@alejoxcode",
   // Ko-fi (botón de apoyo en la página de plugins; pagos por PayPal).
   kofi: "https://ko-fi.com/alejoxcode",
-  // Checkout de Speed Deck en Lemon Squeezy (preventa).
-  speedDeckCheckout: "https://speeddeck.lemonsqueezy.com/checkout/buy/a38c9fa0-39f6-43c4-97a5-dc82c8635b90?embed=1",
   // El orden aquí es el orden en que aparecen los íconos.
   socials: {
     linkedin: "https://www.linkedin.com/in/alejoxcode",

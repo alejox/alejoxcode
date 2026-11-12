@@ -7,7 +7,7 @@
 // (p. ej. el deploy hook que lanza cada release) siempre lee el release más nuevo.
 // Para publicar un plugin nuevo: agrega su entrada aquí y su ficha en content.ts.
 
-export type Platform = "windows" | "macos" | "linux" | "any";
+export type Platform = "windows" | "macos" | "linux" | "android" | "any";
 
 export type DownloadId = "windows" | "macos" | "macos-apple" | "macos-intel" | "linux";
 

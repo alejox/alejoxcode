@@ -83,7 +83,9 @@ export function Landing({ locale }: { locale: Locale }) {
                   </p>
                 </div>
                 <p className="mt-2 text-sm leading-relaxed text-mist">{t.store.deckText}</p>
-                <p className="mt-2 text-sm text-muted">{t.apps.includes[0]}</p>
+                <p className="mt-2 text-sm text-muted">
+                  <span className="text-mist">{t.apps.includesTitle}:</span> {t.apps.includes[0]}
+                </p>
                 <div className="mt-auto pt-6">
                   <a href={`${pluginsPath}#apps`} className="btn-primary w-full justify-center gap-2 px-5 py-3">
                     {t.store.deckCta} <ArrowIcon width={15} height={15} />
