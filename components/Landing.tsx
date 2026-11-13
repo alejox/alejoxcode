@@ -5,7 +5,6 @@ import { site } from "@/lib/site";
 import { Footer, Socials } from "./Footer";
 import { HeroMotion } from "./HeroMotion";
 import { ArrowIcon, GithubIcon, GlobeIcon, LinkedinIcon, MailIcon } from "./Icons";
-import { LaunchPopup } from "./LaunchPopup";
 import { Navbar } from "./Navbar";
 import { RoleTicker } from "./RoleTicker";
 import { SectionHead } from "./Section";
@@ -17,7 +16,6 @@ export function Landing({ locale }: { locale: Locale }) {
   return (
     <>
       <Navbar locale={locale} />
-      <LaunchPopup locale={locale} />
       <main>
         {/* HERO */}
         <section className="spotlight relative isolate overflow-hidden">
