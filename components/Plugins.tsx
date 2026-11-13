@@ -5,6 +5,7 @@ import { legalLabels, legalPath } from "@/lib/legal";
 import { site } from "@/lib/site";
 import { Footer } from "./Footer";
 import { ArrowIcon, DownloadIcon, GithubIcon, PlatformIcon, YoutubeIcon } from "./Icons";
+import { LaunchPopup } from "./LaunchPopup";
 import { Navbar } from "./Navbar";
 import { PluginDownloads } from "./PluginDownloads";
 import { PluginShowcase, YouTubeVideo } from "./PluginShowcase";
@@ -41,6 +42,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
   return (
     <>
       <Navbar locale={locale} />
+      <LaunchPopup locale={locale} />
       <main>
         {/* Cabecera */}
         <section className="relative isolate overflow-hidden">
