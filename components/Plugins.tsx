@@ -8,8 +8,7 @@ import { ArrowIcon, DownloadIcon, GithubIcon, PlatformIcon, YoutubeIcon } from "
 import { Navbar } from "./Navbar";
 import { PluginDownloads } from "./PluginDownloads";
 import { PluginShowcase, YouTubeVideo } from "./PluginShowcase";
-import { PluginTabs } from "./PluginTabs";
-import { SectionNav } from "./SectionNav";
+import { PageTabs } from "./PluginTabs";
 import { SpeedDeckMock } from "./SpeedDeckMock";
 
 const SHOWCASES = ["multi-chat", "goal-bar"];
@@ -70,23 +69,24 @@ export async function Plugins({ locale }: { locale: Locale }) {
           </div>
         </section>
 
-        <SectionNav
-          items={[
-            { id: "plugins", label: t.pluginsPage.nav.plugins },
-            { id: "streamers", label: t.pluginsPage.nav.creators },
-            { id: "proximamente", label: t.pluginsPage.nav.soon },
+        <PageTabs
+          label={t.pluginsPage.tabsLabel}
+          tabs={[
+            { id: "plugins", label: t.pluginsPage.nav.plugins, count: items.length, anchors: ["streamers", ...items.map(({ p }) => p.slug)] },
+            {
+              id: "proximamente",
+              label: t.pluginsPage.nav.soon,
+              count: t.apps.items.length + t.alerts.items.length,
+              anchors: ["apps", "alertas"],
+            },
           ]}
-        />
-
-        {/* 1. Plugins: una pestaña por plugin */}
-        <section id="plugins" className="mx-auto max-w-[1200px] scroll-mt-32 px-4 pt-8 sm:px-6">
-          <PluginTabs
-            label={t.pluginsPage.tabsLabel}
-            tabs={items.map(({ p, latest }) => ({ slug: p.slug, name: p.name, version: latest.version }))}
-          >
+        >
+          {/* Pestaña 1: los plugins y, debajo, los creadores */}
+          <div>
+        <section id="plugins" className="mx-auto max-w-[1200px] scroll-mt-32 space-y-5 px-4 pt-8 sm:px-6">
             {items.map(({ p, latest }) => (
-              <article key={p.slug} className="glass-deep grid overflow-hidden lg:grid-cols-[1.1fr_1fr]">
-                <div className={`${stage} p-5 sm:p-8`}>
+              <article key={p.slug} id={p.slug} className="glass-deep grid scroll-mt-32 overflow-hidden lg:grid-cols-[0.8fr_1.2fr]">
+                <div className={`${stage} p-4 sm:p-6`}>
                   {p.video ? (
                     <YouTubeVideo id={p.video} title={p.name} playLabel={t.pluginsPage.play} />
                   ) : SHOWCASES.includes(p.slug) ? (
@@ -110,7 +110,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
                       className="float w-full rounded-2xl shadow-[0_30px_60px_-20px_rgb(0_0_0/0.8)]"
                     />
                   ) : null}
-                  <div className="mt-5 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.1em] text-mist">
+                  <div className="mt-4 flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.1em] text-mist">
                     <span className="eq flex h-4 items-end gap-[3px]">
                       {[0.2, 0.5, 0.1, 0.35].map((d) => (
                         <span key={d} className="h-full w-[3px] rounded-full bg-frost" style={{ animationDelay: `${d}s` }} />
@@ -120,16 +120,16 @@ export async function Plugins({ locale }: { locale: Locale }) {
                   </div>
                 </div>
 
-                <div className="p-5 sm:p-8">
+                <div className="p-5 sm:px-7 sm:py-6">
                   <div className="flex flex-wrap items-center gap-2">
                     <span className={`${chip} font-mono`}>v{latest.version}</span>
                     <span className={chip}>{t.pluginsPage.free}</span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted">{p.kind}</span>
                   </div>
-                  <h3 className="mt-3 text-[28px] leading-tight">{p.name}</h3>
-                  <p className="mt-2 leading-relaxed text-mist">{p.tagline}</p>
-                  <p className="mt-1.5 text-sm text-muted">{p.players}</p>
-                  <ul className="mt-4 flex flex-wrap gap-1.5">
+                  <h3 className="mt-2.5 text-2xl leading-tight">{p.name}</h3>
+                  <p className="mt-1.5 text-[15px] leading-relaxed text-mist">{p.tagline}</p>
+                  <p className="mt-1 text-[13px] text-muted">{p.players}</p>
+                  <ul className="mt-3 flex flex-wrap gap-1.5">
                     {p.features.map((f) => (
                       <li key={f.title} className={chip}>{f.title}</li>
                     ))}
@@ -156,11 +156,10 @@ export async function Plugins({ locale }: { locale: Locale }) {
                 </div>
               </article>
             ))}
-          </PluginTabs>
         </section>
 
         {/* 2. Creadores */}
-        <section id="streamers" className="mx-auto mt-16 max-w-[1200px] scroll-mt-32 px-4 sm:px-6">
+        <section id="streamers" className="mx-auto mt-14 max-w-[1200px] scroll-mt-32 px-4 sm:px-6">
           <Head eyebrow={t.streamers.eyebrow} title={t.streamers.title}>
             {t.streamers.intro}
           </Head>
@@ -221,9 +220,10 @@ export async function Plugins({ locale }: { locale: Locale }) {
           ))}
         </section>
 
-        {/* 3. Próximamente: Speed Deck y packs de alertas, lado a lado */}
-        <section id="proximamente" className="mx-auto mt-16 max-w-[1200px] scroll-mt-32 px-4 sm:px-6">
-          <Head eyebrow={t.pluginsPage.soonEyebrow} title={t.pluginsPage.soonTitle} />
+          </div>
+
+          {/* Pestaña 2: Speed Deck y packs de alertas, lado a lado */}
+        <section id="proximamente" className="mx-auto max-w-[1200px] scroll-mt-32 px-4 pt-8 sm:px-6">
 
           <div className="grid gap-6 lg:grid-cols-2">
             {t.apps.items.map((app) => (
@@ -384,6 +384,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
             ))}
           </div>
         </section>
+        </PageTabs>
       </main>
       <Footer locale={locale} />
     </>

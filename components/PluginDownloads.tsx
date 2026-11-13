@@ -58,9 +58,9 @@ export function PluginDownloads({ items, urls, releasesUrl, repoUrl, repoLink, r
   };
 
   return (
-    <div className="mt-5">
+    <div className="mt-4">
       {/* Descarga principal: el sistema detectado (o el primero de la lista) */}
-      <a {...link(primary.id)} className="btn-primary w-full justify-start gap-3 px-5 py-3">
+      <a {...link(primary.id)} className="btn-primary w-full justify-start gap-3 px-5 py-2.5">
         <PlatformIcon platform={primary.platform} width={16} height={16} />
         <span className="flex-1 text-left">
           {downloadFor} {primary.label}
@@ -111,14 +111,14 @@ export function PluginDownloads({ items, urls, releasesUrl, repoUrl, repoLink, r
           </a>
         ))}
 
-      <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-line pt-4">
+      <div className="mt-3 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-line pt-3">
         <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted">{requirements}</p>
         <a href={repoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs text-mist hover:text-white">
           <GithubIcon width={14} height={14} /> {repoLink} <ArrowIcon width={12} height={12} />
         </a>
       </div>
       {items.some((d) => d.platform === "macos") && (
-        <details className="group mt-3 text-xs text-muted">
+        <details className="group mt-2 text-xs text-muted">
           <summary className="cursor-pointer list-none text-mist hover:text-white [&::-webkit-details-marker]:hidden">
             <span className="mr-1.5 inline-block transition group-open:rotate-90">›</span>
             {macHelp}
