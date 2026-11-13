@@ -166,6 +166,13 @@ const es = {
     detected: "Recomendado para tu equipo",
     macInstall: "Instalación en macOS: descomprime el .zip y copia el plugin en:",
     coffee: "Apóyame en Ko-fi",
+    nav: { plugins: "Plugins", creators: "Creadores", soon: "Próximamente" },
+    tabsLabel: "Elige un plugin",
+    downloadFor: "Descargar para",
+    otherPlatforms: "También para",
+    macHelp: "¿Cómo instalar en macOS?",
+    soonEyebrow: "En camino",
+    soonTitle: "Próximamente",
     coffeeCta: "¿Te sirven mis plugins? Invítame un café y ayúdame a crear más herramientas para streamers.",
     items: [
       {
@@ -276,6 +283,7 @@ const es = {
     playCta: "Próximamente en Google Play",
     buyNote: "«Quitar publicidad» es una compra única dentro de la app de Android, con Google Play.",
     disabledHint: "Disponible pronto",
+    detailsLabel: "Compra, reembolsos y soporte",
     includesTitle: "Quitar publicidad",
     includes: [
       "Compra única dentro de la app de Android, con el pago de Google Play: los anuncios desaparecen para siempre.",
@@ -525,6 +533,13 @@ const en: Content = {
     detected: "Recommended for your device",
     macInstall: "To install on macOS, unzip and copy the plugin into:",
     coffee: "Support me on Ko-fi",
+    nav: { plugins: "Plugins", creators: "Creators", soon: "Coming soon" },
+    tabsLabel: "Choose a plugin",
+    downloadFor: "Download for",
+    otherPlatforms: "Also for",
+    macHelp: "How to install on macOS?",
+    soonEyebrow: "On the way",
+    soonTitle: "Coming soon",
     coffeeCta: "Are my plugins useful to you? Buy me a coffee and help me build more tools for streamers.",
     items: [
       {
@@ -635,6 +650,7 @@ const en: Content = {
     playCta: "Coming soon to Google Play",
     buyNote: "\"Remove ads\" is a one-time purchase inside the Android app, through Google Play.",
     disabledHint: "Available soon",
+    detailsLabel: "Purchase, refunds and support",
     includesTitle: "Remove ads",
     includes: [
       "One-time purchase inside the Android app, paid through Google Play: ads are gone for good.",

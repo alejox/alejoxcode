@@ -20,6 +20,9 @@ type Props = {
   requirements: string;
   detectedLabel: string;
   macInstall: string;
+  macHelp: string;
+  downloadFor: string;
+  otherPlatforms: string;
   obsForum?: { url: string; label: string; soon?: boolean };
 };
 
@@ -32,7 +35,7 @@ function detectOS(): DownloadId | null {
 }
 
 /** Botones por plataforma: detecta el SO y muestra esa descarga de primero. */
-export function PluginDownloads({ items, urls, releasesUrl, repoUrl, repoLink, requirements, detectedLabel, macInstall, obsForum }: Props) {
+export function PluginDownloads({ items, urls, releasesUrl, repoUrl, repoLink, requirements, detectedLabel, macInstall, macHelp, downloadFor, otherPlatforms, obsForum }: Props) {
   const [detected, setDetected] = useState<DownloadId | null>(null);
 
   useEffect(() => {
@@ -48,67 +51,86 @@ export function PluginDownloads({ items, urls, releasesUrl, repoUrl, repoLink, r
 
   const ordered = [...items].sort((a, b) => Number(b.id === detected) - Number(a.id === detected));
 
+  const [primary, ...others] = ordered;
+  const link = (id: DownloadId) => {
+    const direct = urls[id];
+    return { href: direct ?? releasesUrl, ...(!direct ? { target: "_blank", rel: "noreferrer" } : {}) };
+  };
+
   return (
-    <div className="mt-6">
-      <div className="space-y-2">
-        {ordered.map((d, i) => {
-          const direct = urls[d.id];
-          const isDetected = d.id === detected;
-          return (
-            <div key={d.id}>
-              <a
-                href={direct ?? releasesUrl}
-                {...(!direct ? { target: "_blank", rel: "noreferrer" } : {})}
-                className={`${isDetected || (detected === null && i === 0) ? "btn-primary" : "btn-ghost"} w-full justify-start gap-3 px-5 py-3`}
-              >
-                <PlatformIcon platform={d.platform} width={15} height={15} />
-                <span className="flex-1 text-left">{d.label}</span>
-                <span className="hidden text-xs font-normal text-white/60 sm:inline">{d.hint}</span>
-                <DownloadIcon width={15} height={15} />
+    <div className="mt-5">
+      {/* Descarga principal: el sistema detectado (o el primero de la lista) */}
+      <a {...link(primary.id)} className="btn-primary w-full justify-start gap-3 px-5 py-3">
+        <PlatformIcon platform={primary.platform} width={16} height={16} />
+        <span className="flex-1 text-left">
+          {downloadFor} {primary.label}
+        </span>
+        <span className="hidden text-xs font-normal text-white/60 sm:inline">{primary.hint}</span>
+        <DownloadIcon width={15} height={15} />
+      </a>
+
+      <div className="mt-2.5 flex flex-wrap items-center gap-2">
+        {primary.id === detected && (
+          <span className="flex items-center gap-1.5 text-[11px] text-brand-blue">
+            <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
+            {detectedLabel}
+          </span>
+        )}
+        {others.length > 0 && (
+          <span className="ml-auto flex flex-wrap items-center gap-1.5">
+            <span className="text-[11px] text-muted">{otherPlatforms}</span>
+            {others.map((d) => (
+              <a key={d.id} {...link(d.id)} title={d.hint} className="btn-ghost gap-1.5 px-3 py-1.5 text-xs">
+                <PlatformIcon platform={d.platform} width={13} height={13} />
+                {d.label}
               </a>
-              {isDetected && (
-                <p className="mt-1.5 flex items-center gap-1.5 px-1 text-[11px] text-brand-blue">
-                  <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
-                  {detectedLabel}
-                </p>
-              )}
-            </div>
-          );
-        })}
-        {obsForum &&
-          (obsForum.soon ? (
-            <button
-              type="button"
-              disabled
-              aria-disabled
-              title={obsForum.label}
-              className="btn-obs w-full cursor-not-allowed justify-start gap-3 px-5 py-3 opacity-55"
-            >
-              <ObsIcon width={15} height={15} />
-              <span className="flex-1 text-left">{obsForum.label}</span>
-              <LockIcon width={14} height={14} />
-            </button>
-          ) : (
-            <a href={obsForum.url} target="_blank" rel="noreferrer" className="btn-obs w-full justify-start gap-3 px-5 py-3">
-              <ObsIcon width={15} height={15} />
-              <span className="flex-1 text-left">{obsForum.label}</span>
-              <span className="hidden text-xs font-normal opacity-70 sm:inline">obsproject.com</span>
-              <ArrowIcon width={15} height={15} />
-            </a>
-          ))}
+            ))}
+          </span>
+        )}
+      </div>
+
+      {obsForum &&
+        (obsForum.soon ? (
+          <button
+            type="button"
+            disabled
+            aria-disabled
+            title={obsForum.label}
+            className="btn-obs mt-3 w-full cursor-not-allowed justify-start gap-3 px-5 py-2.5 opacity-55"
+          >
+            <ObsIcon width={15} height={15} />
+            <span className="flex-1 text-left">{obsForum.label}</span>
+            <LockIcon width={14} height={14} />
+          </button>
+        ) : (
+          <a href={obsForum.url} target="_blank" rel="noreferrer" className="btn-obs mt-3 w-full justify-start gap-3 px-5 py-2.5">
+            <ObsIcon width={15} height={15} />
+            <span className="flex-1 text-left">{obsForum.label}</span>
+            <span className="hidden text-xs font-normal opacity-70 sm:inline">obsproject.com</span>
+            <ArrowIcon width={15} height={15} />
+          </a>
+        ))}
+
+      <div className="mt-4 flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-t border-line pt-4">
+        <p className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted">{requirements}</p>
+        <a href={repoUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-xs text-mist hover:text-white">
+          <GithubIcon width={14} height={14} /> {repoLink} <ArrowIcon width={12} height={12} />
+        </a>
       </div>
       {items.some((d) => d.platform === "macos") && (
-        <p className="mt-4 text-xs leading-relaxed text-muted">
-          {macInstall}{" "}
-          <code className="rounded bg-panel-2 px-1.5 py-0.5 font-mono text-[11px] break-all text-frost">
-            ~/Library/Application Support/obs-studio/plugins/
-          </code>
-        </p>
+        <details className="group mt-3 text-xs text-muted">
+          <summary className="cursor-pointer list-none text-mist hover:text-white [&::-webkit-details-marker]:hidden">
+            <span className="mr-1.5 inline-block transition group-open:rotate-90">›</span>
+            {macHelp}
+          </summary>
+          <p className="mt-2 leading-relaxed">
+            {macInstall}{" "}
+            <code className="rounded bg-panel-2 px-1.5 py-0.5 font-mono text-[11px] break-all text-frost">
+              ~/Library/Application Support/obs-studio/plugins/
+            </code>
+          </p>
+        </details>
       )}
-      <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{requirements}</p>
-      <a href={repoUrl} target="_blank" rel="noreferrer" className="mt-5 inline-flex items-center gap-2 text-sm text-mist hover:text-white">
-        <GithubIcon width={15} height={15} /> {repoLink} <ArrowIcon width={14} height={14} />
-      </a>
     </div>
   );
 }
