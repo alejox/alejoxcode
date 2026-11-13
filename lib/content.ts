@@ -228,7 +228,7 @@ const es = {
       },
       {
         slug: "goal-bar",
-        name: "Goal Bar",
+        name: "AC Goal Bar",
         kind: "Plugin para OBS Studio · C++",
         tagline: "Una barra de progreso que avanza en vivo hacia tu meta de me gusta, suscriptores o seguidores, y celebra cuando la alcanzas.",
         players: "YouTube sin iniciar sesión, Twitch con su API oficial o modo manual. Sin claves de API.",
@@ -549,7 +549,7 @@ const en: Content = {
       },
       {
         slug: "goal-bar",
-        name: "Goal Bar",
+        name: "AC Goal Bar",
         kind: "OBS Studio plugin · C++",
         tagline: "A progress bar that fills live toward your likes, subscribers or followers goal, and celebrates when you reach it.",
         players: "YouTube without signing in, Twitch with its official API, or manual mode. No API keys.",
