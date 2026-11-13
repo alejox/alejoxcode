@@ -297,9 +297,10 @@ const es = {
   },
   streamers: {
     eyebrow: "Comunidad",
-    title: "Streamers que ya usan nuestros plugins",
+    title: "Creadores que ya usan nuestros plugins",
     intro: "Creadores de contenido que usan y recomiendan los plugins de AlejoxCode en sus canales.",
     videosTitle: "Videos sobre nuestros plugins",
+    moreTitle: "Más del canal",
     cta: "Ver canal en YouTube",
     items: [
       {
@@ -308,6 +309,13 @@ const es = {
         url: "https://www.youtube.com/@argegaming",
         videosUrl: "https://www.youtube.com/@argegaming/videos",
         avatar: "/img/streamers/argegaming-avatar.webp",
+        banner: "/img/streamers/argegaming-banner.webp",
+        more: [
+          { title: "Como restablecer los Plugins antiguos en OBS 33", image: "/img/streamers/argegaming-obs33.webp" },
+          { title: "Cómo Conseguir Office 2024 Oficial, Legal y Barato", image: "/img/streamers/argegaming-office.webp" },
+          { title: "Adiós a Adobe | NUEVA Suite de Diseño 100% GRATIS", image: "/img/streamers/argegaming-adobe.webp" },
+          { title: "Cómo activar Windows 11 Pro Legal", image: "/img/streamers/argegaming-windows.webp" },
+        ],
         stats: "17,3 mil suscriptores · 251 videos",
         description: "Tips, trucos, recomendaciones y tutoriales para creadores de contenido. Videos nuevos cada semana.",
         videos: [
@@ -640,9 +648,10 @@ const en: Content = {
   },
   streamers: {
     eyebrow: "Community",
-    title: "Streamers already using our plugins",
+    title: "Creators already using our plugins",
     intro: "Content creators who use and recommend AlejoxCode plugins on their channels.",
     videosTitle: "Videos about our plugins",
+    moreTitle: "More from the channel",
     cta: "View channel on YouTube",
     items: [
       {
@@ -651,6 +660,13 @@ const en: Content = {
         url: "https://www.youtube.com/@argegaming",
         videosUrl: "https://www.youtube.com/@argegaming/videos",
         avatar: "/img/streamers/argegaming-avatar.webp",
+        banner: "/img/streamers/argegaming-banner.webp",
+        more: [
+          { title: "Como restablecer los Plugins antiguos en OBS 33", image: "/img/streamers/argegaming-obs33.webp" },
+          { title: "Cómo Conseguir Office 2024 Oficial, Legal y Barato", image: "/img/streamers/argegaming-office.webp" },
+          { title: "Adiós a Adobe | NUEVA Suite de Diseño 100% GRATIS", image: "/img/streamers/argegaming-adobe.webp" },
+          { title: "Cómo activar Windows 11 Pro Legal", image: "/img/streamers/argegaming-windows.webp" },
+        ],
         stats: "17.3K subscribers · 251 videos",
         description: "Tips, tricks, recommendations and tutorials for content creators, in Spanish. New videos every week.",
         videos: [

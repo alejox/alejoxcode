@@ -243,11 +243,15 @@ export async function Plugins({ locale }: { locale: Locale }) {
             </SectionHead>
 
             {t.streamers.items.map((st) => (
-              <article key={st.handle} className="glass-deep mt-14 grid gap-8 overflow-hidden p-6 sm:p-10 lg:grid-cols-[0.9fr_1.4fr] lg:items-center">
+              <article key={st.handle} className="glass-deep mt-14 overflow-hidden">
+                <a href={st.url} target="_blank" rel="noreferrer" className="block" aria-label={st.name}>
+                  <Image src={st.banner} alt="" width={1278} height={204} className="h-24 w-full object-cover sm:aspect-[1278/204] sm:h-auto" />
+                </a>
+                <div className="grid gap-8 px-6 pb-8 sm:px-10 lg:grid-cols-[0.9fr_1.4fr] lg:items-start">
                 <div>
-                  <div className="flex items-center gap-4">
-                    <Image src={st.avatar} alt={st.name} width={80} height={80} className="size-16 rounded-full sm:size-20" />
-                    <div>
+                  <div className="-mt-8 flex items-end gap-4 sm:-mt-12">
+                    <Image src={st.avatar} alt={st.name} width={112} height={112} className="relative size-20 shrink-0 rounded-full ring-4 ring-[#05060f] sm:size-28" />
+                    <div className="pb-1">
                       <h3 className="text-[26px] leading-tight">{st.name}</h3>
                       <p className="text-sm text-mist">{st.handle}</p>
                     </div>
@@ -264,7 +268,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
                   </a>
                 </div>
 
-                <div>
+                <div className="pt-6">
                   <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{t.streamers.videosTitle}</p>
                   <ul className="mt-4 grid gap-4 sm:grid-cols-2">
                     {st.videos.map((v) => (
@@ -281,6 +285,29 @@ export async function Plugins({ locale }: { locale: Locale }) {
                           </div>
                           <span className="mt-3 inline-block rounded-md bg-panel-2 px-2 py-1 text-[11px] font-medium text-frost">{v.plugin}</span>
                           <p className="mt-2 text-sm leading-snug text-mist transition group-hover:text-white">{v.title}</p>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                </div>
+
+                <div className="border-t border-line px-6 py-8 sm:px-10">
+                  <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{t.streamers.moreTitle}</p>
+                  <ul className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-4">
+                    {st.more.map((v) => (
+                      <li key={v.title}>
+                        <a href={st.videosUrl} target="_blank" rel="noreferrer" className="group block">
+                          <div className="overflow-hidden rounded-lg">
+                            <Image
+                              src={v.image}
+                              alt={v.title}
+                              width={421}
+                              height={236}
+                              className="aspect-video w-full object-cover transition duration-300 group-hover:scale-[1.04]"
+                            />
+                          </div>
+                          <p className="mt-2 line-clamp-2 text-xs leading-snug text-muted transition group-hover:text-white">{v.title}</p>
                         </a>
                       </li>
                     ))}
