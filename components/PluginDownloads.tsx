@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { DownloadId, LatestRelease, Platform } from "@/lib/downloads";
-import { ArrowIcon, DownloadIcon, GithubIcon, ObsIcon, PlatformIcon } from "./Icons";
+import { ArrowIcon, DownloadIcon, GithubIcon, LockIcon, ObsIcon, PlatformIcon } from "./Icons";
 
 type DownloadItem = {
   id: DownloadId;
@@ -20,7 +20,7 @@ type Props = {
   requirements: string;
   detectedLabel: string;
   macInstall: string;
-  obsForum?: { url: string; label: string };
+  obsForum?: { url: string; label: string; soon?: boolean };
 };
 
 function detectOS(): DownloadId | null {
@@ -75,14 +75,27 @@ export function PluginDownloads({ items, urls, releasesUrl, repoUrl, repoLink, r
             </div>
           );
         })}
-        {obsForum && (
-          <a href={obsForum.url} target="_blank" rel="noreferrer" className="btn-ghost w-full justify-start gap-3 px-5 py-3">
-            <ObsIcon width={15} height={15} />
-            <span className="flex-1 text-left">{obsForum.label}</span>
-            <span className="hidden text-xs font-normal text-white/60 sm:inline">obsproject.com</span>
-            <ArrowIcon width={15} height={15} />
-          </a>
-        )}
+        {obsForum &&
+          (obsForum.soon ? (
+            <button
+              type="button"
+              disabled
+              aria-disabled
+              title={obsForum.label}
+              className="btn-obs w-full cursor-not-allowed justify-start gap-3 px-5 py-3 opacity-55"
+            >
+              <ObsIcon width={15} height={15} />
+              <span className="flex-1 text-left">{obsForum.label}</span>
+              <LockIcon width={14} height={14} />
+            </button>
+          ) : (
+            <a href={obsForum.url} target="_blank" rel="noreferrer" className="btn-obs w-full justify-start gap-3 px-5 py-3">
+              <ObsIcon width={15} height={15} />
+              <span className="flex-1 text-left">{obsForum.label}</span>
+              <span className="hidden text-xs font-normal opacity-70 sm:inline">obsproject.com</span>
+              <ArrowIcon width={15} height={15} />
+            </a>
+          ))}
       </div>
       {items.some((d) => d.platform === "macos") && (
         <p className="mt-4 text-xs leading-relaxed text-muted">

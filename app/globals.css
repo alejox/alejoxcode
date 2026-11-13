@@ -135,6 +135,20 @@ h1, h2, h3, h4 {
   box-shadow: inset 0 0 0 1px rgb(186 215 247 / 0.12);
 }
 .btn-ghost:hover { background: rgb(186 214 247 / 0.12); }
+/* Segundo acento: acciones hacia el sitio oficial de OBS */
+.btn-obs {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #04121a;
+  background: linear-gradient(120deg, #34e3c4, #4fb8ff);
+  box-shadow: inset 0 1px 1px rgb(255 255 255 / 0.4), 0 8px 24px -8px rgb(52 227 196 / 0.6);
+  transition: filter 0.2s ease, transform 0.2s ease;
+}
+.btn-obs:not(:disabled):hover { filter: brightness(1.08); transform: translateY(-1px); }
 .btn-lg { padding: 13px 26px; font-size: 15px; }
 
 .bg-brand { background: var(--color-brand-purple); }

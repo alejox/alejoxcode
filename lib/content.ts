@@ -160,6 +160,7 @@ const es = {
     free: "Gratis · MIT",
     repoLink: "Código, instalación y FAQ",
     obsForum: "Descargar en el sitio oficial de OBS",
+    obsForumSoon: "Próximamente en el sitio de OBS",
     play: "Ver video",
     videoSoon: "Video próximamente",
     detected: "Recomendado para tu equipo",
@@ -177,6 +178,7 @@ const es = {
         video: "KeSJ-YOZpvQ",
         videoSoon: false,
         obsForum: "https://obsproject.com/forum/resources/music-now-playing.2786/",
+        obsForumSoon: false,
         image: "/img/now-playing.png",
         imageAlt: "Overlay de Music Now Playing mostrando la canción actual",
         downloads: [
@@ -207,7 +209,8 @@ const es = {
         platforms: "Twitch · YouTube · Kick · TikTok",
         video: "JKLlxJfqe9A",
         videoSoon: false,
-        obsForum: "",
+        obsForum: "https://obsproject.com/forum/resources/ac-multichat.2846/",
+        obsForumSoon: true,
         image: "",
         imageAlt: "",
         downloads: [
@@ -238,7 +241,8 @@ const es = {
         platforms: "YouTube · Twitch · Manual",
         video: "XYUax6DEwFo",
         videoSoon: false,
-        obsForum: "",
+        obsForum: "https://obsproject.com/forum/resources/ac-goal-bar.2847/",
+        obsForumSoon: true,
         image: "",
         imageAlt: "",
         downloads: [
@@ -515,6 +519,7 @@ const en: Content = {
     free: "Free · MIT",
     repoLink: "Code, install guide and FAQ",
     obsForum: "Download from the official OBS site",
+    obsForumSoon: "Coming soon to the OBS site",
     play: "Watch video",
     videoSoon: "Video coming soon",
     detected: "Recommended for your device",
@@ -532,6 +537,7 @@ const en: Content = {
         video: "KeSJ-YOZpvQ",
         videoSoon: false,
         obsForum: "https://obsproject.com/forum/resources/music-now-playing.2786/",
+        obsForumSoon: false,
         image: "/img/now-playing.png",
         imageAlt: "Music Now Playing overlay showing the current song",
         downloads: [
@@ -562,7 +568,8 @@ const en: Content = {
         platforms: "Twitch · YouTube · Kick · TikTok",
         video: "JKLlxJfqe9A",
         videoSoon: false,
-        obsForum: "",
+        obsForum: "https://obsproject.com/forum/resources/ac-multichat.2846/",
+        obsForumSoon: true,
         image: "",
         imageAlt: "",
         downloads: [
@@ -593,7 +600,8 @@ const en: Content = {
         platforms: "YouTube · Twitch · Manual",
         video: "XYUax6DEwFo",
         videoSoon: false,
-        obsForum: "",
+        obsForum: "https://obsproject.com/forum/resources/ac-goal-bar.2847/",
+        obsForumSoon: true,
         image: "",
         imageAlt: "",
         downloads: [
