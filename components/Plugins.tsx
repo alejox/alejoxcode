@@ -4,7 +4,7 @@ import { getLatestRelease } from "@/lib/downloads";
 import { legalLabels, legalPath } from "@/lib/legal";
 import { site } from "@/lib/site";
 import { Footer } from "./Footer";
-import { ArrowIcon, DownloadIcon, GithubIcon, PlatformIcon } from "./Icons";
+import { ArrowIcon, DownloadIcon, GithubIcon, PlatformIcon, YoutubeIcon } from "./Icons";
 import { Navbar } from "./Navbar";
 import { PluginDownloads } from "./PluginDownloads";
 import { PluginShowcase, YouTubeVideo } from "./PluginShowcase";
@@ -235,6 +235,61 @@ export async function Plugins({ locale }: { locale: Locale }) {
           </div>
         </section>
 
+
+        <section id="streamers" className="relative isolate scroll-mt-20 overflow-hidden pb-16 lg:pb-24">
+          <div className="mx-auto max-w-[1200px] px-4 sm:px-6">
+            <SectionHead eyebrow={t.streamers.eyebrow} title={t.streamers.title}>
+              {t.streamers.intro}
+            </SectionHead>
+
+            {t.streamers.items.map((st) => (
+              <article key={st.handle} className="glass-deep mt-14 grid gap-8 overflow-hidden p-6 sm:p-10 lg:grid-cols-[0.9fr_1.4fr] lg:items-center">
+                <div>
+                  <div className="flex items-center gap-4">
+                    <Image src={st.avatar} alt={st.name} width={80} height={80} className="size-16 rounded-full sm:size-20" />
+                    <div>
+                      <h3 className="text-[26px] leading-tight">{st.name}</h3>
+                      <p className="text-sm text-mist">{st.handle}</p>
+                    </div>
+                  </div>
+                  <p className="mt-4 font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{st.stats}</p>
+                  <p className="mt-3 leading-relaxed text-mist">{st.description}</p>
+                  <a
+                    href={st.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#FF0033] px-5 py-3 text-sm font-semibold text-white transition hover:brightness-110"
+                  >
+                    <YoutubeIcon width={18} height={18} /> {t.streamers.cta}
+                  </a>
+                </div>
+
+                <div>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.1em] text-muted">{t.streamers.videosTitle}</p>
+                  <ul className="mt-4 grid gap-4 sm:grid-cols-2">
+                    {st.videos.map((v) => (
+                      <li key={v.title}>
+                        <a href={st.videosUrl} target="_blank" rel="noreferrer" className="group block">
+                          <div className="relative overflow-hidden rounded-xl shadow-[0_20px_40px_-20px_rgb(0_0_0/0.8)]">
+                            <Image
+                              src={v.image}
+                              alt={v.title}
+                              width={421}
+                              height={236}
+                              className="aspect-video w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                            />
+                          </div>
+                          <span className="mt-3 inline-block rounded-md bg-panel-2 px-2 py-1 text-[11px] font-medium text-frost">{v.plugin}</span>
+                          <p className="mt-2 text-sm leading-snug text-mist transition group-hover:text-white">{v.title}</p>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
         <section id="alertas" className="relative isolate scroll-mt-20 overflow-hidden pb-16 lg:pb-24">
           <div className="mx-auto max-w-[1200px] px-4 sm:px-6">

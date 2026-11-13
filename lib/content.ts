@@ -295,6 +295,28 @@ const es = {
       },
     ],
   },
+  streamers: {
+    eyebrow: "Comunidad",
+    title: "Streamers que ya usan nuestros plugins",
+    intro: "Creadores de contenido que usan y recomiendan los plugins de AlejoxCode en sus canales.",
+    videosTitle: "Videos sobre nuestros plugins",
+    cta: "Ver canal en YouTube",
+    items: [
+      {
+        name: "ArgeGaming",
+        handle: "@ArgeGaming",
+        url: "https://www.youtube.com/@argegaming",
+        videosUrl: "https://www.youtube.com/@argegaming/videos",
+        avatar: "/img/streamers/argegaming-avatar.webp",
+        stats: "17,3 mil suscriptores · 251 videos",
+        description: "Tips, trucos, recomendaciones y tutoriales para creadores de contenido. Videos nuevos cada semana.",
+        videos: [
+          { title: "El Mejor PLUGIN de MULTICHAT para OBS Studio (2026)", plugin: "AC Multichat", image: "/img/streamers/argegaming-multichat.webp" },
+          { title: "Muestra tu música de YouTube, Spotify, Apple Music con este plugin nativo para OBS 2026", plugin: "Music Now Playing", image: "/img/streamers/argegaming-music.webp" },
+        ],
+      },
+    ],
+  },
   alerts: {
     eyebrow: "Streaming",
     title: "Alertas",
@@ -613,6 +635,28 @@ const en: Content = {
           { label: "Linux", hint: "App", platform: "linux" as const },
         ],
         highlights: ["OBS scenes and sources", "Mixer", "Stream and record", "Sounds", "Voice", "Phone remote"],
+      },
+    ],
+  },
+  streamers: {
+    eyebrow: "Community",
+    title: "Streamers already using our plugins",
+    intro: "Content creators who use and recommend AlejoxCode plugins on their channels.",
+    videosTitle: "Videos about our plugins",
+    cta: "View channel on YouTube",
+    items: [
+      {
+        name: "ArgeGaming",
+        handle: "@ArgeGaming",
+        url: "https://www.youtube.com/@argegaming",
+        videosUrl: "https://www.youtube.com/@argegaming/videos",
+        avatar: "/img/streamers/argegaming-avatar.webp",
+        stats: "17.3K subscribers · 251 videos",
+        description: "Tips, tricks, recommendations and tutorials for content creators, in Spanish. New videos every week.",
+        videos: [
+          { title: "El Mejor PLUGIN de MULTICHAT para OBS Studio (2026)", plugin: "AC Multichat", image: "/img/streamers/argegaming-multichat.webp" },
+          { title: "Muestra tu música de YouTube, Spotify, Apple Music con este plugin nativo para OBS 2026", plugin: "Music Now Playing", image: "/img/streamers/argegaming-music.webp" },
+        ],
       },
     ],
   },
