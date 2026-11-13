@@ -198,7 +198,7 @@ const es = {
       },
       {
         slug: "multi-chat",
-        name: "Multi Chat",
+        name: "AC Multichat",
         kind: "Plugin para OBS Studio · C++",
         tagline: "Los chats de Twitch, YouTube, Kick y TikTok juntos en un dock de OBS y en tu escena. Detecta cuándo haces multistream y conecta solo los chats de las plataformas donde estás en vivo.",
         players: "Plugin nativo para OBS 33: no necesita Python, cuentas ni claves de API.",
@@ -519,7 +519,7 @@ const en: Content = {
       },
       {
         slug: "multi-chat",
-        name: "Multi Chat",
+        name: "AC Multichat",
         kind: "OBS Studio plugin · C++",
         tagline: "Twitch, YouTube, Kick and TikTok chats together in an OBS dock and in your scene. It detects when you're multistreaming and connects only the chats of the platforms where you're live.",
         players: "Native plugin for OBS 33: no Python, no accounts, no API keys.",
