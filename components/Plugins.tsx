@@ -226,6 +226,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
                       requirements={latest.requirements}
                       detectedLabel={t.pluginsPage.detected}
                       macInstall={t.pluginsPage.macInstall}
+                      obsForum={p.obsForum ? { url: p.obsForum, label: t.pluginsPage.obsForum } : undefined}
                     />
                   </div>
                 </div>

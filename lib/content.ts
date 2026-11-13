@@ -159,6 +159,7 @@ const es = {
     intro: "Plugins que desarrollo y publico de forma independiente. Gratuitos, de código abierto y con descargas para cada sistema.",
     free: "Gratis · MIT",
     repoLink: "Código, instalación y FAQ",
+    obsForum: "Descargar en el sitio oficial de OBS",
     play: "Ver video",
     videoSoon: "Video próximamente",
     detected: "Recomendado para tu equipo",
@@ -175,6 +176,7 @@ const es = {
         platforms: "Spotify · YouTube Music · Apple Music",
         video: "KeSJ-YOZpvQ",
         videoSoon: false,
+        obsForum: "https://obsproject.com/forum/resources/music-now-playing.2786/",
         image: "/img/now-playing.png",
         imageAlt: "Overlay de Music Now Playing mostrando la canción actual",
         downloads: [
@@ -205,6 +207,7 @@ const es = {
         platforms: "Twitch · YouTube · Kick · TikTok",
         video: "JKLlxJfqe9A",
         videoSoon: false,
+        obsForum: "",
         image: "",
         imageAlt: "",
         downloads: [
@@ -233,8 +236,9 @@ const es = {
         tagline: "Una barra de progreso que avanza en vivo hacia tu meta de me gusta, suscriptores o seguidores, y celebra cuando la alcanzas.",
         players: "YouTube sin iniciar sesión, Twitch con su API oficial o modo manual. Sin claves de API.",
         platforms: "YouTube · Twitch · Manual",
-        video: "",
-        videoSoon: true,
+        video: "XYUax6DEwFo",
+        videoSoon: false,
+        obsForum: "",
         image: "",
         imageAlt: "",
         downloads: [
@@ -510,6 +514,7 @@ const en: Content = {
     intro: "Plugins I build and publish independently. Free, open source, with downloads for every platform.",
     free: "Free · MIT",
     repoLink: "Code, install guide and FAQ",
+    obsForum: "Download from the official OBS site",
     play: "Watch video",
     videoSoon: "Video coming soon",
     detected: "Recommended for your device",
@@ -526,6 +531,7 @@ const en: Content = {
         platforms: "Spotify · YouTube Music · Apple Music",
         video: "KeSJ-YOZpvQ",
         videoSoon: false,
+        obsForum: "https://obsproject.com/forum/resources/music-now-playing.2786/",
         image: "/img/now-playing.png",
         imageAlt: "Music Now Playing overlay showing the current song",
         downloads: [
@@ -556,6 +562,7 @@ const en: Content = {
         platforms: "Twitch · YouTube · Kick · TikTok",
         video: "JKLlxJfqe9A",
         videoSoon: false,
+        obsForum: "",
         image: "",
         imageAlt: "",
         downloads: [
@@ -584,8 +591,9 @@ const en: Content = {
         tagline: "A progress bar that fills live toward your likes, subscribers or followers goal, and celebrates when you reach it.",
         players: "YouTube without signing in, Twitch with its official API, or manual mode. No API keys.",
         platforms: "YouTube · Twitch · Manual",
-        video: "",
-        videoSoon: true,
+        video: "XYUax6DEwFo",
+        videoSoon: false,
+        obsForum: "",
         image: "",
         imageAlt: "",
         downloads: [

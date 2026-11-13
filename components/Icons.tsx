@@ -111,6 +111,15 @@ export const MailIcon = (p: P) => (
   </svg>
 );
 
+export const ObsIcon = (p: P) => (
+  <svg {...base} fill="none" stroke="currentColor" strokeWidth={1.8} {...p}>
+    <circle cx="12" cy="12" r="10" />
+    <circle cx="12" cy="7" r="3" />
+    <circle cx="7.6" cy="14.6" r="3" />
+    <circle cx="16.4" cy="14.6" r="3" />
+  </svg>
+);
+
 export const SOCIAL_ICONS: Record<string, (p: P) => React.JSX.Element> = {
   github: GithubIcon,
   linkedin: LinkedinIcon,
