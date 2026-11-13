@@ -169,7 +169,7 @@ export async function Plugins({ locale }: { locale: Locale }) {
           {t.streamers.items.map((st) => (
             <article key={st.handle} className="glass-deep overflow-hidden">
               <a href={st.url} target="_blank" rel="noreferrer" className="block" aria-label={st.name}>
-                <Image src={st.banner} alt="" width={1278} height={204} className="h-20 w-full object-cover sm:h-28" />
+                <Image src={st.banner} alt="" width={1278} height={204} className="h-20 w-full object-cover sm:aspect-[1278/204] sm:h-auto" />
               </a>
 
               <div className="flex flex-wrap items-end gap-x-5 gap-y-3 px-5 sm:px-8">
