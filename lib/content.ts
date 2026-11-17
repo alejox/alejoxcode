@@ -367,7 +367,7 @@ const es = {
         platforms: "Kick · Twitch · YouTube",
         repo: "https://github.com/alejox/gta6-alertas",
         download: "https://github.com/alejox/gta6-alertas/raw/main/descargas/Alertas-GTA6-ViceCity.zip",
-        streamlabs: "https://streamlabs.com/profile/share/custom_widget/457073239/4b32285d0994737e295adecad9d4eae3",
+        streamlabs: "https://streamlabs.com/profile/share/custom_widget/457617716/a93f0084d125f4b9712b1cca9ade532f",
         // Aunque el archivo se llama "…Streamlabs.zip", es el pack que se instala en StreamElements (con el JWT).
         streamlabsZip: "https://github.com/alejox/gta6-alertas/raw/main/descargas/Pack-GTA6-ViceCity-Streamlabs.zip",
         stickers: ["flamenco", "caiman", "sol", "avioneta", "manati", "lowrider", "palmera", "vi", "rstar"],
@@ -741,7 +741,7 @@ const en: Content = {
         platforms: "Kick · Twitch · YouTube",
         repo: "https://github.com/alejox/gta6-alertas",
         download: "https://github.com/alejox/gta6-alertas/raw/main/descargas/Alertas-GTA6-ViceCity.zip",
-        streamlabs: "https://streamlabs.com/profile/share/custom_widget/457073239/4b32285d0994737e295adecad9d4eae3",
+        streamlabs: "https://streamlabs.com/profile/share/custom_widget/457617716/a93f0084d125f4b9712b1cca9ade532f",
         // Aunque el archivo se llama "…Streamlabs.zip", es el pack que se instala en StreamElements (con el JWT).
         streamlabsZip: "https://github.com/alejox/gta6-alertas/raw/main/descargas/Pack-GTA6-ViceCity-Streamlabs.zip",
         stickers: ["flamenco", "caiman", "sol", "avioneta", "manati", "lowrider", "palmera", "vi", "rstar"],
