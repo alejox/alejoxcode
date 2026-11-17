@@ -347,6 +347,7 @@ const es = {
     intro: "Packs de alertas animadas para tu stream. Gratis, listos para StreamElements y Streamlabs.",
     free: "Gratis",
     download: "Descargar pack .zip",
+    downloadStreamlabs: "Pack para Streamlabs .zip",
     oneClick: "Instalar en Streamlabs en un clic",
     repoLink: "Recursos e instrucciones en GitHub",
     soon: "Próximamente",
@@ -367,6 +368,7 @@ const es = {
         repo: "https://github.com/alejox/gta6-alertas",
         download: "https://github.com/alejox/gta6-alertas/raw/main/descargas/Alertas-GTA6-ViceCity.zip",
         streamlabs: "https://streamlabs.com/profile/share/custom_widget/457073239/4b32285d0994737e295adecad9d4eae3",
+        streamlabsZip: "https://github.com/alejox/gta6-alertas/raw/main/descargas/Pack-GTA6-ViceCity-Streamlabs.zip",
         stickers: ["flamenco", "caiman", "sol", "avioneta", "manati", "lowrider", "palmera", "vi", "rstar"],
         features: [
           { title: "StreamElements en un clic", text: "Abre el instalador incluido, pega tu JWT y las alertas quedan listas." },
@@ -718,6 +720,7 @@ const en: Content = {
     intro: "Animated alert packs for your stream. Free, ready for StreamElements and Streamlabs.",
     free: "Free",
     download: "Download pack .zip",
+    downloadStreamlabs: "Streamlabs pack .zip",
     oneClick: "One-click install on Streamlabs",
     repoLink: "Assets and instructions on GitHub",
     soon: "Coming soon",
@@ -738,6 +741,7 @@ const en: Content = {
         repo: "https://github.com/alejox/gta6-alertas",
         download: "https://github.com/alejox/gta6-alertas/raw/main/descargas/Alertas-GTA6-ViceCity.zip",
         streamlabs: "https://streamlabs.com/profile/share/custom_widget/457073239/4b32285d0994737e295adecad9d4eae3",
+        streamlabsZip: "https://github.com/alejox/gta6-alertas/raw/main/descargas/Pack-GTA6-ViceCity-Streamlabs.zip",
         stickers: ["flamenco", "caiman", "sol", "avioneta", "manati", "lowrider", "palmera", "vi", "rstar"],
         features: [
           { title: "One-click StreamElements", text: "Open the included installer, paste your JWT and the alerts are ready." },

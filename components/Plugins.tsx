@@ -239,11 +239,17 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     }
                     after={
                     <>
-                      <div className={`mt-4 grid gap-2 ${a.streamlabs ? "sm:grid-cols-2" : ""}`}>
-                        <a href={a.download} className="btn-primary justify-center gap-2 px-5 py-2.5">
-                          <DownloadIcon width={15} height={15} />
-                          {t.alerts.download}
-                        </a>
+                      <a href={a.download} className="btn-primary mt-4 w-full justify-center gap-2 px-5 py-2.5">
+                        <DownloadIcon width={15} height={15} />
+                        {t.alerts.download}
+                      </a>
+                      <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                        {a.streamlabsZip && (
+                          <a href={a.streamlabsZip} className="btn-ghost justify-center gap-2 px-5 py-2.5">
+                            <DownloadIcon width={15} height={15} />
+                            {t.alerts.downloadStreamlabs}
+                          </a>
+                        )}
                         {a.streamlabs && (
                           <a href={a.streamlabs} target="_blank" rel="noreferrer" className="btn-ghost justify-center gap-2 px-5 py-2.5">
                             {t.alerts.oneClick}
