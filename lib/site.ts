@@ -29,3 +29,6 @@ export const SOCIAL_LABEL: Record<string, string> = {
   twitch: "Twitch",
   x: "X",
 };
+
+// Lanzamiento del pack de alertas GTA 6: martes 17 de noviembre, 12:00 m. (hora de Colombia).
+export const ALERTS_LAUNCH = "2026-11-17T12:00:00-05:00";

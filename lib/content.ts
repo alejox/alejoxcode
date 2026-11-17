@@ -351,6 +351,10 @@ const es = {
     repoLink: "Recursos e instrucciones en GitHub",
     soon: "Próximamente",
     soonText: "Un regalo para nuestra comunidad. Muy pronto podrás descargarlo gratis.",
+    countdownLabel: "Disponible en",
+    countdownUnits: ["horas", "min", "seg"] as [string, string, string],
+    countdownDone: "¡Llegó la hora! La descarga se activa en breve.",
+    launchDate: "Martes 17 de noviembre · 12:00 m. (hora de Colombia)",
     items: [
       {
         slug: "gta6",
@@ -718,6 +722,10 @@ const en: Content = {
     repoLink: "Assets and instructions on GitHub",
     soon: "Coming soon",
     soonText: "A gift for our community. Soon you'll be able to download it for free.",
+    countdownLabel: "Available in",
+    countdownUnits: ["hours", "min", "sec"] as [string, string, string],
+    countdownDone: "It's time! The download unlocks shortly.",
+    launchDate: "Tuesday, November 17 · 12:00 PM (Colombia time)",
     items: [
       {
         slug: "gta6",

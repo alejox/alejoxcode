@@ -3,10 +3,11 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import type { Locale } from "@/lib/content";
+import { ALERTS_LAUNCH } from "@/lib/site";
 
 // Anuncio del lanzamiento de las alertas de GTA 6.
-// Deja de mostrarse solo al terminar el día del lanzamiento (hora de Colombia).
-const HIDE_AFTER = Date.parse("2026-11-18T00:00:00-05:00");
+// Deja de mostrarse solo a la hora del lanzamiento.
+const HIDE_AFTER = Date.parse(ALERTS_LAUNCH);
 const SEEN_KEY = "popup-gta6-alertas";
 const STICKERS = ["flamenco", "vi", "sol", "lowrider", "palmera"];
 
@@ -14,8 +15,8 @@ const TEXT = {
   es: {
     eyebrow: "Lanzamiento",
     title: "Alertas GTA 6 · Vice City",
-    date: "Martes 17 de noviembre",
-    body: "Este martes lanzamos el pack de alertas de GTA 6: 9 alertas animadas para Kick, Twitch y YouTube. Gratis.",
+    date: "Martes 17 · 12:00 m.",
+    body: "Este martes al mediodía (hora de Colombia) lanzamos el pack de alertas de GTA 6: 9 alertas animadas para Kick, Twitch y YouTube. Gratis.",
     cta: "Ver las alertas",
     close: "Cerrar",
     href: "/plugins#alertas",
@@ -23,8 +24,8 @@ const TEXT = {
   en: {
     eyebrow: "Launch",
     title: "GTA 6 · Vice City alerts",
-    date: "Tuesday, November 17",
-    body: "This Tuesday we launch the GTA 6 alert pack: 9 animated alerts for Kick, Twitch and YouTube. Free.",
+    date: "Tuesday 17 · 12:00 PM",
+    body: "This Tuesday at noon (Colombia time) we launch the GTA 6 alert pack: 9 animated alerts for Kick, Twitch and YouTube. Free.",
     cta: "See the alerts",
     close: "Close",
     href: "/en/plugins#alertas",

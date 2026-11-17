@@ -2,9 +2,10 @@ import Image from "next/image";
 import { content, type Locale } from "@/lib/content";
 import { getLatestRelease } from "@/lib/downloads";
 import { legalLabels, legalPath } from "@/lib/legal";
-import { site } from "@/lib/site";
+import { ALERTS_LAUNCH, site } from "@/lib/site";
+import { Countdown } from "./Countdown";
 import { Footer } from "./Footer";
-import { ArrowIcon, DownloadIcon, GithubIcon, PlatformIcon, YoutubeIcon } from "./Icons";
+import { ArrowIcon, DownloadIcon, GithubIcon, LockIcon, PlatformIcon, YoutubeIcon } from "./Icons";
 import { LaunchPopup } from "./LaunchPopup";
 import { Navbar } from "./Navbar";
 import { PluginDownloads } from "./PluginDownloads";
@@ -74,12 +75,17 @@ export async function Plugins({ locale }: { locale: Locale }) {
         <PageTabs
           label={t.pluginsPage.tabsLabel}
           tabs={[
-            { id: "plugins", label: t.pluginsPage.nav.plugins, count: items.length, anchors: ["streamers", ...items.map(({ p }) => p.slug)] },
+            {
+              id: "plugins",
+              label: t.pluginsPage.nav.plugins,
+              count: items.length + t.alerts.items.length,
+              anchors: ["streamers", "alertas", ...items.map(({ p }) => p.slug)],
+            },
             {
               id: "proximamente",
               label: t.pluginsPage.nav.soon,
-              count: t.apps.items.length + t.alerts.items.length,
-              anchors: ["apps", "alertas"],
+              count: t.apps.items.length,
+              anchors: ["apps"],
             },
           ]}
         >
@@ -158,6 +164,87 @@ export async function Plugins({ locale }: { locale: Locale }) {
                 </div>
               </article>
             ))}
+
+            {/* Pack de alertas: bloqueado, con cuenta regresiva hasta el lanzamiento */}
+            {t.alerts.items.map((a) => (
+              <article key={a.slug} id="alertas" className="glass-deep grid scroll-mt-32 overflow-hidden lg:grid-cols-[0.8fr_1.2fr]">
+                <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_85%_0%,rgb(123_44_255/0.35),transparent_60%),radial-gradient(ellipse_at_0%_100%,rgb(255_63_164/0.25),transparent_60%),#120a1c] p-4 sm:p-6">
+                  <div aria-hidden className="float grid w-full max-w-xs grid-cols-3 place-items-center gap-4">
+                    {a.stickers.map((s) => (
+                      <Image
+                        key={s}
+                        src={`/img/alertas/${a.slug}/${s}.png`}
+                        alt=""
+                        width={120}
+                        height={120}
+                        className="h-14 w-auto object-contain drop-shadow-[0_6px_12px_rgb(0_0_0/0.5)] sm:h-16"
+                      />
+                    ))}
+                  </div>
+                  <div className="mt-4 font-mono text-[10px] uppercase tracking-[0.1em] text-mist">{a.platforms}</div>
+                </div>
+
+                <div className="p-5 sm:px-7 sm:py-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    {a.comingSoon && (
+                      <span className={soonBadge}>
+                        <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
+                        {t.alerts.soon}
+                      </span>
+                    )}
+                    <span className={chip}>{t.alerts.free}</span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted">{a.kind}</span>
+                  </div>
+                  <h3 className="mt-2.5 text-2xl leading-tight">{a.name}</h3>
+                  <p className="mt-1.5 text-[15px] leading-relaxed text-mist">{a.tagline}</p>
+                  <p className="mt-1 text-[13px] text-muted">{a.note}</p>
+                  <ul className="mt-3 flex flex-wrap gap-1.5">
+                    {a.features.map((f) => (
+                      <li key={f.title} className={chip}>{f.title}</li>
+                    ))}
+                  </ul>
+
+                  {a.comingSoon ? (
+                    <div className="mt-4 grid gap-3 sm:grid-cols-[auto_1fr] sm:items-center">
+                      <Countdown
+                        target={ALERTS_LAUNCH}
+                        label={t.alerts.countdownLabel}
+                        doneLabel={t.alerts.countdownDone}
+                        units={t.alerts.countdownUnits}
+                      />
+                      <div>
+                        <button
+                          type="button"
+                          disabled
+                          aria-disabled
+                          title={t.alerts.launchDate}
+                          className="btn-primary w-full cursor-not-allowed justify-center gap-2 px-5 py-2.5 opacity-60 shadow-none hover:brightness-100"
+                        >
+                          <LockIcon width={14} height={14} />
+                          {t.alerts.download}
+                        </button>
+                        <p className="mt-2 text-center text-xs text-mist">{t.alerts.launchDate}</p>
+                      </div>
+                    </div>
+                  ) : (
+                    <>
+                      <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                        <a href={a.download} className="btn-primary justify-center gap-2 px-5 py-2.5">
+                          <DownloadIcon width={15} height={15} />
+                          {t.alerts.download}
+                        </a>
+                        <a href={a.streamlabs} target="_blank" rel="noreferrer" className="btn-ghost justify-center gap-2 px-5 py-2.5">
+                          {t.alerts.oneClick}
+                        </a>
+                      </div>
+                      <a href={a.repo} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-2 text-xs text-mist hover:text-white">
+                        <GithubIcon width={14} height={14} /> {t.alerts.repoLink} <ArrowIcon width={12} height={12} />
+                      </a>
+                    </>
+                  )}
+                </div>
+              </article>
+            ))}
         </section>
 
         {/* 2. Creadores */}
@@ -224,12 +311,12 @@ export async function Plugins({ locale }: { locale: Locale }) {
 
           </div>
 
-          {/* Pestaña 2: Speed Deck y packs de alertas, lado a lado */}
+          {/* Pestaña 2: Speed Deck */}
         <section id="proximamente" className="mx-auto max-w-[1200px] scroll-mt-32 px-4 pt-8 sm:px-6">
 
-          <div className="grid gap-6 lg:grid-cols-2">
+          <div className="space-y-5">
             {t.apps.items.map((app) => (
-              <article key={app.slug} id="apps" className="glass-deep scroll-mt-32 overflow-hidden">
+              <article key={app.slug} id="apps" className="glass-deep grid scroll-mt-32 overflow-hidden lg:grid-cols-2">
                 <div className={`${stage} px-5 py-6 sm:px-8`}>
                   <div role="img" aria-label={app.imageAlt} className="w-full">
                     <SpeedDeckMock locale={locale} />
@@ -308,79 +395,6 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     {legal.and}{" "}
                     <a href={legalPath[locale].privacy} className="text-frost underline decoration-line underline-offset-4 hover:text-white">{legal.privacy}</a>.
                   </p>
-                </div>
-              </article>
-            ))}
-
-            {t.alerts.items.map((a) => (
-              <article key={a.slug} id="alertas" className="glass-deep scroll-mt-32 overflow-hidden">
-                <div className="relative flex items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_85%_0%,rgb(123_44_255/0.35),transparent_60%),radial-gradient(ellipse_at_0%_100%,rgb(255_63_164/0.25),transparent_60%),#120a1c] px-5 py-6 sm:px-8">
-                  <div
-                    aria-hidden
-                    className={`float grid w-full max-w-md grid-cols-5 place-items-center gap-3 ${a.comingSoon ? "opacity-60 blur-[3px]" : ""}`}
-                  >
-                    {a.stickers.map((s) => (
-                      <Image
-                        key={s}
-                        src={`/img/alertas/${a.slug}/${s}.png`}
-                        alt=""
-                        width={120}
-                        height={120}
-                        className="h-14 w-auto object-contain drop-shadow-[0_6px_12px_rgb(0_0_0/0.5)] sm:h-16"
-                      />
-                    ))}
-                  </div>
-                </div>
-
-                <div className="p-5 sm:p-8">
-                  <div className="flex flex-wrap items-center gap-2">
-                    {a.comingSoon && (
-                      <span className={soonBadge}>
-                        <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
-                        {t.alerts.soon}
-                      </span>
-                    )}
-                    <span className={chip}>{t.alerts.free}</span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted">{a.platforms}</span>
-                  </div>
-                  <h3 className="mt-3 text-[26px] leading-tight">{a.name}</h3>
-                  <p className="mt-2 text-[15px] leading-relaxed text-mist">{a.tagline}</p>
-                  <ul className="mt-4 flex flex-wrap gap-1.5">
-                    {a.features.map((f) => (
-                      <li key={f.title} className={chip}>{f.title}</li>
-                    ))}
-                  </ul>
-
-                  {a.comingSoon ? (
-                    <>
-                      <button
-                        type="button"
-                        disabled
-                        aria-disabled
-                        className="btn-primary mt-5 w-full cursor-not-allowed justify-center gap-2 px-5 py-3 opacity-60 shadow-none hover:brightness-100"
-                      >
-                        <DownloadIcon width={15} height={15} />
-                        {t.alerts.download}
-                      </button>
-                      <p className="mt-4 text-sm leading-relaxed text-mist">{t.alerts.soonText}</p>
-                    </>
-                  ) : (
-                    <>
-                      <div className="mt-5 grid gap-2 sm:grid-cols-2">
-                        <a href={a.download} className="btn-primary justify-center gap-2 px-5 py-3">
-                          <DownloadIcon width={15} height={15} />
-                          {t.alerts.download}
-                        </a>
-                        <a href={a.streamlabs} target="_blank" rel="noreferrer" className="btn-ghost justify-center gap-2 px-5 py-3">
-                          {t.alerts.oneClick}
-                        </a>
-                      </div>
-                      <a href={a.repo} target="_blank" rel="noreferrer" className="mt-4 inline-flex items-center gap-2 text-xs text-mist hover:text-white">
-                        <GithubIcon width={14} height={14} /> {t.alerts.repoLink} <ArrowIcon width={12} height={12} />
-                      </a>
-                    </>
-                  )}
-                  <p className="mt-4 text-xs text-muted">{a.note}</p>
                 </div>
               </article>
             ))}
