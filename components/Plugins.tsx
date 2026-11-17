@@ -223,16 +223,29 @@ export async function Plugins({ locale }: { locale: Locale }) {
                         units={t.alerts.countdownUnits}
                       />
                       <div>
-                        <button
-                          type="button"
-                          disabled
-                          aria-disabled
-                          title={t.alerts.launchDate}
-                          className="btn-primary w-full cursor-not-allowed justify-center gap-2 px-5 py-2.5 opacity-60 shadow-none hover:brightness-100"
-                        >
-                          <LockIcon width={14} height={14} />
-                          {t.alerts.download}
-                        </button>
+                        {/* Los mismos dos botones que se activan al desbloquear */}
+                        <div className="grid gap-2">
+                          <button
+                            type="button"
+                            disabled
+                            aria-disabled
+                            title={t.alerts.launchDate}
+                            className="btn-primary w-full cursor-not-allowed justify-center gap-2 px-5 py-2.5 opacity-60 shadow-none hover:brightness-100"
+                          >
+                            <LockIcon width={14} height={14} />
+                            {t.alerts.downloadStreamlabs}
+                          </button>
+                          <button
+                            type="button"
+                            disabled
+                            aria-disabled
+                            title={t.alerts.launchDate}
+                            className="btn-ghost w-full cursor-not-allowed justify-center gap-2 px-5 py-2.5 opacity-60 hover:bg-transparent"
+                          >
+                            <LockIcon width={14} height={14} />
+                            {t.alerts.oneClick}
+                          </button>
+                        </div>
                         <p className="mt-2 text-center text-xs text-mist">{t.alerts.launchDate}</p>
                       </div>
                     </div>
