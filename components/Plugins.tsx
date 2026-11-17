@@ -170,6 +170,10 @@ export async function Plugins({ locale }: { locale: Locale }) {
             {t.alerts.items.map((a) => (
               <article key={a.slug} id="alertas" className="glass-deep grid scroll-mt-32 overflow-hidden lg:grid-cols-[0.8fr_1.2fr]">
                 <div className="relative flex flex-col items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_85%_0%,rgb(123_44_255/0.35),transparent_60%),radial-gradient(ellipse_at_0%_100%,rgb(255_63_164/0.25),transparent_60%),#120a1c] p-4 sm:p-6">
+                  {/* Hasta el lanzamiento, los stickers; desde entonces, el video (está programado en YouTube) */}
+                  <UnlockAt
+                    at={a.video ? (a.comingSoon ? ALERTS_LAUNCH : "1970-01-01") : "9999-12-31"}
+                    before={
                   <div aria-hidden className="float grid w-full max-w-xs grid-cols-3 place-items-center gap-4">
                     {a.stickers.map((s) => (
                       <Image
@@ -182,6 +186,9 @@ export async function Plugins({ locale }: { locale: Locale }) {
                       />
                     ))}
                   </div>
+                    }
+                    after={<YouTubeVideo id={a.video} title={a.name} playLabel={t.pluginsPage.play} />}
+                  />
                   <div className="mt-4 font-mono text-[10px] uppercase tracking-[0.1em] text-mist">{a.platforms}</div>
                 </div>
 
