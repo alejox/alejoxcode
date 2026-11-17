@@ -134,13 +134,12 @@ export function LaunchPopup({ locale }: { locale: Locale }) {
           {live ? (
             <>
               <div className="mt-6 grid gap-2">
-                <a href={pack.download} onClick={close} className="btn-primary justify-center gap-2 px-6 py-3">
-                  <DownloadIcon width={15} height={15} />
-                  {alerts.download}
-                </a>
-                <a href={pack.streamlabsZip} onClick={close} className="btn-ghost justify-center gap-2 px-6 py-3">
+                <a href={pack.streamlabsZip} onClick={close} className="btn-primary justify-center gap-2 px-6 py-3">
                   <DownloadIcon width={15} height={15} />
                   {alerts.downloadStreamlabs}
+                </a>
+                <a href={pack.streamlabs} target="_blank" rel="noreferrer" onClick={close} className="btn-ghost justify-center gap-2 px-6 py-3">
+                  {alerts.oneClick}
                 </a>
               </div>
               <a href={t.href} onClick={close} className="mt-4 inline-block text-sm text-mist underline decoration-line underline-offset-4 hover:text-white">

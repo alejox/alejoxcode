@@ -239,22 +239,14 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     }
                     after={
                     <>
-                      <a href={a.download} className="btn-primary mt-4 w-full justify-center gap-2 px-5 py-2.5">
-                        <DownloadIcon width={15} height={15} />
-                        {t.alerts.download}
-                      </a>
-                      <div className="mt-2 grid gap-2 sm:grid-cols-2">
-                        {a.streamlabsZip && (
-                          <a href={a.streamlabsZip} className="btn-ghost justify-center gap-2 px-5 py-2.5">
-                            <DownloadIcon width={15} height={15} />
-                            {t.alerts.downloadStreamlabs}
-                          </a>
-                        )}
-                        {a.streamlabs && (
-                          <a href={a.streamlabs} target="_blank" rel="noreferrer" className="btn-ghost justify-center gap-2 px-5 py-2.5">
-                            {t.alerts.oneClick}
-                          </a>
-                        )}
+                      <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                        <a href={a.streamlabsZip} className="btn-primary justify-center gap-2 px-5 py-2.5">
+                          <DownloadIcon width={15} height={15} />
+                          {t.alerts.downloadStreamlabs}
+                        </a>
+                        <a href={a.streamlabs} target="_blank" rel="noreferrer" className="btn-ghost justify-center gap-2 px-5 py-2.5">
+                          {t.alerts.oneClick}
+                        </a>
                       </div>
                       <a href={a.repo} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-2 text-xs text-mist hover:text-white">
                         <GithubIcon width={14} height={14} /> {t.alerts.repoLink} <ArrowIcon width={12} height={12} />
