@@ -12,6 +12,7 @@ import { PluginDownloads } from "./PluginDownloads";
 import { PluginShowcase, YouTubeVideo } from "./PluginShowcase";
 import { PageTabs } from "./PluginTabs";
 import { SpeedDeckMock } from "./SpeedDeckMock";
+import { UnlockAt } from "./UnlockAt";
 
 const SHOWCASES = ["multi-chat", "goal-bar"];
 
@@ -187,10 +188,16 @@ export async function Plugins({ locale }: { locale: Locale }) {
                 <div className="p-5 sm:px-7 sm:py-6">
                   <div className="flex flex-wrap items-center gap-2">
                     {a.comingSoon && (
-                      <span className={soonBadge}>
-                        <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
-                        {t.alerts.soon}
-                      </span>
+                      <UnlockAt
+                        at={ALERTS_LAUNCH}
+                        before={
+                          <span className={soonBadge}>
+                            <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
+                            {t.alerts.soon}
+                          </span>
+                        }
+                        after={null}
+                      />
                     )}
                     <span className={chip}>{t.alerts.free}</span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted">{a.kind}</span>
@@ -204,7 +211,10 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     ))}
                   </ul>
 
-                  {a.comingSoon ? (
+                  {/* Con comingSoon, la descarga se desbloquea sola a la hora del lanzamiento */}
+                  <UnlockAt
+                    at={a.comingSoon ? ALERTS_LAUNCH : "1970-01-01"}
+                    before={
                     <div className="mt-4 grid gap-3 sm:grid-cols-[auto_1fr] sm:items-center">
                       <Countdown
                         target={ALERTS_LAUNCH}
@@ -226,22 +236,26 @@ export async function Plugins({ locale }: { locale: Locale }) {
                         <p className="mt-2 text-center text-xs text-mist">{t.alerts.launchDate}</p>
                       </div>
                     </div>
-                  ) : (
+                    }
+                    after={
                     <>
-                      <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                      <div className={`mt-4 grid gap-2 ${a.streamlabs ? "sm:grid-cols-2" : ""}`}>
                         <a href={a.download} className="btn-primary justify-center gap-2 px-5 py-2.5">
                           <DownloadIcon width={15} height={15} />
                           {t.alerts.download}
                         </a>
-                        <a href={a.streamlabs} target="_blank" rel="noreferrer" className="btn-ghost justify-center gap-2 px-5 py-2.5">
-                          {t.alerts.oneClick}
-                        </a>
+                        {a.streamlabs && (
+                          <a href={a.streamlabs} target="_blank" rel="noreferrer" className="btn-ghost justify-center gap-2 px-5 py-2.5">
+                            {t.alerts.oneClick}
+                          </a>
+                        )}
                       </div>
                       <a href={a.repo} target="_blank" rel="noreferrer" className="mt-3 inline-flex items-center gap-2 text-xs text-mist hover:text-white">
                         <GithubIcon width={14} height={14} /> {t.alerts.repoLink} <ArrowIcon width={12} height={12} />
                       </a>
                     </>
-                  )}
+                    }
+                  />
                 </div>
               </article>
             ))}
