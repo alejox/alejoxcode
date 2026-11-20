@@ -9,6 +9,8 @@ export function rootMetadata(locale: Locale): Metadata {
     title: t.title,
     description: t.description,
     icons: { icon: "/icon.png", apple: "/icon.png" },
+    // Search Console (propiedad de alejoxcode.com, para la verificación de AC Multichat en Google).
+    verification: { google: "7diLGgenFIjdcZtV8cTcoBhCUwlyFLjwxL7Sbbdxm7c" },
     alternates: { canonical: localePath[locale], languages: { es: localePath.es, en: localePath.en } },
     openGraph: {
       title: t.title,
