@@ -251,6 +251,9 @@ h1, h2, h3, h4 {
 }
 @keyframes blink { 50% { opacity: 0.3; } }
 @keyframes float { 50% { transform: translateY(-8px); } }
+/* Marcador de fútbol: el escudo del equipo que marca rebota. */
+.crest-bounce { animation: crest-bounce 0.9s ease-in-out 3; }
+@keyframes crest-bounce { 30% { transform: translateY(-14px) scale(1.08); } 60% { transform: translateY(0) scale(1); } }
 
 /* Motion graphics del hero */
 .orbit {

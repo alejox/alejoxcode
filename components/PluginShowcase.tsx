@@ -230,9 +230,137 @@ export function YouTubeVideo({ id, title, playLabel }: { id: string; title: stri
   );
 }
 
+// AC Football Scores: el diseño «Estadio» del plugin (escudos que sobresalen de la barra),
+// con equipos ficticios. El minuto avanza y cada tanto entra un gol con su animación.
+const TEAMS = [
+  { name: "HALCONES", short: "HAL", color: "#d62839", dark: "#5c0f19", stripe: "#ffffff" },
+  { name: "MAREA SC", short: "MAR", color: "#1f6feb", dark: "#0b2a5c", stripe: "#9fd3ff" },
+] as const;
+
+function Crest({ x, y, size, team, bounce }: { x: number; y: number; size: number; team: (typeof TEAMS)[number]; bounce: boolean }) {
+  const s = size / 100;
+  return (
+    <g transform={`translate(${x} ${y}) scale(${s})`}>
+      <g className={bounce ? "crest-bounce" : undefined} style={{ transformBox: "fill-box", transformOrigin: "center" }}>
+      <path d="M50 4 L92 16 L88 58 Q82 84 50 98 Q18 84 12 58 L8 16 Z" fill="#0b0d14" opacity="0.45" transform="translate(3 4)" />
+      <path d="M50 4 L92 16 L88 58 Q82 84 50 98 Q18 84 12 58 L8 16 Z" fill={team.color} stroke="#fff" strokeWidth="4" />
+      <path d="M36 9 L50 5 L64 9 L64 92 Q57 96 50 98 Q43 96 36 92 Z" fill={team.stripe} opacity="0.9" />
+      <circle cx="50" cy="48" r="17" fill={team.dark} stroke="#fff" strokeWidth="3" />
+      <text x="50" y="54" textAnchor="middle" fontSize="17" fontWeight="900" fill="#fff" fontFamily="system-ui, sans-serif">{team.short[0]}</text>
+      </g>
+    </g>
+  );
+}
+
+function FootballDemo({ locale }: { locale: Locale }) {
+  const [minute, setMinute] = useState(63);
+  const [score, setScore] = useState<[number, number]>([1, 1]);
+  const [goal, setGoal] = useState<0 | 1 | null>(null);
+
+  useEffect(() => {
+    let m = 63;
+    let sc: [number, number] = [1, 1];
+    let tick = 0;
+    const id = setInterval(() => {
+      tick += 1;
+      if (tick % 8 === 0) {
+        const side = (tick / 8) % 2 === 1 ? 0 : 1;
+        sc = side === 0 ? [sc[0] + 1, sc[1]] : [sc[0], sc[1] + 1];
+        setScore(sc);
+        setGoal(side);
+        setTimeout(() => setGoal(null), 3200);
+      }
+      m = m >= 90 ? 63 : m + 1;
+      if (m === 63) {
+        sc = [1, 1];
+        setScore(sc);
+      }
+      setMinute(m);
+    }, 900);
+    return () => clearInterval(id);
+  }, []);
+
+  const goalText = locale === "es" ? "¡GOOOL!" : "GOAL!";
+  const cx = 640;
+  const box = 250;
+  const slant = 34;
+
+  return (
+    <SceneFrame label={locale === "es" ? "Escena · Marcador" : "Scene · Scoreboard"}>
+      <div className="relative bg-[radial-gradient(ellipse_at_50%_120%,rgb(34_139_74/0.45),transparent_65%),linear-gradient(180deg,#0b0d1a,#0a1a12)] px-3 py-10 sm:px-6">
+        <svg viewBox="0 0 1280 220" className="w-full" role="img" aria-label={`${TEAMS[0].name} ${score[0]} - ${score[1]} ${TEAMS[1].name}`}>
+          <defs>
+            <clipPath id="fs-bar"><rect x="20" y="70" width="1240" height="130" rx="18" /></clipPath>
+            {TEAMS.map((t, i) => (
+              <linearGradient key={t.short} id={`fs-team-${i}`} x1={i === 0 ? "0" : "1"} y1="0" x2={i === 0 ? "1" : "0"} y2="0">
+                <stop offset="0" stopColor={t.dark} />
+                <stop offset="1" stopColor={t.color} stopOpacity={goal === i ? 1 : 0.85} />
+              </linearGradient>
+            ))}
+            <linearGradient id="fs-box" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#242632" />
+              <stop offset="1" stopColor="#08090e" />
+            </linearGradient>
+            <linearGradient id="fs-gloss" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stopColor="#fff" stopOpacity="0.16" />
+              <stop offset="0.5" stopColor="#fff" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+
+          <rect x="20" y="76" width="1240" height="130" rx="18" fill="#000" opacity="0.35" />
+          <g clipPath="url(#fs-bar)">
+            <rect x="20" y="70" width="1240" height="130" fill="#0d0f16" />
+            <polygon points={`20,70 ${cx - box / 2 + slant},70 ${cx - box / 2 - slant},200 20,200`} fill="url(#fs-team-0)" />
+            <polygon points={`1260,70 ${cx + box / 2 + slant},70 ${cx + box / 2 - slant},200 1260,200`} fill="url(#fs-team-1)" />
+            <rect x="20" y="70" width="1240" height="130" fill="url(#fs-gloss)" />
+          </g>
+
+          {/* Marcador central */}
+          <polygon
+            points={`${cx - box / 2 + slant},56 ${cx + box / 2 + slant},56 ${cx + box / 2 - slant},200 ${cx - box / 2 - slant},200`}
+            fill="url(#fs-box)"
+            stroke={goal !== null ? "#ffd23f" : "rgb(255 255 255 / 0.25)"}
+            strokeWidth={goal !== null ? 6 : 2}
+          />
+          <text x={cx} y="142" textAnchor="middle" fontSize="80" fontWeight="800" fill="#fff" fontFamily="system-ui, sans-serif" style={{ fontVariantNumeric: "tabular-nums" }}>
+            {score[0]} - {score[1]}
+          </text>
+          <rect x={cx - 34} y="166" width="68" height="28" rx="14" fill="#282a36" />
+          <circle cx={cx - 18} cy="180" r="5" fill="#ff3b3b" className="rec-dot" />
+          <text x={cx + 8} y="188" textAnchor="middle" fontSize="20" fontWeight="700" fill="#fff" fontFamily="ui-monospace, monospace">{minute}&apos;</text>
+
+          {/* Pestaña de la liga */}
+          <rect x={cx - 120} y="14" width="240" height="40" rx="12" fill="#0d0f16" opacity="0.92" />
+          <circle cx={cx - 96} cy="34" r="12" fill="#ffd23f" />
+          <path d={`M${cx - 102} 34 l4 -6 l4 6 l4 -6 l4 6 v5 h-16 Z`} fill="#0d0f16" />
+          <text x={cx + 12} y="41" textAnchor="middle" fontSize="18" fontWeight="800" letterSpacing="2" fill="#fff" fontFamily="system-ui, sans-serif">SUPERLIGA</text>
+
+          {/* Escudos y nombres */}
+          <Crest x={50} y={22} size={180} team={TEAMS[0]} bounce={goal === 0} />
+          <Crest x={1050} y={22} size={180} team={TEAMS[1]} bounce={goal === 1} />
+          {TEAMS.map((t, i) => {
+            const home = i === 0;
+            const x = home ? 252 : 1028;
+            const anchor = home ? "start" : "end";
+            return goal === i ? (
+              <g key={t.short} className="goal-pop" style={{ transformBox: "fill-box", transformOrigin: home ? "left center" : "right center" }}>
+                <text x={x} y="135" textAnchor={anchor} fontSize="60" fontWeight="900" fill="#fff" fontFamily="system-ui, sans-serif">{goalText}</text>
+                <text x={x} y="178" textAnchor={anchor} fontSize="22" fontWeight="700" fill="#fff" opacity="0.85" fontFamily="system-ui, sans-serif">{minute}&apos; · {t.name}</text>
+              </g>
+            ) : (
+              <text key={t.short} x={x} y="148" textAnchor={anchor} fontSize="40" fontWeight="900" fill="#fff" fontFamily="system-ui, sans-serif">{t.name}</text>
+            );
+          })}
+        </svg>
+      </div>
+    </SceneFrame>
+  );
+}
+
 export function PluginShowcase({ slug, locale }: { slug: string; locale: Locale }) {
   if (slug === "multi-chat") return <MultiChatDemo locale={locale} />;
   if (slug === "goal-bar") return <GoalBarDemo locale={locale} />;
+  if (slug === "football-scores") return <FootballDemo locale={locale} />;
   return null;
 }
 

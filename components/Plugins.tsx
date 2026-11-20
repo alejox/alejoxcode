@@ -15,7 +15,7 @@ import { PageTabs } from "./PluginTabs";
 import { SpeedDeckMock } from "./SpeedDeckMock";
 import { UnlockAt } from "./UnlockAt";
 
-const SHOWCASES = ["multi-chat", "goal-bar"];
+const SHOWCASES = ["multi-chat", "goal-bar", "football-scores"];
 
 const chip = "rounded-md bg-panel-2 px-2 py-1 text-[11px] text-frost";
 const soonBadge = "flex items-center gap-2 rounded-md bg-panel-2 px-2 py-1 font-mono text-[11px] uppercase tracking-[0.1em] text-brand-blue";
