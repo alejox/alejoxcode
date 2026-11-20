@@ -3,6 +3,23 @@ import { legal, legalLabels, legalPath } from "@/lib/legal";
 import { Footer } from "./Footer";
 import { Navbar } from "./Navbar";
 
+// Las URL del texto (https://…) se muestran como enlaces; el punto o paréntesis final no es parte del enlace.
+function linkify(text: string) {
+  return text.split(/(https:\/\/[^\s)]+)/g).map((part, i) => {
+    if (i % 2 === 0) return part;
+    const url = part.replace(/[.,;:]+$/, "");
+    const rest = part.slice(url.length);
+    return (
+      <span key={i}>
+        <a href={url} target="_blank" rel="noreferrer" className="text-frost underline decoration-line underline-offset-4 hover:text-white">
+          {url}
+        </a>
+        {rest}
+      </span>
+    );
+  });
+}
+
 export function LegalPage({ locale, doc }: { locale: Locale; doc: "terms" | "privacy" }) {
   const d = legal[doc][locale];
   const other = doc === "terms" ? "privacy" : "terms";
@@ -23,7 +40,7 @@ export function LegalPage({ locale, doc }: { locale: Locale; doc: "terms" | "pri
               <section key={s.heading}>
                 <h2 className="text-xl">{s.heading}</h2>
                 {s.paragraphs.map((p) => (
-                  <p key={p.slice(0, 32)} className="mt-3 leading-relaxed text-mist">{p}</p>
+                  <p key={p.slice(0, 32)} className="mt-3 leading-relaxed break-words text-mist">{linkify(p)}</p>
                 ))}
               </section>
             ))}

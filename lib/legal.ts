@@ -11,7 +11,7 @@ const terms: Record<Locale, LegalDoc> = {
   es: {
     title: "Términos de servicio",
     description: "Condiciones de uso de Speed Deck, la compra «Quitar publicidad» en Google Play y reembolsos, y uso de los plugins y recursos de AlejoxCode.",
-    updated: "Última actualización: 12 de noviembre de 2026",
+    updated: "Última actualización: 20 de noviembre de 2026",
     intro:
       "Estos términos aplican a este sitio, a la compra y uso de Speed Deck y a los plugins y recursos gratuitos que publico. Al comprar o usar cualquiera de ellos, los aceptas.",
     sections: [
@@ -62,6 +62,7 @@ const terms: Record<Locale, LegalDoc> = {
         heading: "7. Plugins y recursos gratuitos",
         paragraphs: [
           "Los plugins para OBS y los packs de alertas que publico son gratuitos. Cada uno se rige por la licencia de código abierto de su repositorio en GitHub (por ejemplo, MIT).",
+          "Si usas la integración de AC Multichat con YouTube (iniciar sesión con Google para leer el chat de tus directos), aceptas también los Términos de Servicio de YouTube (https://www.youtube.com/t/terms).",
         ],
       },
       {
@@ -89,7 +90,7 @@ const terms: Record<Locale, LegalDoc> = {
   en: {
     title: "Terms of Service",
     description: "Terms for using Speed Deck, the \"Remove ads\" purchase on Google Play and refunds, and terms of use for AlejoxCode plugins and resources.",
-    updated: "Last updated: November 12, 2026",
+    updated: "Last updated: November 20, 2026",
     intro:
       "These terms apply to this website, to buying and using Speed Deck, and to the free plugins and resources I publish. By buying or using any of them, you agree to these terms.",
     sections: [
@@ -140,6 +141,7 @@ const terms: Record<Locale, LegalDoc> = {
         heading: "7. Free plugins and resources",
         paragraphs: [
           "The OBS plugins and alert packs I publish are free. Each one is governed by the open-source license in its GitHub repository (for example, MIT).",
+          "If you use AC Multichat's YouTube integration (signing in with Google to read your live chat), you also agree to the YouTube Terms of Service (https://www.youtube.com/t/terms).",
         ],
       },
       {
@@ -169,9 +171,9 @@ const terms: Record<Locale, LegalDoc> = {
 const privacy: Record<Locale, LegalDoc> = {
   es: {
     title: "Política de privacidad",
-    description: "Qué datos se tratan en este sitio, en las compras de Speed Deck y en la app, y cómo ejercer tus derechos.",
-    updated: "Última actualización: 12 de noviembre de 2026",
-    intro: "Aquí explico qué datos se tratan cuando visitas este sitio, cuando compras Speed Deck y cuando usas la app. La versión corta: este sitio no usa cookies propias ni analítica, y Speed Deck no envía tus datos personales ni tu uso a mis servidores; la app de Android muestra anuncios de Google AdMob.",
+    description: "Qué datos se tratan en este sitio, en Speed Deck y en AC Multichat, y cómo ejercer tus derechos.",
+    updated: "Última actualización: 20 de noviembre de 2026",
+    intro: "Aquí explico qué datos se tratan cuando visitas este sitio, cuando compras o usas Speed Deck y cuando usas AC Multichat, mi plugin gratuito para OBS. La versión corta: este sitio no usa cookies propias ni analítica; Speed Deck no envía tus datos personales ni tu uso a mis servidores, y la app de Android muestra anuncios de Google AdMob; y AC Multichat funciona en tu equipo: si conectas tu cuenta de Google para leer el chat de YouTube, los tokens se quedan en tu equipo y yo no recibo esos datos.",
     sections: [
       {
         heading: "1. Responsable",
@@ -205,34 +207,49 @@ const privacy: Record<Locale, LegalDoc> = {
         ],
       },
       {
-        heading: "5. Si me escribes",
+        heading: "5. AC Multichat",
+        paragraphs: [
+          "AC Multichat es mi plugin gratuito y de código abierto para OBS Studio (https://github.com/alejox/multi-chat). Reúne en OBS los chats de YouTube, Twitch, Kick, TikTok y Starvios. Funciona dentro de OBS en tu computador: no tiene cuentas propias, no usa telemetría ni analítica y no pasa por ningún servidor mío. Los mensajes del chat solo se guardan en la memoria mientras OBS está abierto; los canales que añades y tus ajustes se guardan en tu equipo.",
+          "Inicio de sesión con Google (opcional). Para recibir el chat de YouTube al instante puedes conectar tu cuenta de Google. El plugin pide un único permiso, de solo lectura: https://www.googleapis.com/auth/youtube.readonly. Con él no puede publicar, borrar ni cambiar nada en tu canal. Puedes usar el cliente de Google de AC Multichat que viene incluido o uno propio creado en Google Cloud. Si no inicias sesión, el plugin lee el chat público de YouTube como lo hace su sitio web.",
+          "Con ese permiso, el plugin usa la API de datos de YouTube solo para mostrar en OBS el chat de los directos de YouTube que tú añades: consulta el identificador del chat del directo y recibe sus mensajes. De cada mensaje usa el texto, el tipo de evento (mensaje, Super Chat, Super Sticker o membresía), el nombre visible y el identificador del canal de quien escribe y sus insignias (propietario, moderador, miembro o verificado), y los avisos de mensajes eliminados o usuarios bloqueados, para quitarlos de la pantalla. No consulta tu correo, tus suscripciones, tus videos ni otros datos de tu cuenta.",
+          "Estos datos no se venden, no se comparten con terceros ni se usan para publicidad, y yo no los recibo: todo se procesa en tu equipo, y las conexiones de este proceso solo van a los servidores de Google.",
+          "El inicio de sesión se hace en tu navegador con OAuth 2.0 para apps de escritorio (con PKCE), y Google devuelve la respuesta a una dirección local de tu equipo (127.0.0.1). El token de actualización se guarda en el archivo config.json de la carpeta de configuración de OBS de tu equipo, junto con el ID y el secreto del cliente de Google que uses. El token de acceso solo se guarda en la memoria y caduca en aproximadamente una hora; cuando hace falta, el plugin pide uno nuevo a Google. Los tokens no se envían a ningún sitio que no sea Google.",
+          "El token de actualización se conserva hasta que cierras sesión o Google lo invalida. Para borrarlo de tu equipo, en el plugin abre los ajustes de Multichat, pestaña YouTube, y pulsa «Cerrar sesión». Desinstalar el plugin no borra ese archivo: para eliminarlo, borra también la carpeta plugin_config/obs-multichat dentro de la carpeta de configuración de OBS (en Windows, %APPDATA%\\obs-studio; en macOS, ~/Library/Application Support/obs-studio; en Linux, ~/.config/obs-studio). Cerrar sesión no revoca el permiso en Google: para revocarlo, entra a https://myaccount.google.com/permissions y quita el acceso de AC Multichat (o el de tu propia app, si usas un cliente propio).",
+          "AC Multichat usa los Servicios de la API de YouTube. Al usar esta integración aceptas los Términos de Servicio de YouTube (https://www.youtube.com/t/terms), y se aplica la Política de Privacidad de Google (https://policies.google.com/privacy).",
+          "El uso y la transferencia que AC Multichat hace de la información recibida de las APIs de Google cumple la Política de Datos de Usuario de los Servicios de API de Google (https://developers.google.com/terms/api-services-user-data-policy), incluidos los requisitos de uso limitado.",
+          "Twitch, Kick, TikTok y Starvios no piden inicio de sesión: el plugin se conecta de forma anónima y de solo lectura para mostrar los mensajes del chat (texto, nombre de quien escribe, insignias y emotes) y saber si el canal está en directo. En Twitch usa su chat IRC y su API pública; en Kick, su conexión pública de chat; en Starvios, su punto de acceso público. En TikTok, además, el identificador de la sala del canal que añades se envía a Euler Stream (https://www.eulerstream.com), un servicio externo, para firmar la conexión al chat. Las fotos de perfil y los emotes se cargan de los servidores de imágenes de cada plataforma.",
+          "Al abrir OBS, el plugin consulta la API de GitHub para saber si hay una versión nueva y, solo si aceptas, la descarga de GitHub. Si activas la lectura del chat en voz alta, se hace con las voces de tu sistema operativo, en tu equipo.",
+        ],
+      },
+      {
+        heading: "6. Si me escribes",
         paragraphs: [
           "Si me escribes por correo, uso tu dirección y tu mensaje solo para responderte y dar seguimiento a tu solicitud.",
         ],
       },
       {
-        heading: "6. Conservación",
+        heading: "7. Conservación",
         paragraphs: [
           "Conservo los datos de compras y los correos solo el tiempo necesario para los fines descritos y para cumplir obligaciones legales y contables.",
         ],
       },
       {
-        heading: "7. Tus derechos",
+        heading: "8. Tus derechos",
         paragraphs: [
           `Conforme a la Ley 1581 de 2012 de Colombia, puedes conocer, actualizar, rectificar y pedir la supresión de tus datos, y revocar tu autorización. Escríbeme a ${email} y te respondo dentro de los plazos legales. Si vives en otro país, también puedes ejercer los derechos que te dé tu ley local.`,
         ],
       },
       {
-        heading: "8. Cambios",
+        heading: "9. Cambios",
         paragraphs: ["Puedo actualizar esta política; la fecha de arriba indica la última versión."],
       },
     ],
   },
   en: {
     title: "Privacy Policy",
-    description: "What data is processed on this website, in Speed Deck purchases and in the app, and how to exercise your rights.",
-    updated: "Last updated: November 12, 2026",
-    intro: "This page explains what data is processed when you visit this website, buy Speed Deck and use the app. The short version: this website uses no cookies of its own or analytics, and Speed Deck does not send your personal data or usage to my servers; the Android app shows ads from Google AdMob.",
+    description: "What data is processed on this website, in Speed Deck and in AC Multichat, and how to exercise your rights.",
+    updated: "Last updated: November 20, 2026",
+    intro: "This page explains what data is processed when you visit this website, when you buy or use Speed Deck, and when you use AC Multichat, my free OBS plugin. The short version: this website uses no cookies of its own or analytics; Speed Deck does not send your personal data or usage to my servers, and the Android app shows ads from Google AdMob; and AC Multichat runs on your device: if you connect your Google account to read the YouTube chat, the tokens stay on your device and I do not receive that data.",
     sections: [
       {
         heading: "1. Data controller",
@@ -266,23 +283,38 @@ const privacy: Record<Locale, LegalDoc> = {
         ],
       },
       {
-        heading: "5. If you email me",
+        heading: "5. AC Multichat",
+        paragraphs: [
+          "AC Multichat is my free, open-source plugin for OBS Studio (https://github.com/alejox/multi-chat). It brings the YouTube, Twitch, Kick, TikTok and Starvios chats together in OBS. It runs inside OBS on your computer: it has no accounts of its own, uses no telemetry or analytics, and does not go through any server of mine. Chat messages are only kept in memory while OBS is open; the channels you add and your settings are stored on your device.",
+          "Sign in with Google (optional). To get the YouTube chat instantly you can connect your Google account. The plugin requests a single, read-only permission: https://www.googleapis.com/auth/youtube.readonly. With it, it cannot post, delete or change anything on your channel. You can use the AC Multichat Google client that comes built in or your own client created in Google Cloud. If you don't sign in, the plugin reads the public YouTube chat the same way the YouTube website does.",
+          "With that permission, the plugin uses the YouTube Data API only to show in OBS the chat of the YouTube live streams you add: it looks up the stream's chat ID and receives its messages. From each message it uses the text, the event type (message, Super Chat, Super Sticker or membership), the display name and channel ID of the author and their badges (owner, moderator, member or verified), plus deleted-message and banned-user notices, to remove them from the screen. It does not access your email, subscriptions, videos or any other data in your account.",
+          "This data is not sold, not shared with third parties and not used for advertising, and I do not receive it: everything is processed on your device, and the connections in this process only go to Google's servers.",
+          "Sign-in happens in your browser using OAuth 2.0 for desktop apps (with PKCE), and Google sends its response to a local address on your device (127.0.0.1). The refresh token is stored in the config.json file in OBS's configuration folder on your device, together with the ID and secret of the Google client you use. The access token is only kept in memory and expires in about an hour; when needed, the plugin asks Google for a new one. Tokens are never sent anywhere other than Google.",
+          "The refresh token is kept until you sign out or Google invalidates it. To delete it from your device, open the Multichat settings in the plugin, go to the YouTube tab and click \"Sign out\". Uninstalling the plugin does not delete that file: to remove it, also delete the plugin_config/obs-multichat folder inside OBS's configuration folder (on Windows, %APPDATA%\\obs-studio; on macOS, ~/Library/Application Support/obs-studio; on Linux, ~/.config/obs-studio). Signing out does not revoke the permission at Google: to revoke it, go to https://myaccount.google.com/permissions and remove AC Multichat's access (or your own app's, if you use your own client).",
+          "AC Multichat uses the YouTube API Services. By using this integration you agree to the YouTube Terms of Service (https://www.youtube.com/t/terms), and the Google Privacy Policy applies (https://policies.google.com/privacy).",
+          "AC Multichat's use and transfer of information received from Google APIs adheres to the Google API Services User Data Policy (https://developers.google.com/terms/api-services-user-data-policy), including the Limited Use requirements.",
+          "Twitch, Kick, TikTok and Starvios require no sign-in: the plugin connects anonymously and read-only to show chat messages (text, author name, badges and emotes) and to know whether the channel is live. On Twitch it uses its IRC chat and public API; on Kick, its public chat connection; on Starvios, its public endpoint. On TikTok, the room ID of the channel you add is also sent to Euler Stream (https://www.eulerstream.com), an external service, to sign the chat connection. Profile pictures and emotes are loaded from each platform's image servers.",
+          "When OBS starts, the plugin checks the GitHub API for a new version and, only if you accept, downloads it from GitHub. If you turn on reading the chat aloud, it uses your operating system's voices, on your device.",
+        ],
+      },
+      {
+        heading: "6. If you email me",
         paragraphs: ["If you email me, I use your address and message only to reply and follow up on your request."],
       },
       {
-        heading: "6. Retention",
+        heading: "7. Retention",
         paragraphs: [
           "I keep purchase data and emails only as long as needed for the purposes above and to meet legal and accounting obligations.",
         ],
       },
       {
-        heading: "7. Your rights",
+        heading: "8. Your rights",
         paragraphs: [
           `Under Colombian Law 1581 of 2012, you can access, update, correct and request deletion of your data, and withdraw your consent. Email me at ${email} and I will reply within the legal time frames. If you live in another country, you can also exercise the rights your local law gives you.`,
         ],
       },
       {
-        heading: "8. Changes",
+        heading: "9. Changes",
         paragraphs: ["I may update this policy; the date above shows the latest version."],
       },
     ],
