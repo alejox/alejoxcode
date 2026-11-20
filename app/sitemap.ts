@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { legalPath } from "@/lib/legal";
+import { multichatPath } from "@/lib/multichat";
 import { site } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -10,6 +11,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${site.url}/en`, changeFrequency: "monthly", priority: 0.9, alternates: { languages } },
     { url: `${site.url}/plugins`, changeFrequency: "monthly", priority: 0.8, alternates: { languages: pluginsLanguages } },
     { url: `${site.url}/en/plugins`, changeFrequency: "monthly", priority: 0.8, alternates: { languages: pluginsLanguages } },
+    ...(["home", "privacy"] as const).flatMap((page) => {
+      const languages = { es: `${site.url}${multichatPath.es[page]}`, en: `${site.url}${multichatPath.en[page]}` };
+      const priority = page === "home" ? 0.7 : 0.4;
+      return [
+        { url: languages.es, changeFrequency: "monthly" as const, priority, alternates: { languages } },
+        { url: languages.en, changeFrequency: "monthly" as const, priority, alternates: { languages } },
+      ];
+    }),
     ...(["terms", "privacy"] as const).flatMap((doc) => {
       const languages = { es: `${site.url}${legalPath.es[doc]}`, en: `${site.url}${legalPath.en[doc]}` };
       return [

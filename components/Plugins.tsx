@@ -2,6 +2,7 @@ import Image from "next/image";
 import { content, type Locale } from "@/lib/content";
 import { getLatestRelease } from "@/lib/downloads";
 import { legalLabels, legalPath } from "@/lib/legal";
+import { multichatPath } from "@/lib/multichat";
 import { ALERTS_LAUNCH, site } from "@/lib/site";
 import { Countdown } from "./Countdown";
 import { Footer } from "./Footer";
@@ -135,9 +136,26 @@ export async function Plugins({ locale }: { locale: Locale }) {
                     <span className={chip}>{t.pluginsPage.free}</span>
                     <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted">{p.kind}</span>
                   </div>
-                  <h3 className="mt-2.5 text-2xl leading-tight">{p.name}</h3>
+                  <h3 className="mt-2.5 text-2xl leading-tight">
+                    {p.slug === "multi-chat" ? (
+                      <a href={multichatPath[locale].home} className="hover:text-frost">{p.name}</a>
+                    ) : (
+                      p.name
+                    )}
+                  </h3>
                   <p className="mt-1.5 text-[15px] leading-relaxed text-mist">{p.tagline}</p>
                   <p className="mt-1 text-[13px] text-muted">{p.players}</p>
+                  {p.slug === "multi-chat" && (
+                    <p className="mt-1 text-[13px] text-muted">
+                      <a href={multichatPath[locale].home} className="text-frost underline decoration-line underline-offset-4 hover:text-white">
+                        {locale === "es" ? "Página del plugin" : "Plugin page"}
+                      </a>
+                      {" · "}
+                      <a href={multichatPath[locale].privacy} className="text-frost underline decoration-line underline-offset-4 hover:text-white">
+                        {locale === "es" ? "Privacidad" : "Privacy"}
+                      </a>
+                    </p>
+                  )}
                   <ul className="mt-3 flex flex-wrap gap-1.5">
                     {p.features.map((f) => (
                       <li key={f.title} className={chip}>{f.title}</li>
