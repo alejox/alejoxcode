@@ -37,8 +37,11 @@ function Head({ eyebrow, title, children }: { eyebrow: string; title: string; ch
 
 export async function Plugins({ locale }: { locale: Locale }) {
   const t = content[locale];
+  // Los marcados comingSoon van a la pestaña Próximamente, con todo bloqueado.
+  const isSoon = (p: (typeof t.pluginsPage.items)[number]) => "comingSoon" in p && p.comingSoon;
+  const soonPlugins = t.pluginsPage.items.filter(isSoon);
   const items = await Promise.all(
-    t.pluginsPage.items.map(async (p) => ({ p, latest: await getLatestRelease(p.slug) }))
+    t.pluginsPage.items.filter((p) => !isSoon(p)).map(async (p) => ({ p, latest: await getLatestRelease(p.slug) }))
   );
   const legal = legalLabels[locale];
 
@@ -86,8 +89,8 @@ export async function Plugins({ locale }: { locale: Locale }) {
             {
               id: "proximamente",
               label: t.pluginsPage.nav.soon,
-              count: t.apps.items.length,
-              anchors: ["apps"],
+              count: soonPlugins.length + t.apps.items.length,
+              anchors: ["apps", ...soonPlugins.map((p) => p.slug)],
             },
           ]}
         >
@@ -361,10 +364,67 @@ export async function Plugins({ locale }: { locale: Locale }) {
 
           </div>
 
-          {/* Pestaña 2: Speed Deck */}
+          {/* Pestaña 2: lo que viene (plugins marcados comingSoon y Speed Deck) */}
         <section id="proximamente" className="mx-auto max-w-[1200px] scroll-mt-32 px-4 pt-8 sm:px-6">
 
           <div className="space-y-5">
+            {soonPlugins.map((p) => (
+              <article key={p.slug} id={p.slug} className="glass-deep grid scroll-mt-32 overflow-hidden lg:grid-cols-[0.8fr_1.2fr]">
+                <div className={`${stage} p-4 sm:p-6`}>
+                  <div className="relative w-full">
+                    <PluginShowcase slug={p.slug} locale={locale} />
+                    <span className="absolute -top-3 left-4 z-10 inline-flex items-center gap-1.5 rounded-full bg-[#FF0033] px-3 py-1 text-[11px] font-semibold text-white shadow-[0_8px_20px_rgb(255_0_51/0.4)]">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" aria-hidden>
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                      {t.pluginsPage.videoSoon}
+                    </span>
+                  </div>
+                  <div className="mt-4 font-mono text-[10px] uppercase tracking-[0.1em] text-mist">{p.platforms}</div>
+                </div>
+
+                <div className="p-5 sm:px-7 sm:py-6">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className={soonBadge}>
+                      <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
+                      {t.apps.soon}
+                    </span>
+                    <span className={chip}>{t.pluginsPage.free}</span>
+                    <span className="font-mono text-[10px] uppercase tracking-[0.1em] text-muted">{p.kind}</span>
+                  </div>
+                  <h3 className="mt-2.5 text-2xl leading-tight">{p.name}</h3>
+                  <p className="mt-1.5 text-[15px] leading-relaxed text-mist">{p.tagline}</p>
+                  <p className="mt-1 text-[13px] text-muted">{p.players}</p>
+                  <ul className="mt-3 flex flex-wrap gap-1.5">
+                    {p.features.map((f) => (
+                      <li key={f.title} className={chip}>{f.title}</li>
+                    ))}
+                  </ul>
+
+                  {/* Todo bloqueado hasta el lanzamiento */}
+                  <button
+                    type="button"
+                    disabled
+                    aria-disabled
+                    title={t.apps.disabledHint}
+                    className="btn-primary mt-5 w-full cursor-not-allowed justify-center gap-2 px-5 py-3 opacity-60 shadow-none hover:brightness-100"
+                  >
+                    <LockIcon width={14} height={14} />
+                    {t.apps.disabledHint}
+                  </button>
+                  <div className="mt-2.5 flex flex-wrap items-center justify-center gap-1.5">
+                    {p.downloads.map((d) => (
+                      <span key={d.label} title={t.apps.disabledHint} className="btn-ghost cursor-not-allowed gap-1.5 px-3 py-1.5 text-xs opacity-50">
+                        <LockIcon width={12} height={12} />
+                        <PlatformIcon platform={d.platform} width={13} height={13} />
+                        {d.label}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </article>
+            ))}
+
             {t.apps.items.map((app) => (
               <article key={app.slug} id="apps" className="glass-deep grid scroll-mt-32 overflow-hidden lg:grid-cols-2">
                 <div className={`${stage} px-5 py-6 sm:px-8`}>

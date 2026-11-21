@@ -273,6 +273,7 @@ const es = {
       },
       {
         slug: "football-scores",
+        comingSoon: true,
         name: "AC Football Scores",
         kind: "Plugin para OBS Studio · C++",
         tagline: "El marcador en vivo de un partido de fútbol en tu escena, con los escudos de los equipos, el minuto y la liga. Celebra cada gol con sonido y animación.",
@@ -681,6 +682,7 @@ const en: Content = {
       },
       {
         slug: "football-scores",
+        comingSoon: true,
         name: "AC Football Scores",
         kind: "OBS Studio plugin · C++",
         tagline: "The live score of a football match in your scene, with team crests, the minute and the league. Celebrates every goal with sound and animation.",
