@@ -30,7 +30,7 @@ type PluginRelease = {
 const pluginReleases: Record<string, PluginRelease> = {
   "obs-now-playing": {
     repo: "alejox/music-now-playing",
-    version: "2.4.32",
+    version: "2.4.37",
     requirements: "OBS 31+ · Windows 10/11 · macOS 12+ · Linux",
     matchers: [
       ["windows", /windows-x64\.zip$/i],
@@ -44,7 +44,7 @@ const pluginReleases: Record<string, PluginRelease> = {
   },
   "multi-chat": {
     repo: "alejox/multi-chat",
-    version: "2.1.1",
+    version: "2.4.3",
     requirements: "OBS 33+ · Windows 10/11 · macOS 13+ · Linux (Ubuntu 24.04+)",
     matchers: [
       ["windows", /windows-x64\.zip$/i],
@@ -54,7 +54,7 @@ const pluginReleases: Record<string, PluginRelease> = {
   },
   "goal-bar": {
     repo: "alejox/alejox-obs-goal-bar-",
-    version: "0.1.1",
+    version: "0.1.8",
     requirements: "OBS 33+ · Windows 10/11 · macOS 13+ (Apple Silicon) · Linux (Ubuntu 24.04+)",
     matchers: [
       ["windows", /windows-x64\.zip$/i],
@@ -64,7 +64,7 @@ const pluginReleases: Record<string, PluginRelease> = {
   },
   "football-scores": {
     repo: "alejox/obs-football-scores",
-    version: "0.2.1",
+    version: "0.3.1",
     requirements: "OBS 33+ · Windows 10/11 · macOS 13+ (Apple Silicon) · Linux (Ubuntu 24.04+)",
     matchers: [
       ["windows", /windows-x64\.zip$/i],
