@@ -306,6 +306,21 @@ const es = {
       },
     ],
   },
+  upcoming: {
+    eyebrow: "En camino",
+    title: "Más plugins para OBS",
+    text: "Plugins que ya estoy terminando. Llegarán aquí, gratis y con su descarga para tu sistema.",
+    locked: "Disponible pronto",
+    items: [
+      { slug: "multi-stream", name: "OBS Multi Stream", tagline: "Transmite a varias plataformas a la vez, cada una desde la mezcla principal o desde su propio lienzo vertical.", chips: ["Varios destinos", "Lienzo vertical", "Resolución por destino"] },
+      { slug: "songlist", name: "AC Songlist", tagline: "Pedidos de canciones para quien toca en directo: tu público pide con !sr y la canción sale en pantalla.", chips: ["Biblioteca y cola", "Chat de Twitch", "Sonando ahora"] },
+      { slug: "event-timer", name: "AC Event Timer", tagline: "Cuentas regresivas animadas para eventos y lanzamientos, con su propia fuente y un panel de control.", chips: ["5 estilos", "Fecha, duración o cronómetro", "Cambio de escena al llegar a cero"] },
+      { slug: "motion-mask", name: "AC Motion Mask", tagline: "Máscaras y animaciones de entrada y salida en un solo filtro, listo en segundos.", chips: ["Máscaras", "Entradas y salidas", "Posiciones animadas"] },
+      { slug: "global-overlay", name: "AC Global Overlay", tagline: "Escenas y fuentes encima de todas tus escenas, sin copiarlas en cada una.", chips: ["Siempre encima", "Audio global", "Excepciones por escena"] },
+      { slug: "scene-groups", name: "AC Scene Groups", tagline: "Agrupa tus escenas por modo (stream, grabación…) y adminístralas desde un solo panel.", chips: ["Grupos y carpetas", "Búsqueda", "Perfil por grupo"] },
+      { slug: "super-fx", name: "AC Super FX", tagline: "Pack de efectos: desenfoque con zonas, fondos animados y marcos con esquinas redondeadas y sombra.", chips: ["Desenfoque", "Fondos animados", "Marcos"] },
+    ],
+  },
   apps: {
     eyebrow: "Android y escritorio",
     title: "Apps",
@@ -713,6 +728,21 @@ const en: Content = {
           "Updates itself; Windows, macOS and Linux builds published with GitHub Actions",
         ],
       },
+    ],
+  },
+  upcoming: {
+    eyebrow: "On the way",
+    title: "More OBS plugins",
+    text: "Plugins I'm finishing up. They'll land here, free, with a download for your system.",
+    locked: "Available soon",
+    items: [
+      { slug: "multi-stream", name: "OBS Multi Stream", tagline: "Stream to several platforms at once, each from the main mix or from its own vertical canvas.", chips: ["Multiple destinations", "Vertical canvas", "Per-destination resolution"] },
+      { slug: "songlist", name: "AC Songlist", tagline: "Song requests for live musicians: your audience requests with !sr and the song shows on screen.", chips: ["Library and queue", "Twitch chat", "Now playing"] },
+      { slug: "event-timer", name: "AC Event Timer", tagline: "Animated countdowns for events and launches, with their own source and a control dock.", chips: ["5 styles", "Date, duration or stopwatch", "Scene switch at zero"] },
+      { slug: "motion-mask", name: "AC Motion Mask", tagline: "Masks plus in and out animations in a single filter, set up in seconds.", chips: ["Masks", "Ins and outs", "Animated positions"] },
+      { slug: "global-overlay", name: "AC Global Overlay", tagline: "Scenes and sources on top of every scene, without copying them into each one.", chips: ["Always on top", "Global audio", "Per-scene exceptions"] },
+      { slug: "scene-groups", name: "AC Scene Groups", tagline: "Group your scenes by mode (stream, recording…) and manage them from a single dock.", chips: ["Groups and folders", "Search", "Profile per group"] },
+      { slug: "super-fx", name: "AC Super FX", tagline: "An effects pack: zone blur, animated backgrounds and frames with rounded corners and shadow.", chips: ["Blur", "Animated backgrounds", "Frames"] },
     ],
   },
   apps: {

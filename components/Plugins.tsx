@@ -22,6 +22,24 @@ const soonBadge = "flex items-center gap-2 rounded-md bg-panel-2 px-2 py-1 font-
 const stage =
   "relative flex flex-col items-center justify-center overflow-hidden bg-[radial-gradient(ellipse_at_30%_20%,rgb(102_58_243/0.28),transparent_60%),radial-gradient(ellipse_at_80%_90%,rgb(152_192_239/0.16),transparent_55%),#070914]";
 
+/** Ícono simple (trazo) para cada plugin en camino. */
+function UpcomingIcon({ slug }: { slug: string }) {
+  const paths: Record<string, React.ReactNode> = {
+    "multi-stream": <><circle cx="12" cy="12" r="2" /><path d="M8.5 15.5a5 5 0 0 1 0-7M15.5 8.5a5 5 0 0 1 0 7M5.6 18.4a9 9 0 0 1 0-12.8M18.4 5.6a9 9 0 0 1 0 12.8" /></>,
+    songlist: <><path d="M9 18V5l11-2v13" /><circle cx="6" cy="18" r="3" /><circle cx="17" cy="16" r="3" /></>,
+    "event-timer": <><circle cx="12" cy="13" r="8" /><path d="M12 9v4l2.5 2.5M9 2h6" /></>,
+    "motion-mask": <><rect x="3" y="5" width="12" height="12" rx="3" /><path d="M19 9v10a2 2 0 0 1-2 2H9" /></>,
+    "global-overlay": <><path d="m12 3 9 5-9 5-9-5 9-5Z" /><path d="m3 13 9 5 9-5" /></>,
+    "scene-groups": <><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z" /></>,
+    "super-fx": <><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18" /></>,
+  };
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      {paths[slug]}
+    </svg>
+  );
+}
+
 /** Encabezado de sección compacto, alineado a la izquierda. */
 function Head({ eyebrow, title, children }: { eyebrow: string; title: string; children?: React.ReactNode }) {
   return (
@@ -89,8 +107,8 @@ export async function Plugins({ locale }: { locale: Locale }) {
             {
               id: "proximamente",
               label: t.pluginsPage.nav.soon,
-              count: soonPlugins.length + t.apps.items.length,
-              anchors: ["apps", ...soonPlugins.map((p) => p.slug)],
+              count: soonPlugins.length + t.upcoming.items.length + t.apps.items.length,
+              anchors: ["apps", "en-camino", ...soonPlugins.map((p) => p.slug)],
             },
           ]}
         >
@@ -424,6 +442,46 @@ export async function Plugins({ locale }: { locale: Locale }) {
                 </div>
               </article>
             ))}
+
+            {/* Plugins que aún no tienen ficha: tarjetas compactas, todo bloqueado */}
+            <div id="en-camino" className="scroll-mt-32 pt-4">
+              <Head eyebrow={t.upcoming.eyebrow} title={t.upcoming.title}>{t.upcoming.text}</Head>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {t.upcoming.items.map((u) => (
+                  <article key={u.slug} className="glass-deep flex flex-col p-5">
+                    <div className="flex items-center gap-3">
+                      <span className="grid size-11 shrink-0 place-items-center rounded-xl bg-[radial-gradient(ellipse_at_30%_20%,rgb(102_58_243/0.55),transparent_70%),#0b0d1a] text-frost ring-1 ring-white/10">
+                        <UpcomingIcon slug={u.slug} />
+                      </span>
+                      <div className="min-w-0">
+                        <h3 className="truncate text-lg leading-tight">{u.name}</h3>
+                        <span className={`${soonBadge} mt-1 w-fit px-1.5 py-0.5 text-[10px]`}>
+                          <span className="rec-dot inline-block size-1.5 rounded-full bg-brand-blue" />
+                          {t.apps.soon}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-mist">{u.tagline}</p>
+                    <ul className="mt-3 flex flex-wrap gap-1.5">
+                      {u.chips.map((c) => (
+                        <li key={c} className={chip}>{c}</li>
+                      ))}
+                    </ul>
+                    <div className="mt-auto pt-4">
+                      <button
+                        type="button"
+                        disabled
+                        aria-disabled
+                        className="btn-ghost w-full cursor-not-allowed justify-center gap-2 px-4 py-2 text-sm opacity-60 hover:bg-transparent"
+                      >
+                        <LockIcon width={13} height={13} />
+                        {t.upcoming.locked}
+                      </button>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
 
             {t.apps.items.map((app) => (
               <article key={app.slug} id="apps" className="glass-deep grid scroll-mt-32 overflow-hidden lg:grid-cols-2">
