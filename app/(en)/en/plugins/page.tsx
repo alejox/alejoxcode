@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Plugins — Alejandro Grajales",
   description:
     "Plugins I build and publish independently. Free, open source, with downloads for every platform.",
+  alternates: { canonical: "/en/plugins", languages: { es: "/plugins", en: "/en/plugins" } },
 };
 
 export default function Page() {

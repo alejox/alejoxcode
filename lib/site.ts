@@ -2,7 +2,8 @@
 export const site = {
   name: "AlejoxCode",
   author: "Alejandro Grajales",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  // Dirección oficial: la usan las URL canónicas, el sitemap y las etiquetas de Open Graph.
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.alejoxcode.com",
   // Correo de contacto público. Si lo dejas vacío no se muestra.
   email: "alejoxcode@gmail.com",
   // Usuario de las redes sociales (se muestra en Contacto).

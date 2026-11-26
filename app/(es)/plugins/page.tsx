@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Plugins — Alejandro Grajales",
   description:
     "Plugins que desarrollo y publico de forma independiente. Gratuitos, de código abierto y con descargas para cada sistema.",
+  alternates: { canonical: "/plugins", languages: { es: "/plugins", en: "/en/plugins" } },
 };
 
 export default function Page() {
