@@ -166,6 +166,20 @@ export async function Plugins({ locale }: { locale: Locale }) {
                   </h3>
                   <p className="mt-1.5 text-[15px] leading-relaxed text-mist">{p.tagline}</p>
                   <p className="mt-1 text-[13px] text-muted">{p.players}</p>
+                  {"supportedBy" in p && p.supportedBy && (
+                    <a
+                      href={p.supportedBy.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-3 inline-flex items-center gap-2.5 rounded-full bg-panel-2 py-1 pl-1 pr-3.5 text-[13px] text-mist ring-1 ring-white/10 transition hover:text-white hover:ring-white/25"
+                    >
+                      <Image src={p.supportedBy.avatar} alt="" width={28} height={28} className="size-7 rounded-full object-cover" />
+                      <span>
+                        {p.supportedBy.label} <span className="font-semibold text-white">{p.supportedBy.name}</span>
+                      </span>
+                      <YoutubeIcon width={16} height={16} className="text-[#FF0033]" />
+                    </a>
+                  )}
                   {p.slug === "multi-chat" && (
                     <p className="mt-1 text-[13px] text-muted">
                       <a href={multichatPath[locale].home} className="text-frost underline decoration-line underline-offset-4 hover:text-white">
@@ -413,6 +427,20 @@ export async function Plugins({ locale }: { locale: Locale }) {
                   <h3 className="mt-2.5 text-2xl leading-tight">{p.name}</h3>
                   <p className="mt-1.5 text-[15px] leading-relaxed text-mist">{p.tagline}</p>
                   <p className="mt-1 text-[13px] text-muted">{p.players}</p>
+                  {"supportedBy" in p && p.supportedBy && (
+                    <a
+                      href={p.supportedBy.url}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-3 inline-flex items-center gap-2.5 rounded-full bg-panel-2 py-1 pl-1 pr-3.5 text-[13px] text-mist ring-1 ring-white/10 transition hover:text-white hover:ring-white/25"
+                    >
+                      <Image src={p.supportedBy.avatar} alt="" width={28} height={28} className="size-7 rounded-full object-cover" />
+                      <span>
+                        {p.supportedBy.label} <span className="font-semibold text-white">{p.supportedBy.name}</span>
+                      </span>
+                      <YoutubeIcon width={16} height={16} className="text-[#FF0033]" />
+                    </a>
+                  )}
                   <ul className="mt-3 flex flex-wrap gap-1.5">
                     {p.features.map((f) => (
                       <li key={f.title} className={chip}>{f.title}</li>

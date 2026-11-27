@@ -273,6 +273,7 @@ const es = {
       },
       {
         slug: "football-scores",
+        supportedBy: { label: "Hecho con el apoyo de", name: "ArgeGaming", url: "https://www.youtube.com/@argegaming", avatar: "/img/streamers/argegaming-avatar.webp" },
         name: "AC Football Scores",
         kind: "Plugin para OBS Studio · C++",
         tagline: "El partido en vivo en tu escena sin transmitir la imagen: marcador con escudos, cancha con cada jugada, relato en español, estadísticas y tabla. 12 fuentes, y cada gol se celebra con sonido y animación.",
@@ -696,6 +697,7 @@ const en: Content = {
       },
       {
         slug: "football-scores",
+        supportedBy: { label: "Made with the support of", name: "ArgeGaming", url: "https://www.youtube.com/@argegaming", avatar: "/img/streamers/argegaming-avatar.webp" },
         name: "AC Football Scores",
         kind: "OBS Studio plugin · C++",
         tagline: "The live match in your scene without streaming the footage: score with crests, a pitch with every play, live commentary, stats and the table. 12 sources, and every goal is celebrated with sound and animation.",
