@@ -64,7 +64,7 @@ const pluginReleases: Record<string, PluginRelease> = {
   },
   "football-scores": {
     repo: "alejox/obs-football-scores",
-    version: "0.3.1",
+    version: "0.3.2",
     requirements: "OBS 33+ · Windows 10/11 · macOS 13+ (Apple Silicon) · Linux (Ubuntu 24.04+)",
     matchers: [
       ["windows", /windows-x64\.zip$/i],
