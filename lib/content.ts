@@ -293,6 +293,7 @@ const es = {
         features: [
           { title: "Marcador con 6 diseños", text: "Clásico, Estadio, Choque, Tarjeta, Flotante y Limpio. «¡GOOOL!» con el goleador, su foto y sonido incluido o el tuyo." },
           { title: "Cancha en vivo", text: "Cada remate, gol, córner y falta donde ocurrió, con el recorrido del balón. Vista en planta o en perspectiva de estadio." },
+          { title: "Dock de repeticiones", text: "Vuelve a cualquier jugada y la cancha la repite con el balón en movimiento, con la marca «REPETICIÓN». Goles repetidos solos y atajos de teclado." },
           { title: "Relato y datos del partido", text: "Relato en español, alineaciones, estadísticas, momentum, línea de tiempo, goles por equipo y previa." },
           { title: "Fuentes conectadas", text: "Cambias el partido en una fuente y cambian todas. Más tabla, goleadores y resultados de la jornada." },
         ],
@@ -717,6 +718,7 @@ const en: Content = {
         features: [
           { title: "Scoreboard with 6 designs", text: "Classic, Stadium, Clash, Card, Floating and Clean. \"GOAL!\" with the scorer, their photo and a built-in sound or your own." },
           { title: "Live pitch", text: "Every shot, goal, corner and foul where it happened, with the ball's route. Top-down or stadium perspective." },
+          { title: "Replay dock", text: "Go back to any play and the pitch replays it with the ball moving, marked \"REPLAY\". Goals replay on their own, with hotkeys." },
           { title: "Commentary and match data", text: "Live commentary, lineups, stats, momentum, timeline, goals per team and match preview." },
           { title: "Linked sources", text: "Change the match in one source and they all follow. Plus the table, top scorers and today's results." },
         ],
